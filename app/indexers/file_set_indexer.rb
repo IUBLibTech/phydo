@@ -1,7 +1,6 @@
 class FileSetIndexer < CurationConcerns::FileSetIndexer
 
   def generate_solr_document
-    # FIXME: stubbed in skips
     super.tap do |solr_doc|
       solr_doc[Solrizer.solr_name(:title, :sortable)] = object.title
       solr_doc[Solrizer.solr_name('filename')] = object.filename
@@ -16,13 +15,11 @@ class FileSetIndexer < CurationConcerns::FileSetIndexer
 
       searchable_file_format = Solrizer.solr_name('file_format', :stored_searchable)
       solr_doc[searchable_file_format] ||= []
-      # FIXME: skipped
-      # solr_doc[searchable_file_format] += object.file_format
+      solr_doc[searchable_file_format] += object.file_format.to_a
 
       facetable_file_format = Solrizer.solr_name('file_format', :facetable)
       solr_doc[facetable_file_format] ||= []
-      # FIXME: skipped
-      # solr_doc[facetable_file_format] += object.file_format
+      solr_doc[facetable_file_format] += object.file_format.to_a
 
       solr_doc[Solrizer.solr_name(:quality_level, :stored_searchable)] = object.quality_level
       solr_doc[Solrizer.solr_name(:original_checksum, :symbol)] = object.original_checksum
