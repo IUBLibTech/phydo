@@ -1,16 +1,16 @@
-[![Build Status](https://travis-ci.org/WGBH/hydradam2.svg?branch=iu-demo)](https://travis-ci.org/WGBH/hydradam2)
-[![Coverage Status](https://coveralls.io/repos/github/WGBH/hydradam2/badge.svg?branch=iu-demo)](https://coveralls.io/github/WGBH/hydradam2?branch=iu-demo)
+[![Build Status](https://travis-ci.org/IUBLibTech/phydo.svg?branch=master)](https://travis-ci.org/IUBLibTech/phydo)
+[![Coverage Status](https://coveralls.io/repos/github/IUBLibTech/phydo/badge.svg?branch=master)](https://coveralls.io/github/IUBLibTech/phydo?branch=master)
 
-# HydraDAM
+# Phydo
 
 A Hydra app that focuses on Digital Asset Management functions.
 
 
 ## Dependencies
 
-HydraDAM has the following dependencies that you must install yourself.
+Phydo has the following dependencies that you must install yourself.
 
-1. Ruby >= 2.2.0
+1. Ruby >= 2.3.0
 1. Java 1.8
 1. Redis server
 
@@ -21,7 +21,7 @@ HydraDAM has the following dependencies that you must install yourself.
 1. Clone the repository
   ```bash
   cd path/to/wherever/you/want/your/code/to/live
-  git clone https://github.com/WGBH/hydradam2.git
+  git clone https://github.com/IUBLibTech/phydo.git
   ```
 
 1. Download a clean copy of [hydra-jetty](https://github.com/projecthydra/hydra-jetty).
@@ -29,7 +29,7 @@ HydraDAM has the following dependencies that you must install yourself.
   rake jetty:clean
   ```
 
-1. Copy HydraDAM's Solr and Fedora config over to your new copy of hydra-jetty.
+1. Copy Phydo's Solr and Fedora config over to your new copy of hydra-jetty.
   ```bash
   rake jetty:config
   ```
