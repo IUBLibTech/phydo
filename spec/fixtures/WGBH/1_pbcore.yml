@@ -1,0 +1,18 @@
+---
+:resource: Work
+:work_attributes: 
+:file_set_attributes: 
+:source_metadata: 
+:file_sets:
+- :filename: 1_pbcore.xml
+  :attributes:
+    file_format:
+    - 'format= MKV '
+  :files:
+  - :mime_type: application/xml
+    :path: spec/fixtures/WGBH/1_pbcore.xml
+    :filename: 1_pbcore.xml
+    :file_opts: {}
+    :use: original_file
+- :filename: 1.xml
+:sources: 

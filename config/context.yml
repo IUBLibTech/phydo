@@ -14,6 +14,7 @@
   skos: http://www.w3.org/2004/02/skos/core#
   ebucore: http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#
   premis: http://id.loc.gov/ontologies/premis#
+  premisrdf: http://www.loc.gov/premis/rdf/v1#
   
   # Work data model properties
   
@@ -83,7 +84,7 @@
   date_generated:
     "@id": ebucore:dateCreated
   file_format:
-    "@id": premis:hasFormatName
+    "@id": premisrdf:hasFormatName
   file_format_long_name:
     "@id": ebucore:hasFileFormat
   codec_type:
