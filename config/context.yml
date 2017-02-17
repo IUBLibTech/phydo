@@ -55,25 +55,25 @@
   manual_qc_check:
     "@id": skos:changeNote
   encoder_manufacturer:
-    "@id": premis:hasHardwareOtherInformation
+    "@id": premisrdf:hasHardwareOtherInformation
   encoder_model:
-    "@id": premis:hasHardwareOtherInformation
+    "@id": premisrdf:hasHardwareOtherInformation
   encoder_serial_number:
-    "@id": premis:hasHardwareOtherInformation
+    "@id": premisrdf:hasHardwareOtherInformation
   ad_manufacturer:
-    "@id": premis:hasHardwareName
+    "@id": premisrdf:hasHardwareName
   ad_model:
-    "@id": premis:hasHardwareName
+    "@id": premisrdf:hasHardwareName
   ad_serial_number:
-    "@id": premis:hasHardwareName
+    "@id": premisrdf:hasHardwareName
   speed_used:
     "@id": ebucore:playbackSpeed
   tbc_manufacturer:
-    "@id": premis:hasHardwareName
+    "@id": premisrdf:hasHardwareName
   tbc_model:
-    "@id": premis:hasHardwareName
+    "@id": premisrdf:hasHardwareName
   tbc_serial_number:
-    "@id": premis:hasHardwareName
+    "@id": premisrdf:hasHardwareName
   tape_thickness:
     "@id": dcterms:description
   total_parts:
