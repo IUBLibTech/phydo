@@ -1,6 +1,7 @@
 # FIXME: configure library includes
 require './lib/hydradam/preingest/IU/tarball'
 require './lib/hydradam/preingest/IU/yaml'
+require './lib/hydradam/preingest/WGBH/sip'
 
 namespace :hydradam do
   desc "Preingest one package of chosen type, at specified path"
@@ -10,7 +11,7 @@ namespace :hydradam do
     abort "File not found: #{file}" unless File.exists?(file)
     abort "Directory given instead of file: #{file}" if Dir.exists?(file)
     begin
-      class_string = "HydraDAM::Preingest::#{args.package_type.titleize.split.join.gsub('/', '::').gsub('Iu', 'IU')}"
+      class_string = "HydraDAM::Preingest::#{args.package_type}"
       package_class = class_string.constantize
     rescue
       abort "unknown preingest pipeline: #{args.package_type} => #{class_string}"

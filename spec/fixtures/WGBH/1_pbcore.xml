@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pbcoreCollection xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html" collectionTitle="" collectionDescription="" collectionSource="" collectionRef="" collectionDate="">
+<pbcoreInstantiationDocument>
+<instantiationIdentifier source="source file MD5">53bd715d6d528a567f3950650ee59c67</instantiationIdentifier>
+<instantiationIdentifier source="source file name">Barcode29455_Latimer01.mov.mkv</instantiationIdentifier>
+<instantiationIdentifier source="DAM import id">20150619_114333</instantiationIdentifier>
+<instantiationIdentifier source="PIM identifier">P002264</instantiationIdentifier>
+<instantiationDimensions unitsOfMeasure="pixels" annotation="image width x height">720 x 486</instantiationDimensions>
+<instantiationDigital source="xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; fits version=&quot;0.8.4&quot;" annotation="source file format">mimetype= video/x-matroska </instantiationDigital>
+<instantiationStandard>format= MKV </instantiationStandard>
+<instantiationLocation annotation="source drive">/Volumes/BigDisks/03312015/Africans_In_America_Interviews/Barcode29455_Latimer01.mov.mkv</instantiationLocation>
+<instantiationLocation annotation="Barcode identifier">339808</instantiationLocation>
+<instantiationLocation annotation="LTO identifier">000062</instantiationLocation>
+<instantiationMediaType version="mimetype">video</instantiationMediaType>
+<instantiationGenerations version="Image proxy">fdf5b073474e085d105ab5e2ada1f903.jpg</instantiationGenerations>
+<instantiationGenerations version="Movie proxy">1b27346721dc2a3957882347dc27d7b6.mov</instantiationGenerations>
+<instantiationFileSize unitsOfMeasure="bytes" annotation="units are bytes unless otherwise specified">8811009354</instantiationFileSize>
+<instantiationRelation>
+<instantiationRelationType>Image proxy</instantiationRelationType>
+<instantiationRelationIdentifier>https://s3.amazonaws.com/proxy.mla.wgbh.org/dam/53/bd7/15d/6d5/28a/567/f39/506/50e/e59/c67/fdf5b073474e085d105ab5e2ada1f903.jpg</instantiationRelationIdentifier>
+</instantiationRelation>
+<instantiationRelation>
+<instantiationRelationType>Movie proxy</instantiationRelationType>
+<instantiationRelationIdentifier>https://s3.amazonaws.com/proxy.mla.wgbh.org/dam/53/bd7/15d/6d5/28a/567/f39/506/50e/e59/c67/1b27346721dc2a3957882347dc27d7b6.mov</instantiationRelationIdentifier>
+</instantiationRelation>
+<instantiationAnnotation annotationType="Department">National Productions</instantiationAnnotation>
+<instantiationAnnotation annotationType="Series">Africans in America</instantiationAnnotation>
+<instantiationAnnotation annotationType="Series description">Series Description: Broadcast: October 1998
+This series explores the central paradox that is at the heart of the American story:  a democracy that declared all men equal but enslaved and oppressed one people to provide independence and prosperity to another.  The series opens in the 16th century on Africa's Gold Coast with the European and African trade, and ends on the eve of the American Civil War in 1861.  Africans in America examines the economic and intellectual foundations of slavery in America and the global economy that prospered from it.  The series reveals how the presence of African people and their struggle for freedom transformed America.</instantiationAnnotation>
+<instantiationExtension>
+<extensionWrap annotation="fixity check - (20161012_111108)">
+<extensionElement>eventDate</extensionElement>
+<extensionValue>2016-10-04</extensionValue>
+</extensionWrap>
+</instantiationExtension>
+<instantiationExtension>
+<extensionWrap annotation="fixity check - (20161012_111108)">
+<extensionElement>eventDetail</extensionElement>
+<extensionValue>program="OpenSSL"; version="0.9.8zg"</extensionValue>
+</extensionWrap>
+</instantiationExtension>
+<instantiationExtension>
+<extensionWrap annotation="fixity check - (20161012_111108)">
+<extensionElement>eventOutcomeInformation</extensionElement>
+<extensionValue>pass</extensionValue>
+</extensionWrap>
+</instantiationExtension>
+<instantiationExtension>
+<extensionWrap annotation="fixity check - (20161012_111108)">
+<extensionElement>eventStaff</extensionElement>
+<extensionValue>Michael Muraszko</extensionValue>
+</extensionWrap>
+</instantiationExtension>
+</pbcoreInstantiationDocument>
+</pbcoreCollection>
