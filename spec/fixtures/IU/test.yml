@@ -35,5 +35,11 @@
     :file_opts: {}
     :use: intermediate_file
     :md5sum: 2a2d82dc3ab0d027f8886df4e0930d39
+  - :mime_type: application/xml
+    :path: "spec/fixtures/IU/test.xml"
+    :filename: test.xml
+    :file_opts: {}
+    :use: extracted_text
+    :md5sum: 2a2d82dc3ab0d027f8886df4e0930d39
   :events: []
 :sources: []

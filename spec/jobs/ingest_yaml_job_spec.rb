@@ -26,6 +26,7 @@ RSpec.describe IngestYAMLJob do
         allow(actor1).to receive(:attach_content).with(instance_of(File))
         allow(actor1).to receive(:create_metadata).with(resource1, {})
         allow(actor1).to receive(:create_content).with(file, 'intermediate_file')
+        allow(actor1).to receive(:create_content).with(file, 'extracted_text')
         described_class.perform_now(yaml_file, user)
         expect(resource1.title).to eq(['Test title'])
       end

@@ -1,6 +1,4 @@
 ---
-:resource: Work
-:work_attributes: 
 :file_set_attributes: 
 :source_metadata: 
 :file_sets:
@@ -25,6 +23,10 @@
     :path: spec/fixtures/WGBH/1_pbcore.xml
     :filename: 1_pbcore.xml
     :file_opts: {}
-    :use: original_file
-- :filename: 1.xml
+    :use: extracted_text
+  - :mime_type: application/xml
+    :path: spec/fixtures/WGBH/1.xml
+    :filename: 1.xml
+    :file_opts: {}
+    :use: service_file
 :sources: 
