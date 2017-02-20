@@ -7,6 +7,7 @@
   dcterms: http://purl.org/dc/terms/
   iiif: http://iiif.io/api/presentation/2#
   loc: http://id.loc.gov/vocabulary/identifiers/
+  nfo: http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#
   mods: http://www.loc.gov/mods/rdf/v1#
   pulterms: http://library.princeton.edu/terms/
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
@@ -90,7 +91,7 @@
   codec_type:
     "@id": ebucore:hasMedium
   codec_name:
-    "@id": ebucore:hasCode
+    "@id": ebucore:hasCodec
   codec_long_name:
     "@id": ebucore:codecName
   format_duration:
@@ -101,7 +102,7 @@
     "@id": ebucore:filename
   filename:
     "@id": ebucore:filename
-  format_file_size:
+  file_size:
     "@id": ebucore:fileSize
   identifier:
     "@id": ebucore:identifier

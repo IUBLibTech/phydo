@@ -176,7 +176,13 @@ module HydraDAM
         WORK_ATT_LOOKUPS = {
         }
         FILE_ATT_LOOKUPS = {
-          file_format: '//instantiationStandard'
+          file_format: '//instantiationStandard',
+          codec_type: '//instantiationMediaType[@version="mimetype"]',
+          codec_name: '//instantiationDigital[@annotation="source file format"]',
+          file_name: '//instantiationIdentifier[@source="source file name"]',
+          file_size: '//instantiationFileSize',
+          unit_of_origin: '//instantiationAnnotation[@annotationType="Department"]',
+          md5_checksum: '//instantiationIdentifier[@source="source file MD5"]'
         }
         def type
           :pbcore

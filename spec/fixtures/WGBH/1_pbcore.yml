@@ -8,6 +8,18 @@
   :attributes:
     file_format:
     - 'format= MKV '
+    codec_type:
+    - video
+    codec_name:
+    - 'mimetype= video/x-matroska '
+    file_name:
+    - Barcode29455_Latimer01.mov.mkv
+    format_file_size:
+    - '8811009354'
+    unit_of_origin:
+    - National Productions
+    md5_checksum:
+    - 53bd715d6d528a567f3950650ee59c67
   :files:
   - :mime_type: application/xml
     :path: spec/fixtures/WGBH/1_pbcore.xml
