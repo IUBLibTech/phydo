@@ -1,6 +1,8 @@
 require 'rails_helper'
 require './lib/hydradam/preingest/IU/tarball'
 require './lib/hydradam/preingest/IU/yaml'
+require 'archive/tar/minitar'
+include Archive::Tar
 
 RSpec.describe PreingestJob do
   let(:document_class) { nil }
@@ -24,8 +26,16 @@ RSpec.describe PreingestJob do
 
   context "for an IU tarball" do
     let(:document_class) { HydraDAM::Preingest::IU::Tarball }
+    let(:preingest_dir) { Rails.root.join("spec", "fixtures", "IU").to_s }
     let(:preingest_file) { Rails.root.join("spec", "fixtures", "IU", "sip.tar").to_s }
     let(:yaml_file) { preingest_file.sub(/\.tar$/, '.yml') }
+    # FIXME: kludge for Minitar not preserving timestamps
     # include_examples "successfully preingests"
+    it "writes yaml output" do
+      Minitar.unpack(preingest_file, preingest_dir)
+      yaml_content = File.open(yaml_file) { |f| Psych.load(f) }
+      expect(File).to receive(:write)
+      described_class.perform_now(document_class, preingest_file, user)
+    end
   end
 end
