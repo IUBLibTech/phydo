@@ -1,4 +1,3 @@
-require 'hydradam/file_set_behavior/has_ffprobe'
 require 'rubygems'
 require 'rdf'
 
