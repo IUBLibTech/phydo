@@ -22,8 +22,6 @@
     - '1'
 :file_set_attributes:
   :pod:
-    unit_of_origin:
-    - B-IULMIA
     identifier:
     - '40000000542243'
   :mods: {}
@@ -46,13 +44,13 @@
     - "/srv/scratch/transcoder_workspace_xcode-04_prod/MDPI_40000000054496.downloading/data/MDPI_40000000054496_01_prod.wav"
     format_sample_rate:
     - '44100'
-    :md5_checksum:
-    - 7892355550C1105C0144D95EC7D3820F
-    :part: 1
-    :date_generated: '2015-12-03'
+    part:
+    - '1'
+    date_generated:
+    - '2015-12-03'
   :files:
   - :mime_type: application/xml
-    :path: "/home/aploshay/Documents/iu_dev/hydradam2-app/spec/fixtures/IU/40000000054496_20160213-082528/MDPI_40000000054496_01_prod_ffprobe.xml"
+    :path: "/home/aploshay/Documents/iu_dev/phydo/spec/fixtures/IU/40000000054496_20160213-082528/MDPI_40000000054496_01_prod_ffprobe.xml"
     :filename: MDPI_40000000054496_01_prod_ffprobe.xml
     :file_opts: {}
     :use: extracted_text
@@ -109,21 +107,21 @@
 - :filename: manifest-md5.txt
   :files:
   - :mime_type: text/plain
-    :path: "/home/aploshay/Documents/iu_dev/hydradam2-app/spec/fixtures/IU/40000000054496_20160213-082528/manifest-md5.txt"
+    :path: "/home/aploshay/Documents/iu_dev/phydo/spec/fixtures/IU/40000000054496_20160213-082528/manifest-md5.txt"
     :filename: manifest-md5.txt
     :file_opts: {}
     :use: original_file
 - :filename: MDPI_40000000054496_purl.yaml
   :files:
   - :mime_type: application/x-yaml
-    :path: "/home/aploshay/Documents/iu_dev/hydradam2-app/spec/fixtures/IU/40000000054496_20160213-082528/MDPI_40000000054496_purl.yaml"
+    :path: "/home/aploshay/Documents/iu_dev/phydo/spec/fixtures/IU/40000000054496_20160213-082528/MDPI_40000000054496_purl.yaml"
     :filename: MDPI_40000000054496_purl.yaml
     :file_opts: {}
     :use: original_file
 - :filename: MDPI_40000000542243_pod.xml
   :files:
   - :mime_type: application/xml
-    :path: "/home/aploshay/Documents/iu_dev/hydradam2-app/spec/fixtures/IU/40000000054496_20160213-082528/MDPI_40000000542243_pod.xml"
+    :path: "/home/aploshay/Documents/iu_dev/phydo/spec/fixtures/IU/40000000054496_20160213-082528/MDPI_40000000542243_pod.xml"
     :filename: MDPI_40000000542243_pod.xml
     :file_opts: {}
     :use: original_file
@@ -143,7 +141,7 @@
 - :filename: MDPI_40000000542243_mods.xml
   :files:
   - :mime_type: application/xml
-    :path: "/home/aploshay/Documents/iu_dev/hydradam2-app/spec/fixtures/IU/40000000054496_20160213-082528/MDPI_40000000542243_mods.xml"
+    :path: "/home/aploshay/Documents/iu_dev/phydo/spec/fixtures/IU/40000000054496_20160213-082528/MDPI_40000000542243_mods.xml"
     :filename: MDPI_40000000542243_mods.xml
     :file_opts: {}
     :use: original_file
@@ -177,13 +175,13 @@
     - "/srv/scratch/transcoder_workspace_xcode-04_prod/MDPI_40000000054496.downloading/data/MDPI_40000000054496_01_access.mp4"
     format_sample_rate:
     - '44100'
-    :md5_checksum:
-    - F4C3088D835D35D8741551CF4E8977F0
-    :part: 1
-    :date_generated: '2015-12-03'
+    part:
+    - '1'
+    date_generated:
+    - '2015-12-03'
   :files:
   - :mime_type: application/xml
-    :path: "/home/aploshay/Documents/iu_dev/hydradam2-app/spec/fixtures/IU/40000000054496_20160213-082528/MDPI_40000000054496_01_access_ffprobe.xml"
+    :path: "/home/aploshay/Documents/iu_dev/phydo/spec/fixtures/IU/40000000054496_20160213-082528/MDPI_40000000054496_01_access_ffprobe.xml"
     :filename: MDPI_40000000054496_01_access_ffprobe.xml
     :file_opts: {}
     :use: extracted_text
@@ -240,7 +238,7 @@
 - :filename: MDPI_40000000054496.xml
   :files:
   - :mime_type: application/xml
-    :path: "/home/aploshay/Documents/iu_dev/hydradam2-app/spec/fixtures/IU/40000000054496_20160213-082528/MDPI_40000000054496.xml"
+    :path: "/home/aploshay/Documents/iu_dev/phydo/spec/fixtures/IU/40000000054496_20160213-082528/MDPI_40000000054496.xml"
     :filename: MDPI_40000000054496.xml
     :file_opts: {}
     :use: original_file
@@ -273,13 +271,13 @@
     - "/srv/scratch/transcoder_workspace_xcode-04_prod/MDPI_40000000054496.downloading/data/MDPI_40000000054496_01_pres.wav"
     format_sample_rate:
     - '44100'
-    :md5_checksum:
-    - A0F9E4C05B1307788734229C3023F191
-    :part: 1
-    :date_generated: '2015-12-03'
+    part:
+    - '1'
+    date_generated:
+    - '2015-12-03'
   :files:
   - :mime_type: application/xml
-    :path: "/home/aploshay/Documents/iu_dev/hydradam2-app/spec/fixtures/IU/40000000054496_20160213-082528/MDPI_40000000054496_01_pres_ffprobe.xml"
+    :path: "/home/aploshay/Documents/iu_dev/phydo/spec/fixtures/IU/40000000054496_20160213-082528/MDPI_40000000054496_01_pres_ffprobe.xml"
     :filename: MDPI_40000000054496_01_pres_ffprobe.xml
     :file_opts: {}
     :use: extracted_text

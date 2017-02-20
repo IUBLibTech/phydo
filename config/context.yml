@@ -1,4 +1,5 @@
 # Configures JSON-LD conversion from IuMetadata::Mods/Marc attributes
+# FIXME: fix unit_of_origin configuration here
 #
 ---
 "@context":
