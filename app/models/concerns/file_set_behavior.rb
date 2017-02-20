@@ -22,28 +22,9 @@ module Concerns
       end
        
       property :file_format_long_name, predicate: RDF::Vocab::EBUCore.hasFileFormat do |index|
-         index.as :stored_sortable, :facetable
+         index.as :stored_searchable, :stored_sortable, :facetable
       end
        
-      property :codec_type, predicate: RDF::Vocab::EBUCore.hasMedium do |index|
-         index.as :stored_sortable, :facetable
-      end
-       
-      property :codec_name, predicate: RDF::Vocab::EBUCore.hasCodec do |index|
-         index.as :stored_sortable, :facetable
-      end
-       
-      property :codec_long_name, predicate: RDF::Vocab::EBUCore.codecName 
-      #do |index|
-      #   index.as :stored_sortable, :facetable
-      #end
-       
-      property :format_duration, predicate: RDF::Vocab::EBUCore.duration do |index|
-         index.as :stored_sortable, :facetable
-      end 
-       
-      property :bit_rate, predicate: RDF::Vocab::EBUCore.bitRate 
-      
       property :file_name, predicate: RDF::Vocab::EBUCore.filename do |index|
          index.as :stored_searchable
       end 
@@ -58,7 +39,9 @@ module Concerns
       property :identifier, predicate: RDF::Vocab::EBUCore.identifier do |index|
          index.as :stored_searchable
       end 
-       
+
+      # TODO use correct predicates for Unit of Origin properties
+      # property :unit_of_origin, predicate: RDF::Vocab::EBUCore.description do |index|
       property :unit_of_origin, predicate: RDF::Vocab::EBUCore.comments do |index|
          index.as :stored_searchable, :facetable, :stored_sortable
       end 
@@ -83,18 +66,7 @@ module Concerns
         index.as :stored_searchable, :sortable, :facetable
       end
 
-      # TODO use correct predicates for Unit of Origin properties
-      property :unit_of_origin, predicate: RDF::Vocab::EBUCore.description do |index|
-        index.as :stored_searchable, :facetable
-      end
-
       property :quality_level, predicate: RDF::Vocab::EBUCore.encodingLevel, multiple: false do |index|
-        index.as :stored_searchable, :facetable
-      end
-      property :file_format, predicate: RDF::Vocab::EBUCore.hasFormat do |index|
-        index.as :stored_searchable, :facetable
-      end
-      property :file_format_long_name, predicate: RDF::Vocab::EBUCore.hasFileFormat do |index|
         index.as :stored_searchable, :facetable
       end
       property :codec_type, predicate: RDF::Vocab::EBUCore.hasMedium do |index|
