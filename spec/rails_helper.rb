@@ -52,6 +52,6 @@ RSpec.configure do |config|
 
   # Devise helpers
   # From https://github.com/plataformatec/devise#test-helpers
-  config.include Devise::TestHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::TestHelpers, type: :view
 end

@@ -2,7 +2,7 @@ module HydraDAM
   module Preingest
     class AttributeIngester
       def initialize(source_id, source_attributes, factory: Work, context: CONTEXT)
-        # FIXME: do this right
+        # FIXME: do this right, through URI construction API
         @source_id = 'file://' + source_id
         @source_attributes = source_attributes
         @factory = factory

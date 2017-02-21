@@ -38,7 +38,7 @@ class IngestYAMLJob < ActiveJob::Base
     def attach_source(resource, title, file)
       file_set = FileSet.new
       file_set.title = title
-      actor = FileSetActor.new(file_set, @user)
+      actor = CurationConcerns::Actors::FileSetActor.new(file_set, @user)
       actor.attach_related_object(resource)
       actor.attach_content(File.open(file, 'r:UTF-8'))
     end
@@ -50,7 +50,7 @@ class IngestYAMLJob < ActiveJob::Base
         file_set.attributes = f[:attributes]
         file_set.apply_depositor_metadata(@user)
         file_set.save!
-        actor = FileSetActor.new(file_set, @user)
+        actor = CurationConcerns::Actors::FileSetActor.new(file_set, @user)
         ingest_files(resource, file_set, actor, f[:files]) if f[:files].present?
         ingest_events(file_set, f[:events]) if f[:events].present?
         add_ingestion_event(file_set)
@@ -85,6 +85,9 @@ class IngestYAMLJob < ActiveJob::Base
         end
         event_attributes[:premis_agent] = event_attributes[:premis_agent].map do |agent|
           ::RDF::URI.new(agent)
+        end
+        event_attributes[:premis_event_date_time] = event_attributes[:premis_event_date_time].map do |date_time|
+          DateTime.parse(date_time.to_s)
         end
       end
       e.attributes = event_attributes

@@ -17,6 +17,14 @@ class SearchBuilder < Blacklight::SearchBuilder
   end
   
   def file_set_clauses
-    [ActiveFedora::SolrQueryBuilder.construct_query_for_rel(has_model: ::FileSet.to_class_uri)]
+    [ActiveFedora::SolrQueryBuilder.construct_query_for_rel(has_model: ::FileSet.to_rdf_representation)]
+  end
+
+  def work_clauses
+    [ActiveFedora::SolrQueryBuilder.construct_query_for_rel(has_model: ::Work.to_rdf_representation)]
+  end
+
+  def collection_clauses
+    [ActiveFedora::SolrQueryBuilder.construct_query_for_rel(has_model: ::Collection.to_rdf_representation)]
   end
 end

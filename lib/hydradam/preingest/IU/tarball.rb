@@ -230,7 +230,7 @@ module HydraDAM
         def events
         end
 
-        def md5sums_map_to_events(mapping, agent: 'mailto@mdpi.iu.edu')
+        def md5sums_map_to_events(mapping, agent: 'mailto:mailto@mdpi.iu.edu')
           results = {}
           mapping.each do |filename, checksum|
             atts = {}
@@ -244,7 +244,7 @@ module HydraDAM
           results
         end
 
-        def creation_dates_to_events(mapping, agent: 'mailto@mdpi.iu.edu')
+        def creation_dates_to_events(mapping, agent: 'mailto:mailto@mdpi.iu.edu')
           results = {}
           mapping.each do |filename, date|
             atts = {}
@@ -520,7 +520,7 @@ module HydraDAM
         end
         def parse
           @md5sums_map = source.split("\n").map { |line| line.split(/\s+/).reverse }.map { |pair| pair[0] = pair[0].sub(/.*\//, ''); pair }.to_h
-          @md5events_map ||= md5sums_map_to_events(@md5sums_map, agent: 'store-admin@iu.edu')
+          @md5events_map ||= md5sums_map_to_events(@md5sums_map, agent: 'mailto:store-admin@iu.edu')
         end
       end
     end

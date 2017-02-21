@@ -21,5 +21,10 @@ describe HasLogger do
         expect{ subject.logger = "not a logger" }.to raise_error HasLogger::InvalidLogger
       end
     end
+    context 'when given a Logger object' do
+      it 'does not raise an error' do
+        expect{ subject.logger = Logger.new(STDOUT) }.not_to raise_error
+      end
+    end
   end
 end

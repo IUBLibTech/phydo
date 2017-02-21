@@ -1,0 +1,39 @@
+---
+:resource: Work
+:work_attributes:
+  :test:
+    title:
+    - 'Test title'
+:file_set_attributes:
+  :test: {}
+:source_metadata: 
+:file_sets:
+- :filename: test.wav
+  :attributes:
+    file_format_long_name:
+    - WAV / WAVE (Waveform Audio)
+    codec_type:
+    - audio
+    codec_long_name:
+    - PCM signed 16-bit little-endian
+    format_duration:
+    - '7606.485624'
+    bit_rate:
+    - '1422874'
+    file_name:
+    - "/srv/scratch/transcoder_workspace_xcode-04_prod/MDPI_40000000054496.downloading/data/MDPI_40000000054496_01_prod.wav"
+    format_sample_rate:
+    - '44100'
+    part:
+    - '1'
+    date_generated:
+    - '2015-12-03'
+  :files:
+  - :mime_type: audio/wav
+    :path: "spec/fixtures/IU/test.wav"
+    :filename: test.wav
+    :file_opts: {}
+    :use: intermediate_file
+    :md5sum: 2a2d82dc3ab0d027f8886df4e0930d39
+  :events: []
+:sources: []
