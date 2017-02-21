@@ -46,6 +46,10 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # Add ruby implementation of readline to the bundle. This is easier than
+  # resolving the dependencies for various opertating systems.
+  gem 'rb-readline'
 end
 
 group :development, :test do
