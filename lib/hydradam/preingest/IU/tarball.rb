@@ -4,6 +4,8 @@ require './lib/hydradam/preingest/attribute_ingester.rb'
 module HydraDAM
   module Preingest
     module IU
+      # TODO: Move Tarball instance methods that don't need to be public into
+      # protected or private scope.
       class Tarball
         def initialize(preingest_file)
           @preingest_file = preingest_file
@@ -16,6 +18,8 @@ module HydraDAM
           Work
         end
 
+        # TODO: This method will take precedence over the attr_reader for @source_metadata, and always
+        # return `nil`. Somehow I doubt that 's what we want, yeah?
         def source_metadata
           nil
         end
@@ -44,22 +48,22 @@ module HydraDAM
             end
           end
         end
-    
+
         def filenames
           @filenames ||= Dir["#{root_dir}/*"]
         end
-    
+
         def root_dir
           @root_dir ||= begin
             root_dir_parent = File.dirname(@preingest_file)
             root_dir_basename = tarball_entries.select{ |tar_entry| tar_entry.directory? }.first.name
             File.expand_path(root_dir_basename, root_dir_parent)
           end
-        
+
           raise "Directory not present: #{@root_dir}" unless File.directory?(@root_dir)
           @root_dir 
         end
-    
+
         def process_file(filename)
           file_set = { filename: filename.sub(/.*\//, '') }
           file_reader = HydraDAM::Preingest::IU::FileReader.new(filename)
@@ -89,7 +93,7 @@ module HydraDAM
           end
           @file_sets << file_set if file_set.present?
         end
-    
+
         def array_merge(h1, h2)
           h = {}
           h1 ||= {}
@@ -100,7 +104,7 @@ module HydraDAM
           end
           h
         end
-  
+
         def postprocess
           @file_sets.each do |file_set|
             if file_set[:files].present?
@@ -139,9 +143,9 @@ module HydraDAM
           @reader = reader_class.new(filename, File.read(filename))
         end
         attr_reader :filename, :reader
-  
+
         delegate :id, :attributes, :file_attributes, :files, :events, :type, to: :reader
-  
+
         def reader_class
           case @filename
           when /pod\.xml$/
@@ -167,11 +171,11 @@ module HydraDAM
           @source = source
         end
         attr_reader :id, :source
-  
+
         def type
           nil
         end
-        
+
         def attributes
           {}
         end
@@ -187,7 +191,7 @@ module HydraDAM
           @mime_type = 'application/octet-stream'
         end
         attr_reader :id, :source, :mime_type
-  
+
         def parse
         end
 
@@ -195,12 +199,12 @@ module HydraDAM
         def attributes
           {}
         end
-  
+
         # for fileset metadata run through AttributeIngester
         def file_attributes
           {}
         end
-  
+
         def files
           file_list = [metadata_file]
           file_list << media_file if media_file
@@ -267,14 +271,14 @@ module HydraDAM
           parse
         end
         attr_reader :xml
-  
+
         def type
           :xml
         end
-  
+
         def parse
         end
-  
+
         def get_attributes_set(atts_const)
           begin
             att_lookups = self.class.const_get(atts_const)
@@ -286,12 +290,12 @@ module HydraDAM
             h
           end
         end
-  
+
         # for Work metadata
         def attributes
           get_attributes_set(:WORK_ATT_LOOKUPS)
         end
-  
+
         # for fileset metadata run through AttributeIngester
         def file_attributes
           get_attributes_set(:FILE_ATT_LOOKUPS)
@@ -310,11 +314,11 @@ module HydraDAM
           unit_of_origin: '//assignment/unit',
           identifier: '//details/mdpi_barcode'
         }
-  
+
         def type
           :pod
         end
-  
+
         def attributes
           result = super
           result[:mdpi_barcode] = result[:mdpi_barcode].first
@@ -354,11 +358,11 @@ module HydraDAM
           tape_thickness: 'Thickness',
         }
         FILE_ATT_LOOKUPS = {}
-  
+
         def type
           :mdpi
         end
-  
+
         def attributes
           result = super
           result[:mdpi_date] = DateTime.parse(result[:mdpi_date].first)
@@ -400,7 +404,7 @@ module HydraDAM
           end
         end
       end
-      
+
       class FFProbeReader < XmlReader
         WORK_ATT_LOOKUPS = {} # No WORK attributes from FFProbe
         FILE_ATT_LOOKUPS = {
@@ -417,7 +421,7 @@ module HydraDAM
           video_width: '//ffprobe/streams/stream/@width',
           video_height: '//ffprobe/streams/stream/@height'
         }
-  
+
         def type
           :ffprobe
         end
@@ -479,7 +483,7 @@ module HydraDAM
           results
         end
       end
-  
+
       class YamlReader < AbstractReader
         def initialize(id, source)
           @id = id
@@ -490,7 +494,7 @@ module HydraDAM
         end
         attr_reader :yaml
       end
-  
+
       class PurlReader < YamlReader
         attr_reader :purls_map
         def type
@@ -503,7 +507,7 @@ module HydraDAM
           end
         end
       end
-  
+
       class TextReader < AbstractReader
         def initialize(id, source)
           @id = id

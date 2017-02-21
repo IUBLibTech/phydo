@@ -8,29 +8,29 @@ module HydraDAM
           @preingest_file = preingest_file
           parse
         end
-        
+
         attr_reader :preingest_file
         attr_reader :work_attributes, :file_set_attributes, :source_metadata, :file_sets, :sources
-  
+
         def resource_class
-          Work
+          nil
         end
 
         def source_metadata
           nil
         end
-        
+
         def parse
           @file_sets = []
           filenames.each { |filename| process_file(filename) }
         end
-        
+
         def filenames
           @filenames ||= [preingest_file, preingest_file.sub('_pbcore','')]
         end
-        
+
         def process_file(filename)
-          file_set = { filename: filename.sub(/.*\//, '') }
+          file_set = { filename: File.basename(filename) }
           file_reader = HydraDAM::Preingest::WGBH::FileReader.new(filename)
           unless file_reader&.type.nil?
             file_set_ai = HydraDAM::Preingest::AttributeIngester.new(file_reader.id, file_reader.file_attributes, factory: FileSet)
@@ -38,7 +38,7 @@ module HydraDAM
             file_set[:files] = file_reader.files
             file_set[:events] = file_reader.events if file_reader.events
           end
-          @file_sets << file_set if file_set.present?
+          @file_sets << file_set
         end
       end
 
@@ -47,10 +47,10 @@ module HydraDAM
           @filename = filename
           @reader = reader_class.new(filename, File.read(filename))
         end
-        
+
         attr_reader :filename, :reader
         delegate :id, :attributes, :file_attributes, :files, :events, :type, to: :reader
-  
+
         def reader_class
           case @filename
           when /pbcore\.xml$/
@@ -62,18 +62,18 @@ module HydraDAM
           end
         end
       end
-      
+
       class NullReader
         def initialize(id, source)
           @id = id
           @source = source
         end
         attr_reader :id, :source
-  
+
         def type
           nil
         end
-        
+
         def attributes
           {}
         end
@@ -90,7 +90,7 @@ module HydraDAM
           @mime_type = 'application/octet-stream'
         end
         attr_reader :id, :source, :mime_type
-  
+
         def parse
         end
 
@@ -98,12 +98,12 @@ module HydraDAM
         def attributes
           {}
         end
-  
+
         # for fileset metadata run through AttributeIngester
         def file_attributes
           {}
         end
-  
+
         def files
           file_list = [metadata_file]
           file_list << media_file if media_file
