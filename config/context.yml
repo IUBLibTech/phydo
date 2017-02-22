@@ -103,6 +103,8 @@
     "@id": ebucore:filename
   filename:
     "@id": ebucore:filename
+  format_file_size:
+    "@id": ebucore:fileSize
   file_size:
     "@id": ebucore:fileSize
   identifier:

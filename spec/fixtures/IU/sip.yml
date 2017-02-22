@@ -1,39 +1,33 @@
 ---
 :resource: Work
 :work_attributes:
-  :pod:
-    digitization_comments:
-    - B-IULMIA
-    recording_standard:
-    - NTSC
-    image_format:
-    - '4:3'
-  :mods:
-    title:
-    - '"Brain" Cam 1 Tape 1'
-  :mdpi:
-    digitized_by_entity:
-    - Memnon Archiving Services Inc
-    digitized_by_staff:
-    - comadder
-    original_identifier:
-    - DAT .I3972 96-3-21
-    total_parts:
-    - '1'
-:file_set_attributes:
-  :pod:
-    identifier:
-    - '40000000542243'
-  :mods: {}
-  :mdpi: {}
-:source_metadata: 
+  digitization_comments:
+  - B-IULMIA
+  recording_standard:
+  - NTSC
+  image_format:
+  - '4:3'
+  title:
+  - '"Brain" Cam 1 Tape 1'
+  digitized_by_entity:
+  - Memnon Archiving Services Inc
+  digitized_by_staff:
+  - comadder
+  original_identifier:
+  - DAT .I3972 96-3-21
+  total_parts:
+  - '1'
 :file_sets:
 - :filename: MDPI_40000000054496_01_prod.wav
   :attributes:
+    file_format:
+    - wav
     file_format_long_name:
     - WAV / WAVE (Waveform Audio)
     codec_type:
     - audio
+    codec_name:
+    - pcm_s16le
     codec_long_name:
     - PCM signed 16-bit little-endian
     format_duration:
@@ -42,8 +36,12 @@
     - '1422874'
     file_name:
     - "/srv/scratch/transcoder_workspace_xcode-04_prod/MDPI_40000000054496.downloading/data/MDPI_40000000054496_01_prod.wav"
+    format_file_size:
+    - '1352884274'
     format_sample_rate:
     - '44100'
+    md5_checksum:
+    - 7892355550C1105C0144D95EC7D3820F
     part:
     - '1'
     date_generated:
@@ -161,10 +159,14 @@
       - 24af985acef660e2a1e2f2d42919b77b
 - :filename: MDPI_40000000054496_01_access.mp4
   :attributes:
+    file_format:
+    - mov,mp4,m4a,3gp,3g2,mj2
     file_format_long_name:
     - QuickTime / MOV
     codec_type:
     - audio
+    codec_name:
+    - aac
     codec_long_name:
     - AAC (Advanced Audio Coding)
     format_duration:
@@ -173,8 +175,16 @@
     - '193380'
     file_name:
     - "/srv/scratch/transcoder_workspace_xcode-04_prod/MDPI_40000000054496.downloading/data/MDPI_40000000054496_01_access.mp4"
+    format_file_size:
+    - '183868943'
     format_sample_rate:
     - '44100'
+    unit_of_origin:
+    - B-IULMIA
+    identifier:
+    - '40000000542243'
+    md5_checksum:
+    - F4C3088D835D35D8741551CF4E8977F0
     part:
     - '1'
     date_generated:
@@ -257,10 +267,14 @@
       - 22b37d76c597ed5c9a7a643da4359d9b
 - :filename: MDPI_40000000054496_01_pres.wav
   :attributes:
+    file_format:
+    - wav
     file_format_long_name:
     - WAV / WAVE (Waveform Audio)
     codec_type:
     - audio
+    codec_name:
+    - pcm_s16le
     codec_long_name:
     - PCM signed 16-bit little-endian
     format_duration:
@@ -269,8 +283,16 @@
     - '1422874'
     file_name:
     - "/srv/scratch/transcoder_workspace_xcode-04_prod/MDPI_40000000054496.downloading/data/MDPI_40000000054496_01_pres.wav"
+    format_file_size:
+    - '1352884274'
     format_sample_rate:
     - '44100'
+    unit_of_origin:
+    - B-IULMIA
+    identifier:
+    - '40000000542243'
+    md5_checksum:
+    - A0F9E4C05B1307788734229C3023F191
     part:
     - '1'
     date_generated:
@@ -331,4 +353,3 @@
       - '2015-12-03T00:00:00+00:00'
       :premis_event_detail:
       - File created
-:sources: []

@@ -1,6 +1,4 @@
 ---
-:file_set_attributes: 
-:source_metadata: 
 :file_sets:
 - :filename: 1_pbcore.xml
   :attributes:
@@ -29,4 +27,3 @@
     :filename: 1.xml
     :file_opts: {}
     :use: service_file
-:sources: 

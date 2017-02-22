@@ -12,24 +12,16 @@ module HydraDAM
           parse
         end
         attr_reader :preingest_file
-        attr_reader :work_attributes, :file_set_attributes, :source_metadata, :file_sets, :sources
+        attr_reader :work_attributes, :file_set_attributes, :file_sets
 
         def resource_class
           Work
         end
 
-        # TODO: This method will take precedence over the attr_reader for @source_metadata, and always
-        # return `nil`. Somehow I doubt that 's what we want, yeah?
-        def source_metadata
-          nil
-        end
-
         def parse
           @work_attributes = {}
           @file_set_attributes = {}
-          @source_metadata = nil
           @file_sets = []
-          @sources = []
           @md5sums_map = {}
           @md5events_map = {}
           @creation_events_map = {}
@@ -71,8 +63,8 @@ module HydraDAM
             work_ai = HydraDAM::Preingest::AttributeIngester.new(file_reader.id, file_reader.attributes, factory: resource_class)
             file_set_ai = HydraDAM::Preingest::AttributeIngester.new(file_reader.id, file_reader.file_attributes, factory: FileSet)
             if file_reader.type.in? [:pod, :mods, :mdpi]
-              @work_attributes[file_reader.type] = work_ai.raw_attributes
-              @file_set_attributes[file_reader.type] = file_set_ai.raw_attributes
+              @work_attributes.merge!(work_ai.raw_attributes)
+              @file_set_attributes.merge!(file_set_ai.raw_attributes)
               # MDPI value "wins" over manifest value
               @md5sums_map.merge!(file_reader.reader.md5sums_map) if file_reader.type == :mdpi
               @md5events_map = array_merge(@md5events_map, file_reader.reader.md5events_map) if file_reader.type == :mdpi
@@ -87,6 +79,7 @@ module HydraDAM
               file_set[:files] = file_reader.files
             else
               file_set[:attributes] = file_set_ai.raw_attributes
+              @file_set_attributes.each { |k,v| file_set[:attributes][k] = v.dup }
               file_set[:files] = file_reader.files
             end
             file_set[:events] = file_reader.events if file_reader.events
@@ -117,7 +110,7 @@ module HydraDAM
               # FIXME: media file wins, if available?
               file_set[:filename] = file_set[:files].last[:filename]
               # FIXME: this bypasses attribute ingester...
-              file_set[:attributes][:md5_checksum] = Array.wrap(file_set[:files].last[:md5sum]) if file_set[:attributes].present?
+              file_set[:attributes]['md5_checksum'] = Array.wrap(file_set[:files].last[:md5sum]) if file_set[:attributes].present?
             end
             if @md5events_map && @md5events_map[file_set[:filename]]
               file_set[:events] ||= []
@@ -128,10 +121,10 @@ module HydraDAM
               file_set[:events] << @creation_events_map[file_set[:filename]]
             end
             if @parts_map && @parts_map[file_set[:filename]]
-              file_set[:attributes][:part] = @parts_map[file_set[:filename]]
+              file_set[:attributes]['part'] = @parts_map[file_set[:filename]]
             end
             if @date_generated_map && @date_generated_map[file_set[:filename]]
-              file_set[:attributes][:date_generated] = @date_generated_map[file_set[:filename]]
+              file_set[:attributes]['date_generated'] = @date_generated_map[file_set[:filename]]
             end
           end
         end
@@ -389,9 +382,9 @@ module HydraDAM
 
           @parts_map = {}
           xml.xpath('//Parts/Part').each do |part|
-            side = part.xpath('@Side').text.to_i
+            side = part.xpath('@Side').text.to_i.to_s
             part.xpath('Files/File').each do |file|
-              @parts_map[file.xpath('FileName').first.text.to_s] = side
+              @parts_map[file.xpath('FileName').first.text.to_s] = Array.wrap(side)
             end
           end
 
@@ -399,7 +392,7 @@ module HydraDAM
           xml.xpath('//Parts/Part').each do |part|
             date = part.xpath('Ingest/Date').text.to_s
             part.xpath('Files/File').each do |file|
-              @date_generated_map[file.xpath('FileName').first.text.to_s] = date
+              @date_generated_map[file.xpath('FileName').first.text.to_s] = Array.wrap(date)
             end
           end
         end
