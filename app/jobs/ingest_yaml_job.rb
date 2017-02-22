@@ -62,6 +62,8 @@ class IngestYAMLJob < ActiveJob::Base
     end
 
     def ingest_files(resource, file_set, actor, files)
+      require './lib/phydo/file_actor/ingest_file_now.rb'
+      CurationConcerns::Actors::FileActor.prepend ::Phydo::FileActor::IngestFileNow
       files.each_with_index do |file, i|
         logger.info "FileSet #{file_set.id}: ingesting file: #{file[:filename]}"
         actor.create_metadata(resource, file[:file_opts]) if i.zero? && file[:path]
