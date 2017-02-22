@@ -1,6 +1,5 @@
+# See project .ruby-version file for which ruby version is used.
 language: ruby
-rvm:
-- 2.3.0
 script:
 - bundle exec rake db:migrate
 - bundle exec rake ci
