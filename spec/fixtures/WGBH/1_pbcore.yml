@@ -21,7 +21,7 @@
     :path: spec/fixtures/WGBH/1_pbcore.xml
     :filename: 1_pbcore.xml
     :file_opts: {}
-    :use: extracted_text
+    :use: original_file
   - :mime_type: application/xml
     :path: spec/fixtures/WGBH/1.xml
     :filename: 1.xml

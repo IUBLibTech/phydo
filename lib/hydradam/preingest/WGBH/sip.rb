@@ -186,8 +186,9 @@ module HydraDAM
         def type
           :pbcore
         end
+        # FIXME: change to real value, but resolve "LoadError: original_file was not found"
         def use(_file_name_pattern)
-          :extracted_text
+          :original_file
         end
         def media_file
           { mime_type: mime_type,
