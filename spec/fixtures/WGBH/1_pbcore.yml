@@ -10,6 +10,7 @@
     - 'mimetype= video/x-matroska '
     file_name:
     - Barcode29455_Latimer01.mov.mkv
+    label: Barcode29455_Latimer01.mov.mkv
     format_file_size:
     - '8811009354'
     unit_of_origin:
