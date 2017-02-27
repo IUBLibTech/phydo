@@ -5,22 +5,13 @@ require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
 
-require 'solr_wrapper/rake_task'
+unless Rails.env == 'production'
+  task('spec').clear
+  desc 'Run HydraDAM specs'
+  task spec: 'hydradam:spec'
 
-# unless Rake::Task.task_defined? :spec
-#   begin
-#     require 'rspec/core/rake_task'
-#     RSpec::Core::RakeTask.new(:spec)
-#   rescue LoadError
-#     # no rspec available
-#   end
-# end
+  desc 'Run HydraDAM CI tests'
+  task ci: 'spec'
 
-task('spec').clear
-desc 'Run HydraDAM specs'
-task spec: 'hydradam:spec'
-
-desc 'Run HydraDAM CI tests'
-task ci: 'spec'
-
-task default: 'ci'
+  task default: 'ci'
+end

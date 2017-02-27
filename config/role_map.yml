@@ -1,3 +1,7 @@
+# TODO: Not sure what we really want for 'production' here.
+production:
+  archivist:
+    - archivist1@example.com
 development:
   archivist:
     - archivist1@example.com

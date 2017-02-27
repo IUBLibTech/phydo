@@ -1,8 +1,6 @@
 require 'spec_helper'
 require 'xml_validator'
 require 'fixtures'
-require 'pry' # debug only
-
 
 describe XMLValidator do
 

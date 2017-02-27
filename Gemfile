@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use sqlite3 as the database for Active Record
@@ -12,7 +11,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -53,8 +52,6 @@ group :development do
 end
 
 group :development, :test do
-  gem 'solr_wrapper', '0.18.0'
-  gem 'fcrepo_wrapper'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'webmock'
@@ -68,4 +65,17 @@ gem 'devise-guests', '~> 0.3'
 gem 'omniauth-cas'
 gem 'archive-tar-minitar', '~> 0.5.2'
 gem 'blacklight_range_limit', github: 'projectblacklight/blacklight_range_limit', branch: 'master'
-gem 'preservation', github: 'WGBH/hydradam-preservation', branch: 'master'
+gem 'preservation', github: 'WGBH/hydradam-preservation', branch: 'HDM-843_smarter_rake_task_loading'
+
+# TODO
+# This is part of a back port of a patch introduced in curation_concerns ~>
+# 1.7.x. This should not be required after upgrading to cuation_concerns ~>
+# 1.7.x. See https://github.com/projecthydra/curation_concerns/pull/1061/files
+gem 'active_fedora-noid', '~> 2.0.0-beta5'
+
+
+# TODO
+# These are added as a convenient way to get Solr and Fedora running on a demo.
+# Do we want to run these in production, or have something more robust?
+gem 'solr_wrapper'
+gem 'fcrepo_wrapper'

@@ -1,6 +1,4 @@
 require 'xml_validator'
-require 'pry'
-
 
 module PBCore
 

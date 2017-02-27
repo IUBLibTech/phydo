@@ -5,9 +5,6 @@ module StorageControllerBehavior
   require 'hydradam/storage_proxy_client'
   
   def show
-
-    # require 'pry'; binding.pry
-
     begin
       storage_proxy_response = storage_proxy.status(filename).body
     rescue Faraday::ConnectionFailed => e
