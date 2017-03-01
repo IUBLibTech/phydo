@@ -6,7 +6,6 @@ else
   SimpleCov.start
 end
 
-require 'pry'
 require 'webmock/rspec'
 
 # Add spec/support to load path.

@@ -1,7 +1,7 @@
 GIT
   remote: git://github.com/WGBH/hydradam-preservation.git
-  revision: 6c9f8143f55e689c0cf8539ba0f6230cf52edfd2
-  branch: master
+  revision: b4eb59ce7cfbaec04a42808031246c5938e33350
+  branch: HDM-843_smarter_rake_task_loading
   specs:
     preservation (0.1.0)
       curation_concerns (~> 1.6.3)
@@ -44,14 +44,14 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    active-fedora (11.1.2)
+    active-fedora (11.1.4)
       active-triples (~> 0.11.0)
       activemodel (>= 4.2, < 6)
       activesupport (>= 4.2.4, < 6)
       deprecation
       ldp (~> 0.6.0)
       rsolr (>= 1.1.2, < 3)
-      solrizer (~> 3.4)
+      solrizer (>= 3.4, < 5)
     active-triples (0.11.0)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -60,7 +60,7 @@ GEM
     active_attr (0.10.0)
       activemodel (>= 3.0.2, < 5.1)
       activesupport (>= 3.0.2, < 5.1)
-    active_fedora-noid (2.0.1)
+    active_fedora-noid (2.0.0)
       active-fedora (>= 9.7, < 12)
       noid (~> 0.9)
       rails (>= 4.2.7.1, < 6)
@@ -86,17 +86,17 @@ GEM
       rails (>= 4.2, < 6)
     archive-tar-minitar (0.5.2)
     arel (7.1.4)
-    autoprefixer-rails (6.7.2)
+    autoprefixer-rails (6.7.3)
       execjs
     awesome_nested_set (3.1.1)
       activerecord (>= 4.0.0, < 5.1)
-    aws-sdk (2.7.4)
-      aws-sdk-resources (= 2.7.4)
-    aws-sdk-core (2.7.4)
+    aws-sdk (2.7.9)
+      aws-sdk-resources (= 2.7.9)
+    aws-sdk-core (2.7.9)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.7.4)
-      aws-sdk-core (= 2.7.4)
+    aws-sdk-resources (2.7.9)
+      aws-sdk-core (= 2.7.9)
     aws-sigv4 (1.0.0)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -142,7 +142,7 @@ GEM
       skydrive
     builder (3.2.3)
     byebug (9.0.6)
-    cancancan (1.15.0)
+    cancancan (1.16.0)
     capybara (2.12.0)
       addressable
       mime-types (>= 1.16)
@@ -159,7 +159,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.0.4)
+    concurrent-ruby (1.0.5)
     coveralls (0.8.19)
       json (>= 1.8, < 3)
       simplecov (~> 0.12.0)
@@ -193,6 +193,8 @@ GEM
       sprockets-es6
     daemons (1.2.4)
     debug_inspector (0.0.2)
+    declarative (0.0.9)
+    declarative-option (0.1.0)
     deprecation (1.0.0)
       activesupport
     devise (4.2.0)
@@ -220,15 +222,15 @@ GEM
       railties (>= 3.2, < 5.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-    google-api-client (0.9.26)
+    google-api-client (0.10.0)
       addressable (~> 2.3)
       googleauth (~> 0.5)
       httpclient (~> 2.7)
       hurley (~> 0.1)
       memoist (~> 0.11)
       mime-types (>= 1.6)
-      representable (~> 2.3.0)
-      retriable (~> 2.0)
+      representable (~> 3.0)
+      retriable (>= 2.0, < 4.0)
     google_drive (2.1.2)
       google-api-client (>= 0.9.0, < 1.0.0)
       googleauth (>= 0.5.0, < 1.0.0)
@@ -291,7 +293,7 @@ GEM
       hydra-file_characterization (~> 0.3, >= 0.3.3)
       hydra-pcdm (>= 0.9)
       om (~> 3.1)
-    i18n (0.8.0)
+    i18n (0.8.1)
     jbuilder (2.6.1)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -312,7 +314,7 @@ GEM
       activesupport (>= 3.0.0)
     kaminari_route_prefix (0.0.2)
       kaminari (~> 0.16)
-    ldp (0.6.3)
+    ldp (0.6.4)
       deprecation
       faraday
       http_logger
@@ -322,6 +324,7 @@ GEM
       rdf-turtle
       rdf-vocab (>= 0.8)
       slop
+    libv8 (3.16.14.17)
     link_header (0.0.8)
     little-plugger (1.1.4)
     logging (2.1.0)
@@ -337,7 +340,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mimemagic (0.3.2)
-    mini_magick (4.6.0)
+    mini_magick (4.6.1)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.12.1)
@@ -428,11 +431,14 @@ GEM
     redis (3.3.3)
     redlock (0.1.8)
       redis (~> 3, >= 3.0.0)
-    representable (2.3.0)
-      uber (~> 0.0.7)
+    ref (2.0.0)
+    representable (3.0.3)
+      declarative (< 0.1.0)
+      declarative-option (< 0.2.0)
+      uber (< 0.2.0)
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
-    retriable (2.1.0)
+    retriable (3.0.0)
     rsolr (1.1.2)
       builder (>= 2.1.2)
     rspec (3.5.0)
@@ -462,7 +468,7 @@ GEM
       multipart-post
       oauth2
     ruby-progressbar (1.8.1)
-    rubyzip (1.2.0)
+    rubyzip (1.2.1)
     safe_yaml (1.0.4)
     sass (3.4.23)
     sass-rails (5.0.6)
@@ -493,7 +499,7 @@ GEM
       httparty (>= 0.11.0)
       oauth2 (>= 0.9.2)
     slop (3.6.0)
-    solr_wrapper (0.18.0)
+    solr_wrapper (0.21.0)
       faraday
       ruby-progressbar
       rubyzip
@@ -522,8 +528,11 @@ GEM
       rdf (~> 2.0)
     term-ansicolor (1.4.0)
       tins (~> 1.0)
+    therubyracer (0.12.3)
+      libv8 (~> 3.16.14.15)
+      ref
     thor (0.19.4)
-    thread_safe (0.3.5)
+    thread_safe (0.3.6)
     tilt (2.0.6)
     tins (1.13.2)
     turbolinks (5.0.1)
@@ -535,7 +544,7 @@ GEM
       railties (>= 3.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uber (0.0.15)
+    uber (0.1.0)
     uglifier (3.0.4)
       execjs (>= 0.3.0, < 3)
     warden (1.2.7)
@@ -560,6 +569,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_fedora-noid (~> 2.0.0.pre.beta5)
   archive-tar-minitar (~> 0.5.2)
   blacklight_range_limit!
   byebug
@@ -583,13 +593,14 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
-  solr_wrapper (= 0.18.0)
+  solr_wrapper
   spring
   sqlite3
+  therubyracer
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
   webmock
 
 BUNDLED WITH
-   1.13.7
+   1.14.4

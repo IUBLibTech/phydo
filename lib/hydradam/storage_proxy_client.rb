@@ -1,5 +1,3 @@
-require 'pry'
-
 module HydraDAM
   class StorageProxyClient
     attr_accessor :host, :port, :store, :cache, :api_prefix,

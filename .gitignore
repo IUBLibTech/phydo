@@ -16,9 +16,6 @@
 !/log/.keep
 /tmp
 
-/jetty
-/fcrepo4-data
-
 /coverage/
 .coveralls.yml
 
