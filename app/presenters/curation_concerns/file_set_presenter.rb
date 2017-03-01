@@ -6,9 +6,15 @@ module CurationConcerns
 
     # @param [SolrDocument] solr_document
     # @param [Ability] current_ability
-    def initialize(solr_document, current_ability)
+    def initialize(solr_document, current_ability, request = nil)
       @solr_document = solr_document
       @current_ability = current_ability
+      @request = request
+    end
+
+    # TODO: replace this?
+    def single_use_links
+      []
     end
 
     # CurationConcern methods
