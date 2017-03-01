@@ -26,7 +26,7 @@ module HydraDAM
         end
 
         def filenames
-          @filenames ||= [preingest_file, preingest_file.sub('_pbcore','')]
+          @filenames ||= [preingest_file]
         end
 
         def process_file(filename)
@@ -171,7 +171,6 @@ module HydraDAM
           get_attributes_set(:FILE_ATT_LOOKUPS)
         end
       end
-
       class PbcoreReader < XmlReader
         WORK_ATT_LOOKUPS = {
         }
@@ -180,12 +179,24 @@ module HydraDAM
           codec_type: '//instantiationMediaType[@version="mimetype"]',
           codec_name: '//instantiationDigital[@annotation="source file format"]',
           file_name: '//instantiationIdentifier[@source="source file name"]',
+          label: '//instantiationIdentifier[@source="source file name"]',
           file_size: '//instantiationFileSize',
           unit_of_origin: '//instantiationAnnotation[@annotationType="Department"]',
           md5_checksum: '//instantiationIdentifier[@source="source file MD5"]'
         }
         def type
           :pbcore
+        end
+        def use(_file_name_pattern)
+          :extracted_text
+        end
+        def media_file
+          { mime_type: mime_type,
+            path: id.sub('_pbcore', ''),
+            filename: id.to_s.sub(/.*\//, '').sub('_pbcore', ''),
+            file_opts: {},
+            use: 'service_file'
+          }
         end
       end
     end

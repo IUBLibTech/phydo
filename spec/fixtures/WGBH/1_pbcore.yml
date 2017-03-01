@@ -1,8 +1,4 @@
 ---
-:resource: Work
-:work_attributes: 
-:file_set_attributes: 
-:source_metadata: 
 :file_sets:
 - :filename: 1_pbcore.xml
   :attributes:
@@ -14,6 +10,7 @@
     - 'mimetype= video/x-matroska '
     file_name:
     - Barcode29455_Latimer01.mov.mkv
+    label: Barcode29455_Latimer01.mov.mkv
     format_file_size:
     - '8811009354'
     unit_of_origin:
@@ -25,6 +22,9 @@
     :path: spec/fixtures/WGBH/1_pbcore.xml
     :filename: 1_pbcore.xml
     :file_opts: {}
-    :use: original_file
-- :filename: 1.xml
-:sources: 
+    :use: extracted_text
+  - :mime_type: application/xml
+    :path: spec/fixtures/WGBH/1.xml
+    :filename: 1.xml
+    :file_opts: {}
+    :use: service_file

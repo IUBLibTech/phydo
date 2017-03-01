@@ -7,6 +7,7 @@
   dc: http://purl.org/dc/elements/1.1/
   dcterms: http://purl.org/dc/terms/
   iiif: http://iiif.io/api/presentation/2#
+  fedora: info:fedora/fedora-system:def/model#
   loc: http://id.loc.gov/vocabulary/identifiers/
   nfo: http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#
   mods: http://www.loc.gov/mods/rdf/v1#
@@ -101,8 +102,12 @@
     "@id": ebucore:bitRate
   file_name:
     "@id": ebucore:filename
+  label:
+    "@id": fedora:downloadFilename
   filename:
     "@id": ebucore:filename
+  format_file_size:
+    "@id": ebucore:fileSize
   file_size:
     "@id": ebucore:fileSize
   identifier:

@@ -14,33 +14,19 @@ class IngestYAMLJob < ActiveJob::Base
   private
 
     def ingest
-      resource = @yaml[:resource].constantize.new
-      if @yaml[:work_attributes].present?
-        @yaml[:work_attributes].each { |_set_name, attributes| resource.attributes = attributes }
+      if @yaml[:resource]
+        resource = @yaml[:resource].constantize.new
+        resource.attributes = @yaml[:work_attributes] if @yaml[:work_attributes].present?
+        resource.apply_depositor_metadata @user
+        resource.save!
+        logger.info "Created #{resource.class}: #{resource.id}"
+      else
+        resource = nil
+        logger.info "No parent resource specified."
       end
-      resource.source_metadata = @yaml[:source_metadata] if @yaml[:source_metadata].present?
-      resource.apply_depositor_metadata @user
-      resource.save!
-      logger.info "Created #{resource.class}: #{resource.id}"
 
-      # attach_sources resource
       ingest_file_sets(resource: resource, files: @yaml[:file_sets])
-      resource.save!
-    end
-
-    def attach_sources(resource)
-      return unless @yaml[:sources].present?
-      @yaml[:sources].each do |source|
-        attach_source(resource, source[:title], source[:file])
-      end
-    end
-
-    def attach_source(resource, title, file)
-      file_set = FileSet.new
-      file_set.title = title
-      actor = CurationConcerns::Actors::FileSetActor.new(file_set, @user)
-      actor.attach_related_object(resource)
-      actor.attach_content(File.open(file, 'r:UTF-8'))
+      resource.save! if resource
     end
 
     def ingest_file_sets(parent: nil, resource: nil, files: [])
@@ -62,9 +48,13 @@ class IngestYAMLJob < ActiveJob::Base
     end
 
     def ingest_files(resource, file_set, actor, files)
+      require './lib/phydo/file_actor/ingest_file_now.rb'
+      CurationConcerns::Actors::FileActor.prepend ::Phydo::FileActor::IngestFileNow
       files.each_with_index do |file, i|
         logger.info "FileSet #{file_set.id}: ingesting file: #{file[:filename]}"
         actor.create_metadata(resource, file[:file_opts]) if i.zero? && file[:path]
+        # TODO: fix curation_concerns characterization bug; workaround immediately below
+        file_set.class.characterization_proxy = file[:use]
         actor.create_content(decorated_file(file), file[:use]) if file[:path] #FIXME: handle purl case
       end
     end
