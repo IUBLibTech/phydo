@@ -6,10 +6,10 @@ module CurationConcerns
 
     # @param [SolrDocument] solr_document
     # @param [Ability] current_ability
-    # FIXME: better resolve expecting 2 vs 3 arguments...
-    def initialize(solr_document, current_ability, _foo)
+    def initialize(solr_document, current_ability, request = nil)
       @solr_document = solr_document
       @current_ability = current_ability
+      @request = request
     end
 
     # TODO: replace this?
