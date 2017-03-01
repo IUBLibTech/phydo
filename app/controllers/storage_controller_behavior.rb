@@ -46,11 +46,12 @@ module StorageControllerBehavior
 
   def file_set_solr_document
     # TODO: how to handle invalid ID?
-    @file_set_solr_document ||= curation_concern_type.load_instance_from_solr(params[:id])
+    # @file_set_solr_document ||= curation_concern_type.load_instance_from_solr(params[:id])
+    @file_set_solr_document ||= curation_concern_type.search_with_conditions(id: params[:id]).first
   end
 
   def filename
-    @filename ||= File.basename(file_set_solr_document.filename)
+    @filename ||= File.basename(file_set_solr_document['filename_tesim'].first)
   end
 
   def get_file_status
