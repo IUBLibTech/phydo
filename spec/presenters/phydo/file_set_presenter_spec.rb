@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe CurationConcerns::FileSetPresenter do
+describe Phydo::FileSetPresenter do
   let(:user) { User.create!(email: 'test@example.com', password: 'password') }
   let(:file_set) { fs = FileSet.new(label: 'Test label'); fs.apply_depositor_metadata(user); fs.save!; fs }
   let(:ability) { Ability.new(user) }

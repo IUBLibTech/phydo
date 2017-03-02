@@ -1,0 +1,11 @@
+<%# FIXME: temp override for curation concerns %>
+<tr class="attributes">
+  <td class="thumbnail"><%= member.try(:thumbnail) %></td>
+  <td class="attribute filename"><%= member.try(:filename) %></td>
+  <td class="attribute date_uploaded"><%= member.try(:date_uploaded) || @presenter.try(:date_uploaded) %></td>
+  <td class="attribute permission"><%= @presenter.permission_badge %></td>
+  <td>
+    <%= render 'actions', member: member %>
+  </td>
+</tr>
+
