@@ -51,7 +51,7 @@ module StorageControllerBehavior
   end
 
   def filename
-    @filename ||= File.basename(file_set_solr_document['filename_tesim'].first)
+    @filename ||= File.basename(file_set_solr_document['filename_tesim']&.first.to_s)
   end
 
   def get_file_status
