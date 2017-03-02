@@ -65,7 +65,7 @@ gem 'devise-guests', '~> 0.3'
 gem 'omniauth-cas'
 gem 'archive-tar-minitar', '~> 0.5.2'
 gem 'blacklight_range_limit', github: 'projectblacklight/blacklight_range_limit', branch: 'master'
-gem 'preservation', github: 'WGBH/hydradam-preservation', branch: 'HDM-843_smarter_rake_task_loading'
+gem 'preservation', github: 'WGBH/hydradam-preservation', branch: 'master'
 
 # TODO
 # This is part of a back port of a patch introduced in curation_concerns ~>
