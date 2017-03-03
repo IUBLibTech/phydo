@@ -11,8 +11,6 @@ module Concerns
       # directly_contains_one :exif, through: :files, type: ::RDF::URI('http://example.org/TODO-replace-with-actual-predicate'), class_name: 'XMLFile'
       # directly_contains_one :fits, through: :files, type: ::RDF::URI('http://example.org/TODO-replace-with-actual-predicate'), class_name: 'XMLFile'
 
-      # FIXME: which one is correct?
-      # property :date_generated, predicate: RDF::Vocab::EBUCore.dateDigitised do |index|
       property :date_generated, predicate: RDF::Vocab::EBUCore.dateCreated do |index|
          index.as :stored_searchable, :facetable, :stored_sortable
       end

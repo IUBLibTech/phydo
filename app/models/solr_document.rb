@@ -77,7 +77,7 @@ class SolrDocument
   end
 
   def date_generated
-    fetch(Solrizer.solr_name(:original_checksum, :stored_searchable), [])
+    fetch(Solrizer.solr_name(:date_generated, :stored_searchable), [])
   end
 
   def file_format_long_name
