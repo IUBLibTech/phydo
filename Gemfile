@@ -56,6 +56,13 @@ group :development, :test do
   gem 'capybara'
   gem 'webmock'
   gem 'coveralls', require: false
+  gem 'factory_girl_rails'
+  gem 'rails-controller-testing'
+  gem 'guard-rspec', require: false
+  gem 'guard-rubocop', require: false
+  gem 'rubocop', '~> 0.34.0', require: false
+  gem 'rubocop-rspec', '~> 1.3.0', require: false
+  gem 'simplecov', require: false
 end
 
 gem 'curation_concerns', '~> 1.6.3'
