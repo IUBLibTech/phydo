@@ -123,4 +123,8 @@ class SolrDocument
   def image_format
     fetch(Solrizer.solr_name(:image_format, :stored_searchable), [])
   end
+
+  def preservation_events
+    @preservation_events = Preservation::Event.search_with_conditions(hasEventRelatedObject_ssim: fetch(:id))
+  end
 end
