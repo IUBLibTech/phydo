@@ -31,14 +31,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-  gem 'pry-rails'
-  gem 'pry-nav'
-  gem 'rspec'
-end
-
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
@@ -56,13 +48,18 @@ group :development, :test do
   gem 'capybara'
   gem 'webmock'
   gem 'coveralls', require: false
-  gem 'factory_girl_rails'
   gem 'rails-controller-testing'
   gem 'guard-rspec', require: false
   gem 'guard-rubocop', require: false
   gem 'rubocop', '~> 0.34.0', require: false
   gem 'rubocop-rspec', '~> 1.3.0', require: false
   gem 'simplecov', require: false
+  gem 'byebug'
+  gem 'pry-rails'
+  gem 'pry-nav'
+  gem "factory_girl_rails", "~> 4.0", require: false
+  gem 'launchy'
+  gem 'database_cleaner'
 end
 
 gem 'curation_concerns', '~> 1.6.3'
