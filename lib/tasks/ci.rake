@@ -1,8 +1,8 @@
 # Do not build this rake task when in production environment.
 if Rails && !Rails.env.production?
-  namespace :hydradam do
+  namespace :phydo do
 
-    desc 'HydraDAM rspec task'
+    desc 'Phydo rspec task'
     RSpec::Core::RakeTask.new(:rspec) do |task|
       task.rspec_opts      = ENV['RSPEC_OPTS']            if ENV['RSPEC_OPTS'].present?
       task.pattern         = ENV['RSPEC_PATTERN']         if ENV['RSPEC_PATTERN'].present?
@@ -19,7 +19,7 @@ if Rails && !Rails.env.production?
         # TODO: get values from .solr-wrapper ?
         SolrWrapper.wrap(port: 8985, verbose: true) do |solr|
           solr.with_collection name: 'hydra-test', dir: File.join(Rails.root, 'solr', 'config') do
-            Rake::Task['hydradam:rspec'].invoke
+            Rake::Task['phydo:rspec'].invoke
           end
         end
       end

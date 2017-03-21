@@ -1,11 +1,11 @@
 require 'rails_helper'
-require 'hydradam/storage_proxy_client'
+require 'phydo/storage_proxy_client'
 
 describe  CurationConcerns::FileSetsController, type: :controller do
 
   let(:depositor) do
     User.create(
-        email: 'file_set.admin@hydradam.org',
+        email: 'file_set.admin@phydo.org',
         guest: false,
         password: 'password'
     )
@@ -34,7 +34,7 @@ describe  CurationConcerns::FileSetsController, type: :controller do
 
     describe 'configures a StorageProxyClient' do
       it 'can get StorageProxyClient connection' do
-        expect(subject.send(:storage_proxy)).to be_kind_of(HydraDAM::StorageProxyClient)
+        expect(subject.send(:storage_proxy)).to be_kind_of(Phydo::StorageProxyClient)
       end
     end
 

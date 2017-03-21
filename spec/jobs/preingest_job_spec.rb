@@ -1,8 +1,8 @@
 require 'rails_helper'
 # FIXME: improve automated library inclusion
-require './lib/hydradam/preingest/IU/tarball'
-require './lib/hydradam/preingest/IU/yaml'
-require './lib/hydradam/preingest/WGBH/sip'
+require './lib/phydo/preingest/IU/tarball'
+require './lib/phydo/preingest/IU/yaml'
+require './lib/phydo/preingest/WGBH/sip'
 require 'archive/tar/minitar'
 include Archive::Tar
 
@@ -26,7 +26,7 @@ RSpec.describe PreingestJob do
   end
 
   context 'for WGBH SIP' do
-    let(:document_class) { HydraDAM::Preingest::WGBH::SIP }
+    let(:document_class) { Phydo::Preingest::WGBH::SIP }
     let(:preingest_file) { Rails.root.join('spec', 'fixtures', 'WGBH', '1_pbcore.xml').to_s }
     let(:yaml_file) { Rails.root.join('spec', 'fixtures', 'WGBH', '1_pbcore.yml').to_s }
     # FIXME: kludge for full vs relative path variance
@@ -35,14 +35,14 @@ RSpec.describe PreingestJob do
   end
 
   context 'for IU YAML' do
-    let(:document_class) { HydraDAM::Preingest::IU::Yaml }
+    let(:document_class) { Phydo::Preingest::IU::Yaml }
     let(:preingest_file) { Rails.root.join('spec', 'fixtures', 'IU', 'sip.yml').to_s }
     let(:yaml_file) { preingest_file }
     include_examples 'preingests as expected'
   end
 
   context 'for an IU tarball' do
-    let(:document_class) { HydraDAM::Preingest::IU::Tarball }
+    let(:document_class) { Phydo::Preingest::IU::Tarball }
     let(:preingest_dir) { Rails.root.join('spec', 'fixtures', 'IU').to_s }
     let(:preingest_file) { Rails.root.join('spec', 'fixtures', 'IU', 'sip.tar').to_s }
     let(:yaml_file) { preingest_file.sub(/\.tar$/, '.yml') }

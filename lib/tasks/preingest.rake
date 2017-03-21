@@ -1,17 +1,17 @@
 # FIXME: configure library includes
-require './lib/hydradam/preingest/IU/tarball'
-require './lib/hydradam/preingest/IU/yaml'
-require './lib/hydradam/preingest/WGBH/sip'
+require './lib/phydo/preingest/IU/tarball'
+require './lib/phydo/preingest/IU/yaml'
+require './lib/phydo/preingest/WGBH/sip'
 
-namespace :hydradam do
+namespace :phydo do
   desc "Preingest one package of chosen type, at specified path"
   task :preingest, [:package_type] => :environment do |task, args|
     file = ARGV[1]
-    abort "usage: rake hydradam:preingest[package_type] /path/to/preingest/file" unless args.package_type && file
+    abort "usage: rake phydo:preingest[package_type] /path/to/preingest/file" unless args.package_type && file
     abort "File not found: #{file}" unless File.exists?(file)
     abort "Directory given instead of file: #{file}" if Dir.exists?(file)
     begin
-      class_string = "HydraDAM::Preingest::#{args.package_type}"
+      class_string = "Phydo::Preingest::#{args.package_type}"
       package_class = class_string.constantize
     rescue
       abort "unknown preingest pipeline: #{args.package_type} => #{class_string}"

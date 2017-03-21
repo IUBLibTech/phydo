@@ -1,6 +1,6 @@
-require './lib/hydradam/preingest/attribute_ingester.rb'
+require './lib/phydo/preingest/attribute_ingester.rb'
 
-module HydraDAM
+module Phydo
   module Preingest
     module WGBH
       class SIP
@@ -31,9 +31,9 @@ module HydraDAM
 
         def process_file(filename)
           file_set = { filename: File.basename(filename) }
-          file_reader = HydraDAM::Preingest::WGBH::FileReader.new(filename)
+          file_reader = Phydo::Preingest::WGBH::FileReader.new(filename)
           unless file_reader&.type.nil?
-            file_set_ai = HydraDAM::Preingest::AttributeIngester.new(file_reader.id, file_reader.file_attributes, factory: FileSet)
+            file_set_ai = Phydo::Preingest::AttributeIngester.new(file_reader.id, file_reader.file_attributes, factory: FileSet)
             file_set[:attributes] = file_set_ai.raw_attributes
             file_set[:files] = file_reader.files
             file_set[:events] = file_reader.events if file_reader.events

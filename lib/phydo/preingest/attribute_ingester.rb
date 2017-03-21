@@ -1,4 +1,4 @@
-module HydraDAM
+module Phydo
   module Preingest
     class AttributeIngester
       def initialize(source_id, source_attributes, factory: Work, context: CONTEXT)

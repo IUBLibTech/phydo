@@ -7,10 +7,10 @@ Rails.application.load_tasks
 
 unless Rails.env == 'production'
   task('spec').clear
-  desc 'Run HydraDAM specs'
-  task spec: 'hydradam:spec'
+  desc 'Run Phydo specs'
+  task spec: 'phydo:spec'
 
-  desc 'Run HydraDAM CI tests'
+  desc 'Run Phydo CI tests'
   task ci: 'spec'
 
   task default: 'ci'

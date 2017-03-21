@@ -1,4 +1,4 @@
-module HydraDAM
+module Phydo
   class StorageProxyClient
     attr_accessor :host, :port, :store, :cache, :api_prefix,
                   :store_path, :store_files_path, :cache_path, :cache_files_path

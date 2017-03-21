@@ -1,7 +1,7 @@
 # FIXME: better configure library includes
-require './lib/hydradam/preingest/attribute_ingester.rb'
+require './lib/phydo/preingest/attribute_ingester.rb'
 
-module HydraDAM
+module Phydo
   module Preingest
     module IU
       # TODO: Move Tarball instance methods that don't need to be public into
@@ -58,10 +58,10 @@ module HydraDAM
 
         def process_file(filename)
           file_set = { filename: filename.sub(/.*\//, '') }
-          file_reader = HydraDAM::Preingest::IU::FileReader.new(filename)
+          file_reader = Phydo::Preingest::IU::FileReader.new(filename)
           unless file_reader&.type.nil?
-            work_ai = HydraDAM::Preingest::AttributeIngester.new(file_reader.id, file_reader.attributes, factory: resource_class)
-            file_set_ai = HydraDAM::Preingest::AttributeIngester.new(file_reader.id, file_reader.file_attributes, factory: FileSet)
+            work_ai = Phydo::Preingest::AttributeIngester.new(file_reader.id, file_reader.attributes, factory: resource_class)
+            file_set_ai = Phydo::Preingest::AttributeIngester.new(file_reader.id, file_reader.file_attributes, factory: FileSet)
             if file_reader.type.in? [:pod, :mods, :mdpi]
               @work_attributes.merge!(work_ai.raw_attributes)
               @file_set_attributes.merge!(file_set_ai.raw_attributes)
