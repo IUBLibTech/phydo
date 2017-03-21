@@ -1,0 +1,21 @@
+<h2>Ingest Date/Time</h2>
+<%
+# TODO: use URL helepr instead of hardcoded "/catalog"?
+%>
+<form id="ingest_date_time_filter" action="/catalog">
+  <label>From</label>
+  <input name="ingest_date_time_after" value="<%= params['ingest_date_time_after'] %>" />
+  <label>To</label>
+  <input name="ingest_date_time_before" value="<%= params['ingest_date_time_before'] %>" />
+
+  <!-- TODO: This logic needs to be replicated for all filter forms. Better in a helper method? -->
+  <% Rack::Utils.parse_query(request.query_string).except("ingest_date_time_after", "ingest_date_time_before").each do |param, val| %>
+    <% # Sometimes `val` may be an array, but not always. So we just array-ify
+       # it here to cover both cases. %>
+    <% Array(val).each do |single_val| %>
+      <input type="hidden" name="<%= param %>" value="<%= single_val %>" />
+    <% end %>
+  <% end %>
+
+  <button type="submit">Submit</button>
+</form>

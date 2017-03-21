@@ -24,6 +24,14 @@ class FileSetIndexer < CurationConcerns::FileSetIndexer
 
       solr_doc[Solrizer.solr_name(:quality_level, :stored_searchable)] = object.quality_level
       solr_doc[Solrizer.solr_name(:original_checksum, :symbol)] = object.original_checksum
+
+      ingest_preservation_event = object.preservation_events.detect { |event| event.premis_event_type_abbr == 'ing' }
+      if ingest_preservation_event
+        Solrizer.set_field(solr_doc,
+                           'ingest_date_time',
+                           ingest_preservation_event.premis_event_date_time.first,
+                           :stored_searchable)
+      end
     end
   end
 end

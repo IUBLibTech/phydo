@@ -18,6 +18,12 @@
 
     <div class="input-group">
       <div class="input-group-btn">
+        <%
+        # TODO: the advanced_search_path URL helper sometimes makes a bogus URL. I think it is due to
+        # the fact that `params` sometimes has a param called "format", and the value of that param
+        # get's added as a pseudo file extension to the URL.
+        # For instance, I was getting /advanced.id=xzy.
+        %>
         <%= link_to 'Advanced Search', blacklight_advanced_search_engine.advanced_search_path(params.except(:controller, :action)), class: 'btn btn-primary advanced_search'%>
       </div>
     </div>
