@@ -1,4 +1,4 @@
-namespace :hydradam do
+namespace :phydo do
   desc "Ingest a YAML file"
   task ingest_yaml: :environment do
     file = ARGV[1]

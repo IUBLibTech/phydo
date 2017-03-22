@@ -1,4 +1,4 @@
-module HydraDAM
+module Phydo
   class StorageProxyPresenter
     attr_accessor :storage_proxy_response
 

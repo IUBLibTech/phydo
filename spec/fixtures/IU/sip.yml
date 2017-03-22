@@ -58,7 +58,7 @@
     :file_opts: {}
     :use: intermediate_file
     :md5sum: 7892355550C1105C0144D95EC7D3820F
-    :purl: https://purl.dlib.indiana.edu/iudl/hydradam2/MDPI/40000000054496/20160213-082528/MDPI_40000000054496_01_prod.wav
+    :purl: https://purl.dlib.indiana.edu/iudl/phydo2/MDPI/40000000054496/20160213-082528/MDPI_40000000054496_01_prod.wav
   :events:
   - :attributes:
       :premis_event_type:
@@ -201,7 +201,7 @@
     :file_opts: {}
     :use: service_file
     :md5sum: F4C3088D835D35D8741551CF4E8977F0
-    :purl: https://purl.dlib.indiana.edu/iudl/hydradam2/MDPI/40000000054496/20160213-082528/MDPI_40000000054496_01_access.mp4
+    :purl: https://purl.dlib.indiana.edu/iudl/phydo2/MDPI/40000000054496/20160213-082528/MDPI_40000000054496_01_access.mp4
   :events:
   - :attributes:
       :premis_event_type:
@@ -309,7 +309,7 @@
     :file_opts: {}
     :use: preservation_master_file
     :md5sum: A0F9E4C05B1307788734229C3023F191
-    :purl: https://purl.dlib.indiana.edu/iudl/hydradam2/MDPI/40000000054496/20160213-082528/MDPI_40000000054496_01_pres.wav
+    :purl: https://purl.dlib.indiana.edu/iudl/phydo2/MDPI/40000000054496/20160213-082528/MDPI_40000000054496_01_pres.wav
   :events:
   - :attributes:
       :premis_event_type:

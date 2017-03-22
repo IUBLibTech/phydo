@@ -1,10 +1,10 @@
-require 'hydradam/storage_proxy_client'
+require 'phydo/storage_proxy_client'
 require 'rspec'
 require 'rails_helper'
 require 'webmock/rspec'
 
 
-describe 'HydraDAM::StorageProxyClient' do
+describe 'Phydo::StorageProxyClient' do
 
   before(:each) do
     WebMock.disable_net_connect!
@@ -62,7 +62,7 @@ describe 'HydraDAM::StorageProxyClient' do
   end
 
   subject do
-    HydraDAM::StorageProxyClient.new
+    Phydo::StorageProxyClient.new
   end
 
   it 'provides methods for invoking proxy interactions' do

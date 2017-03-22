@@ -1,8 +1,8 @@
-require 'hydradam/presenters/storage_proxy_presenter'
+require 'phydo/presenters/storage_proxy_presenter'
 
 module StorageControllerBehavior
   extend ActiveSupport::Concern
-  require 'hydradam/storage_proxy_client'
+  require 'phydo/storage_proxy_client'
   
   def show
     begin
@@ -11,7 +11,7 @@ module StorageControllerBehavior
       storage_proxy_response = {"name" => @filename, "status" => 'disabled'}.to_json
     end
 
-    @storage_proxy_presenter = HydraDAM::StorageProxyPresenter.new(storage_proxy_response, file_set_solr_document)
+    @storage_proxy_presenter = Phydo::StorageProxyPresenter.new(storage_proxy_response, file_set_solr_document)
     super
   end
 
@@ -95,7 +95,7 @@ module StorageControllerBehavior
   end
 
   def storage_proxy
-    @storage_proxy ||= HydraDAM::StorageProxyClient.new
+    @storage_proxy ||= Phydo::StorageProxyClient.new
   end
 
 end

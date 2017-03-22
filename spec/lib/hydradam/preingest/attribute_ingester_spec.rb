@@ -1,7 +1,7 @@
 require 'rails_helper'
-require 'hydradam/preingest/attribute_ingester.rb' # FIXME: improve include config to deprecate this
+require 'phydo/preingest/attribute_ingester.rb' # FIXME: improve include config to deprecate this
 
-RSpec.describe HydraDAM::Preingest::AttributeIngester do
+RSpec.describe Phydo::Preingest::AttributeIngester do
   let(:id) { 'file:///foo/bar' }
   # NOTE: AttributeIngesterTestFactory defined below within this spec.
   let(:factory) { AttributeIngesterTestFactory }

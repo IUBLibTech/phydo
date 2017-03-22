@@ -1,7 +1,7 @@
 # FIXME: better configure library includes
-require './lib/hydradam/preingest/attribute_ingester.rb'
+require './lib/phydo/preingest/attribute_ingester.rb'
 
-module HydraDAM
+module Phydo
   module Preingest
     module IU
       class Yaml
@@ -18,10 +18,10 @@ module HydraDAM
         end
 
         def parse
-          @work_attributes = HydraDAM::Preingest::AttributeIngester.new(@preingest_file, @yaml[:work_attributes], factory: resource_class).raw_attributes
+          @work_attributes = Phydo::Preingest::AttributeIngester.new(@preingest_file, @yaml[:work_attributes], factory: resource_class).raw_attributes
           @file_sets = @yaml[:file_sets]
           @file_sets.select { |fs| fs[:attributes].present? }.each do |file_set|
-            file_set[:attributes] = HydraDAM::Preingest::AttributeIngester.new(@preingest_file, file_set[:attributes], factory: FileSet).raw_attributes
+            file_set[:attributes] = Phydo::Preingest::AttributeIngester.new(@preingest_file, file_set[:attributes], factory: FileSet).raw_attributes
           end
         end
       end

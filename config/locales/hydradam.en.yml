@@ -1,10 +1,10 @@
 en:
   curation_concerns:
-    product_name: "HydraDAM2"
+    product_name: "Phydo2"
     search:
       form:
         q:
-          label: "Search HydraDAM"
+          label: "Search Phydo"
     storage_proxy:
       actions:
         stage:

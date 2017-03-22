@@ -8,7 +8,7 @@ FactoryGirl.define do
 
     premis_event_type { [Preservation::PremisEventType.all.sample.uri] }
     premis_event_date_time { [DateTime.now - rand(30000).hours] }
-    sequence(:premis_agent) { |n| [::RDF::URI.new("mailto:premis_agent_#{n}@hydradam.org")] }
+    sequence(:premis_agent) { |n| [::RDF::URI.new("mailto:premis_agent_#{n}@phydo.org")] }
 
     after :build do |event, evaluator|
       if evaluator.premis_agent_email
