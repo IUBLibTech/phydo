@@ -62,7 +62,7 @@ group :development, :test do
   gem 'database_cleaner'
 end
 
-gem 'curation_concerns', '~> 1.6.3'
+gem 'hyrax'
 gem 'rsolr', '~> 1.0'
 gem 'devise'
 gem 'devise-guests', '~> 0.3'
