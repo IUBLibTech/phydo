@@ -1,8 +1,8 @@
 # Generated via
-#  `rails generate curation_concerns:work Work`
+#  `rails generate hyrax:work Work`
 
-class CurationConcerns::WorksController < ApplicationController
-  include CurationConcerns::CurationConcernController
+class Hyrax::WorksController < ApplicationController
+  include Hyrax::CurationConcernController
   self.curation_concern_type = Work
-  self.show_presenter = CurationConcerns::WorkPresenter
+  self.show_presenter = Hyrax::WorkPresenter
 end
