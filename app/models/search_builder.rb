@@ -6,7 +6,7 @@ class SearchBuilder < Blacklight::SearchBuilder
   # TODO: Where do these come from, and why are we adding them here?
   self.default_processor_chain += [:add_advanced_parse_q_to_solr, :add_advanced_search_to_solr, :apply_ingest_date_time_filter]
   include Hydra::AccessControlsEnforcement
-  include CurationConcerns::SearchFilters
+  include Hyrax::SearchFilters
 
 
   def filter_models(solr_parameters)

@@ -17,7 +17,7 @@ feature 'Create a Work' do
     end
 
     scenario do
-      visit new_curation_concerns_work_path
+      visit new_hyrax_work_path
       fill_in 'Title', with: 'Test Work'
       click_button 'Create Work'
       expect(page).to have_content 'Test Work'

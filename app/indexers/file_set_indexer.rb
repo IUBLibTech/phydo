@@ -1,4 +1,4 @@
-class FileSetIndexer < CurationConcerns::FileSetIndexer
+class FileSetIndexer < Hyrax::FileSetIndexer
 
   def generate_solr_document
     super.tap do |solr_doc|

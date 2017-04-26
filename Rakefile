@@ -15,3 +15,5 @@ unless Rails.env == 'production'
 
   task default: 'ci'
 end
+
+require 'solr_wrapper/rake_task' unless Rails.env.production?

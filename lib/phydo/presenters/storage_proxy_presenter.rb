@@ -29,32 +29,32 @@ module Phydo
       when :staged
         [
           # Download link
-          { title: I18n.t("curation_concerns.storage_proxy.actions.download.title"),
+          { title: I18n.t("hyrax.storage_proxy.actions.download.title"),
             link: @storage_proxy_response["url"] },
           # Fixity link
-          { title: I18n.t("curation_concerns.storage_proxy.actions.fixity.title"),
-            link: url_helpers.fixity_curation_concerns_file_set_path(@file_set_solr_document) },
+          { title: I18n.t("hyrax.storage_proxy.actions.fixity.title"),
+            link: url_helpers.fixity_hyrax_file_set_path(@file_set_solr_document) },
           # Unstage link
-          { title: I18n.t("curation_concerns.storage_proxy.actions.unstage.title"),
-            link: url_helpers.unstage_curation_concerns_file_set_path(@file_set_solr_document) }
+          { title: I18n.t("hyrax.storage_proxy.actions.unstage.title"),
+            link: url_helpers.unstage_hyrax_file_set_path(@file_set_solr_document) }
         ]
       when :not_cached
         [
           # Stage link
-          { title: I18n.t("curation_concerns.storage_proxy.actions.stage.title"),
-            link: url_helpers.stage_curation_concerns_file_set_path(@file_set_solr_document) },
+          { title: I18n.t("hyrax.storage_proxy.actions.stage.title"),
+            link: url_helpers.stage_hyrax_file_set_path(@file_set_solr_document) },
           # Fixity link
-          { title: I18n.t("curation_concerns.storage_proxy.actions.fixity.title"),
-            link: url_helpers.fixity_curation_concerns_file_set_path(@file_set_solr_document) }
+          { title: I18n.t("hyrax.storage_proxy.actions.fixity.title"),
+            link: url_helpers.fixity_hyrax_file_set_path(@file_set_solr_document) }
         ]
       when :calculating_checksum
         [
           # Download link
-          { title: I18n.t("curation_concerns.storage_proxy.actions.download.title"),
+          { title: I18n.t("hyrax.storage_proxy.actions.download.title"),
             link: @storage_proxy_response["url"] },
           # Unstage link
-          { title: I18n.t("curation_concerns.storage_proxy.actions.unstage.title"),
-            link: url_helpers.stage_curation_concerns_file_set_path(@file_set_solr_document) },
+          { title: I18n.t("hyrax.storage_proxy.actions.unstage.title"),
+            link: url_helpers.stage_hyrax_file_set_path(@file_set_solr_document) },
         ]
       when :disabled
         []
@@ -82,12 +82,12 @@ module Phydo
 
     def status_phrase
       status_phrases = {
-        not_cached: I18n.t("curation_concerns.storage_proxy.status_phrase.not_cached"),
-        staging: I18n.t("curation_concerns.storage_proxy.status_phrase.staging"),
-        staged: I18n.t("curation_concerns.storage_proxy.status_phrase.staged"),
-        unstaging: I18n.t("curation_concerns.storage_proxy.status_phrase.unstaging"),
-        calculating_checksum: I18n.t("curation_concerns.storage_proxy.status_phrase.calculating_checksum"),
-        disabled: I18n.t("curation_concerns.storage_proxy.status_phrase.disabled")
+        not_cached: I18n.t("hyrax.storage_proxy.status_phrase.not_cached"),
+        staging: I18n.t("hyrax.storage_proxy.status_phrase.staging"),
+        staged: I18n.t("hyrax.storage_proxy.status_phrase.staged"),
+        unstaging: I18n.t("hyrax.storage_proxy.status_phrase.unstaging"),
+        calculating_checksum: I18n.t("hyrax.storage_proxy.status_phrase.calculating_checksum"),
+        disabled: I18n.t("hyrax.storage_proxy.status_phrase.disabled")
       }
       status_phrases[status]
     end

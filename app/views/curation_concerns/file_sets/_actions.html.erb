@@ -1,5 +1,5 @@
 <%# FIXME: temp override %>
-<% if member.is_a? CurationConcerns::FilePresenter %>
+<% if member.is_a? Hyrax::FilePresenter %>
   <% if @presenter && can?(:read, @presenter.id) %>
     <%= link_to 'Download', member.uri %>
   <% else %>

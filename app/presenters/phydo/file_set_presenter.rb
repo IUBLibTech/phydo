@@ -1,5 +1,5 @@
 module Phydo
-  class FileSetPresenter < ::CurationConcerns::FileSetPresenter
+  class FileSetPresenter < ::Hyrax::FileSetPresenter
     include ActionView::Helpers::UrlHelper
 
     def link_name
@@ -7,7 +7,7 @@ module Phydo
     end
 
     def member_presenters
-      files.map { |file| ::CurationConcerns::FilePresenter.new(file, @current_ability, @request) }
+      files.map { |file| ::Hyrax::FilePresenter.new(file, @current_ability, @request) }
     end
 
     def files

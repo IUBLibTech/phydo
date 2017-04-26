@@ -3,8 +3,8 @@
 class Work < ActiveFedora::Base
 
   FIXITY_TYPE = :md5
-  include ::CurationConcerns::WorkBehavior
-  include ::CurationConcerns::BasicMetadata
+  include ::Hyrax::WorkBehavior
+  include ::Hyrax::BasicMetadata
   include Concerns::WorkBehavior
     # validates :title, presence: { message: 'Your work must have a title.' }
 

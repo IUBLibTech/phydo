@@ -1,6 +1,6 @@
-module CurationConcerns
+module Hyrax
   class FileSetsController < ApplicationController
-    include CurationConcerns::FileSetsControllerBehavior
+    include Hyrax::FileSetsControllerBehavior
     include ::StorageControllerBehavior
 
     # override FileSetControllerBehavior to use customized presenter class

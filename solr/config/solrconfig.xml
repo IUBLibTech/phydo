@@ -64,7 +64,7 @@
 
     <autoCommit>
       <maxTime>${solr.autoCommit.maxTime:15000}</maxTime>
-      <openSearcher>true</openSearcher>
+      <openSearcher>false</openSearcher>
     </autoCommit>
 
     <autoSoftCommit>
@@ -101,10 +101,13 @@
             http://wiki.apache.org/solr/LocalParams
        -->
         <str name="qf">
-          _text_
+          id
+          title_tesim
+          author_tesim
+          subject_tesim
         </str>
         <str name="pf">
-          _text_^10
+          all_text_timv^10
         </str>
 
        <str name="author_qf">
@@ -182,6 +185,17 @@
       <str name="rows">1</str>
       <str name="q">{!term f=id v=$id}</str> <!-- use id=666 instead of q=id:666 -->
     </lst>
+  </requestHandler>
+
+  <searchComponent name="termsComponent" class="solr.TermsComponent" />
+
+  <requestHandler name="/terms" class="solr.SearchHandler">
+    <lst name="defaults">
+      <bool name="terms">true</bool>
+    </lst>
+    <arr name="components">
+      <str>termsComponent</str>
+    </arr>
   </requestHandler>
 
 <!-- Spell Check

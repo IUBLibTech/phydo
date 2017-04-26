@@ -1,8 +1,23 @@
 class User < ActiveRecord::Base
   # Connects this user object to Hydra behaviors.
   include Hydra::User
+  # Connects this user object to Hyrax behaviors.
+  include Hyrax::User
+  include Hyrax::UserUsageStats
+
+
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+  # Connects this user object to Hydra behaviors.
+  include Hydra::User
+  # Connects this user object to Hyrax behaviors.
+  include Hyrax::User
+  include Hyrax::UserUsageStats
+
   # Connects this user object to Curation Concerns behaviors.
-  include CurationConcerns::User
+  include Hyrax::User
 
 
 

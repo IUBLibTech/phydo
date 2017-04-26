@@ -1,25 +1,23 @@
 Rails.application.routes.draw do
 
-  mount Preservation::Engine, at: '/preservation'
-  concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
-  mount Blacklight::Engine => '/'
-  mount BlacklightAdvancedSearch::Engine => '/'
 
-  concern :searchable, Blacklight::Routes::Searchable.new
+
+  
+  mount Blacklight::Engine => '/'
+  
+    concern :searchable, Blacklight::Routes::Searchable.new
 
   resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
     concerns :searchable
-    concerns :range_searchable
   end
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-
+  devise_for :users
+  mount Qa::Engine => '/authorities'
   mount Hyrax::Engine, at: '/'
   resources :welcome, only: 'index'
-  root 'welcome#index'
-  hyrax_collections
-  hyrax_basic_routes
-  hyrax_embargo_management
+  root 'hyrax/homepage#index'
+  curation_concerns_basic_routes
+  curation_concerns_embargo_management
   concern :exportable, Blacklight::Routes::Exportable.new
 
   resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog' do
@@ -33,6 +31,39 @@ Rails.application.routes.draw do
       delete 'clear'
     end
   end
+
+  mount Preservation::Engine, at: '/preservation'
+  concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
+  # mount Blacklight::Engine => '/'
+  # mount BlacklightAdvancedSearch::Engine => '/'
+
+  # concern :searchable, Blacklight::Routes::Searchable.new
+  #
+  # resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
+  #   concerns :searchable
+  #   concerns :range_searchable
+  # end
+
+  # devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+  # mount Hyrax::Engine, at: '/'
+  # resources :welcome, only: 'index'
+  # root 'welcome#index'
+  # curation_concerns_basic_routes
+  # curation_concerns_embargo_management
+  # concern :exportable, Blacklight::Routes::Exportable.new
+
+  # resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog' do
+  #   concerns :exportable
+  # end
+
+  # resources :bookmarks do
+  #   concerns :exportable
+  #
+  #   collection do
+  #     delete 'clear'
+  #   end
+  # end
 
   # Adds routes to large file interactions provided through Phydo::StorageControllerBehavior
   get '/concern/file_sets/:id/file_status' => 'hyrax/file_sets#file_status', as: :file_status_hyrax_file_set

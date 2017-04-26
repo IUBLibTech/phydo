@@ -36,7 +36,7 @@ class IngestYAMLJob < ActiveJob::Base
         file_set.attributes = f[:attributes]
         file_set.apply_depositor_metadata(@user)
         file_set.save!
-        actor = CurationConcerns::Actors::FileSetActor.new(file_set, @user)
+        actor = Hyrax::Actors::FileSetActor.new(file_set, @user)
         ingest_files(resource, file_set, actor, f[:files]) if f[:files].present?
         ingest_events(file_set, f[:events]) if f[:events].present?
         add_ingestion_event(file_set)
@@ -49,7 +49,7 @@ class IngestYAMLJob < ActiveJob::Base
 
     def ingest_files(resource, file_set, actor, files)
       require './lib/phydo/file_actor/ingest_file_now.rb'
-      CurationConcerns::Actors::FileActor.prepend ::Phydo::FileActor::IngestFileNow
+      Hyrax::Actors::FileActor.prepend ::Phydo::FileActor::IngestFileNow
       files.each_with_index do |file, i|
         logger.info "FileSet #{file_set.id}: ingesting file: #{file[:filename]}"
         actor.create_metadata(resource, file[:file_opts]) if i.zero? && file[:path]

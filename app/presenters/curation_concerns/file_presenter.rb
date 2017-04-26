@@ -1,4 +1,4 @@
-module CurationConcerns
+module Hyrax
   class FilePresenter
     attr_accessor :file, :current_ability, :request
 

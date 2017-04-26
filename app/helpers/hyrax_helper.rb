@@ -1,4 +1,5 @@
 module HyraxHelper
   include ::BlacklightHelper
-  include Hyrax::MainAppHelpers
+  include Hyrax::BlacklightOverride
+  include Hyrax::HyraxHelperBehavior
 end

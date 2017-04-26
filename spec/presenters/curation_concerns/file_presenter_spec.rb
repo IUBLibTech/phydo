@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe CurationConcerns::FilePresenter do
+describe Hyrax::FilePresenter do
   let(:user) { User.create!(email: 'test@example.com', password: 'password') }
   let(:file_set) { fs = FileSet.new(label: 'Test label'); fs.apply_depositor_metadata(user); fs.save!; fs }
   let(:file) { f = Hydra::PCDM::File.new }
