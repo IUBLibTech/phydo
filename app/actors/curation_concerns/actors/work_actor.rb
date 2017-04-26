@@ -1,11 +1,11 @@
 # Generated via
-#  `rails generate curation_concerns:work Work`
-module CurationConcerns
+#  `rails generate hyrax:work Work`
+module Hyrax
   module Actors
-    class WorkActor < CurationConcerns::Actors::BaseActor
+    class WorkActor < Hyrax::Actors::BaseActor
     end
   end
   # FIXME: resolve this kludge so we just define WorkActor at one level
-  class WorkActor < CurationConcerns::Actors::BaseActor
+  class WorkActor < Hyrax::Actors::BaseActor
   end
 end
