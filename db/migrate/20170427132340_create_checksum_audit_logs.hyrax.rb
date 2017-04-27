@@ -1,3 +1,4 @@
+# This migration comes from hyrax (originally 20160328222153)
 class CreateChecksumAuditLogs < ActiveRecord::Migration
   def self.up
     create_table :checksum_audit_logs do |t|
@@ -7,7 +8,7 @@ class CreateChecksumAuditLogs < ActiveRecord::Migration
       t.integer :pass
       t.string :expected_result
       t.string :actual_result
-      t.timestamps
+      t.timestamps null: false
     end
     add_index :checksum_audit_logs, [:file_set_id, :file_id], name: 'by_file_set_id_and_file_id', order: { created_at: 'DESC' }
   end

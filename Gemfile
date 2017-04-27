@@ -93,3 +93,15 @@ end
 group :development, :test do
   gem 'fcrepo_wrapper'
 end
+
+group :development, :test do
+end
+
+group :development, :test do
+end
+
+group :development, :test do
+end
+
+group :development, :test do
+end

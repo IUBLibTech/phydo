@@ -1,3 +1,4 @@
+# This migration comes from hyrax (originally 20160328222152)
 class CreateVersionCommitters < ActiveRecord::Migration
   def self.up
     create_table :version_committers do |t|
@@ -5,7 +6,7 @@ class CreateVersionCommitters < ActiveRecord::Migration
       t.string :datastream_id
       t.string :version_id
       t.string :committer_login
-      t.timestamps
+      t.timestamps null: false
     end
   end
 

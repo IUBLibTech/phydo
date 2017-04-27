@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   # Connects this user object to Hydra behaviors.
   include Hydra::User
+
+  # Connects this user object to Hydra behaviors.
+  include Hydra::User
   # Connects this user object to Hyrax behaviors.
   include Hyrax::User
   include Hyrax::UserUsageStats

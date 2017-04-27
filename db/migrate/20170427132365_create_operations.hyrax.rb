@@ -1,3 +1,4 @@
+# This migration comes from hyrax (originally 20160427155928)
 class CreateOperations < ActiveRecord::Migration
   def change
     create_table :curation_concerns_operations do |t|

@@ -1,3 +1,4 @@
+# This migration comes from hyrax (originally 20160328222154)
 class CreateSingleUseLinks < ActiveRecord::Migration
   def change
     create_table :single_use_links do |t|
@@ -6,7 +7,7 @@ class CreateSingleUseLinks < ActiveRecord::Migration
       t.string :itemId
       t.datetime :expires
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
