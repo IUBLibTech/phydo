@@ -1,5 +1,5 @@
 # Generated via
-#  `rails generate curation_concerns:work Work`
+#  `rails generate hyrax:work Work`
 class Work < ActiveFedora::Base
 
   FIXITY_TYPE = :md5

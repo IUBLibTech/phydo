@@ -6,9 +6,6 @@ class SolrDocument
   # Adds Hyrax behaviors to the SolrDocument.
   include Hyrax::SolrDocumentBehavior
 
-  # Adds CurationConcerns behaviors to the SolrDocument.
-  include Hyrax::SolrDocumentBehavior
-
 
   # self.unique_key = 'id'
 
