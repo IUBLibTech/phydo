@@ -1,7 +1,7 @@
 GIT
   remote: git://github.com/IUBLibTech/hyrax-preservation.git
-  revision: d61d8657eb60607145619860557897c464366c4f
-  branch: HDM-941_upgrade_from_cc_to_hyrax
+  revision: 8433aeaa60193e4fab25586365dee76e6d645529
+  branch: master
   specs:
     preservation (0.1.0)
       hyrax
@@ -19,7 +19,7 @@ GIT
 
 GIT
   remote: git://github.com/projecthydra-labs/hyrax.git
-  revision: 9145cd3d8a8c39d6e2572bcd4f1553270329a510
+  revision: d3432c98985728c2d66b0d7455158ef16df6f166
   branch: 1-0-stable
   specs:
     hyrax (1.0.0.rc1)

@@ -69,7 +69,7 @@ gem 'devise'
 gem 'omniauth-cas'
 gem 'archive-tar-minitar', '~> 0.5.2'
 gem 'blacklight_range_limit', github: 'projectblacklight/blacklight_range_limit', branch: 'master'
-gem 'preservation', github: 'IUBLibTech/hyrax-preservation', branch: 'HDM-941_upgrade_from_cc_to_hyrax'
+gem 'preservation', github: 'IUBLibTech/hyrax-preservation', branch: 'master'
 
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
