@@ -7,7 +7,7 @@ class FileSetIndexer < Hyrax::FileSetIndexer
 
       # Change indexing strategy for file_size from 32-bit ingteger to a
       # 'long' integer.
-      solr_doc.delete Solrizer.solr_name(:file_size, STORED_INTEGER)
+      solr_doc.delete Solrizer.solr_name(:file_size, STORED_LONG)
       solr_doc[Solrizer.solr_name(:file_size, Solrizer::Descriptor.new(:long, :stored, :indexed))] = object.file_size[0].to_i
 
       # Add a field for file_size in MB to use for range queries.
