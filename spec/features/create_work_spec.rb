@@ -19,7 +19,7 @@ feature 'Create a Work' do
     scenario do
       visit new_hyrax_work_path
       fill_in 'Title', with: 'Test Work'
-      click_button 'Create Work'
+      click_button 'Save'
       expect(page).to have_content 'Test Work'
     end
   end
