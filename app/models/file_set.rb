@@ -1,5 +1,5 @@
 class FileSet < ActiveFedora::Base
-  include ::CurationConcerns::FileSetBehavior
+  include ::Hyrax::FileSetBehavior
   include ::Concerns::FileSetBehavior
 
   directly_contains_one :service_file, through: :files, type: ::RDF::URI('http://pcdm.org/use#ServiceFile'), class_name: 'Hydra::PCDM::File'

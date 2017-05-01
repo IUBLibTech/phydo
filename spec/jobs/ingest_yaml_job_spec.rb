@@ -11,7 +11,7 @@ RSpec.describe IngestYAMLJob do
     let(:file) { described_class.new.send(:decorated_file, file_hash) }
     let(:actor1) { double('actor1') }
     before do
-      allow(CurationConcerns::Actors::FileSetActor).to receive(:new).and_return(actor1)
+      allow(Hyrax::Actors::FileSetActor).to receive(:new).and_return(actor1)
       allow(FileSet).to receive(:new).and_return(fileset)
       allow(Work).to receive(:new).and_return(resource1)
       allow(fileset).to receive(:id).and_return('file1')
