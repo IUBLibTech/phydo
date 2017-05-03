@@ -3,7 +3,7 @@ require 'phydo/presenters/storage_proxy_presenter'
 module StorageControllerBehavior
   extend ActiveSupport::Concern
   require 'phydo/storage_proxy_client'
-  
+
   def show
     begin
       storage_proxy_response = storage_proxy.status(filename).body
@@ -18,36 +18,37 @@ module StorageControllerBehavior
   def stage
     begin
       stage_file filename
-      redirect_to main_app.url_for(file_set_solr_document), notice: "Stage request for #{filename} has been sent"
+      redirect_options = { notice: "Stage request for #{filename} has been sent" }
     rescue Faraday::ConnectionFailed => e
-      redirect_to main_app.url_for(file_set_solr_document), alert: "ERROR: Stage request for #{filename} failed."
+      redirect_options = { alert: "ERROR: Stage request for #{filename} failed." }
     end
+    redirect_to(main_app.url_for(controller: :file_sets, action: :show, id: params[:id]), redirect_options)
   end
 
   def unstage
     begin
       unstage_file filename
-      redirect_to main_app.url_for(file_set_solr_document), notice: "Unstage request for #{filename} has been sent"
+      redirect_options = { notice: "Unstage request for #{filename} has been sent" }
     rescue Faraday::ConnectionFailed => e
-      redirect_to main_app.url_for(file_set_solr_document), alert: "ERROR: Unstage request for #{filename} failed."
+      redirect_options = { alert: "ERROR: Unstage request for #{filename} failed." }
     end
+    redirect_to(main_app.url_for(controller: :file_sets, action: :show, id: params[:id]), redirect_options)
   end
 
   def fixity
     begin
       check_fixity filename
-      redirect_to main_app.url_for(file_set_solr_document), notice: "Fixity check request for #{filename} has been sent"
+      redirect_options = { notice: "Fixity check request for #{filename} has been sent" }
     rescue Faraday::ConnectionFailed => e
-      redirect_to main_app.url_for(file_set_solr_document), alert: "ERROR: Fixity check request for #{filename} failed."
+      redirect_options = { alert: "ERROR: Fixity check request for #{filename} failed." }
     end
+    redirect_to(main_app.url_for(controller: :file_sets, action: :show, id: params[:id]), redirect_options)
   end
 
   private
 
   def file_set_solr_document
-    # TODO: how to handle invalid ID?
-    # @file_set_solr_document ||= curation_concern_type.load_instance_from_solr(params[:id])
-    @file_set_solr_document ||= curation_concern_type.search_with_conditions(id: params[:id]).first
+    @file_set_solr_document ||= FileSet.search_with_conditions(id: params[:id]).first
   end
 
   def filename
