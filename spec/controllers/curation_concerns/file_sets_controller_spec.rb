@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CurationConcerns::FileSetsController do
+RSpec.describe Hyrax::FileSetsController do
   let(:file_set) { FactoryGirl.build(:file_set, user: user) }
   let(:user) { FactoryGirl.create(:user) }
   render_views

@@ -2,12 +2,12 @@ require 'rails_helper'
 
 describe Phydo::FileSetPresenter do
   let(:user) { User.create!(email: 'test@example.com', password: 'password') }
-  let(:file_set) { fs = FileSet.new(label: 'Test label'); fs.apply_depositor_metadata(user); fs.save!; fs }
+  let(:file_set) { fs = FileSet.new(title: ['Test label']); fs.apply_depositor_metadata(user); fs.save!; fs }
   let(:ability) { Ability.new(user) }
   let(:presenter) { described_class.new(SolrDocument.new(file_set.to_solr), ability) }
   describe '#page_title' do
-    it 'returns the label value' do
-      expect(presenter.page_title).to eq file_set.label
+    it 'returns the first title of the FileSet' do
+      expect(presenter.page_title).to eq file_set.title.first
     end
   end
   describe '#link_name' do

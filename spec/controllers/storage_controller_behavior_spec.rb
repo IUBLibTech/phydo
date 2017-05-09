@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'phydo/storage_proxy_client'
 
-describe  CurationConcerns::FileSetsController, type: :controller do
+describe  Hyrax::FileSetsController, type: :controller do
 
   let(:depositor) do
     User.create(
@@ -16,19 +16,19 @@ describe  CurationConcerns::FileSetsController, type: :controller do
     describe 'adds routing' do
       it "routes get file_status" do
         expect(:get => "/concern/file_sets/bar/file_status").
-            to route_to(:controller => "curation_concerns/file_sets", :action => "file_status", :id => "bar")
+            to route_to(:controller => "hyrax/file_sets", :action => "file_status", :id => "bar")
       end
       it "routes get stage" do
         expect(:get => "/concern/file_sets/bar/stage").
-            to route_to(:controller => "curation_concerns/file_sets", :action => "stage", :id => "bar")
+            to route_to(:controller => "hyrax/file_sets", :action => "stage", :id => "bar")
       end
       it "routes get unstage" do
         expect(:get => "/concern/file_sets/bar/unstage").
-            to route_to(:controller => "curation_concerns/file_sets", :action => "unstage", :id => "bar")
+            to route_to(:controller => "hyrax/file_sets", :action => "unstage", :id => "bar")
       end
       it "routes get fixity" do
         expect(:get => "/concern/file_sets/bar/fixity").
-            to route_to(:controller => "curation_concerns/file_sets", :action => "fixity", :id => "bar")
+            to route_to(:controller => "hyrax/file_sets", :action => "fixity", :id => "bar")
       end
     end
 

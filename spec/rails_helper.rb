@@ -8,6 +8,7 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/rails'
 require 'rails-controller-testing'
+require 'active_fedora/cleaner'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -41,41 +42,12 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = false
 
+  # Use conventional locations to infer the spec type, rather than requiring
+  # metadata to indicate the spec type.
+  config.infer_spec_type_from_file_location!
+
   # Include methods for logging in, etc.
   config.include Warden::Test::Helpers
-
-  # Handle database cleaning
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :truncation
-    DatabaseCleaner.clean_with :truncation
-  end
-
-  config.around(:each) do |example|
-    DatabaseCleaner.cleaning do
-      example.run
-    end
-  end
-
-  # Recommended here:
-  #  https://github.com/plataformatec/devise/wiki/How-To:-Test-with-Capybara
-  config.after(:each) do
-    Warden.test_reset!
-  end
-
-  # RSpec Rails can automatically mix in different behaviours to your tests
-  # based on their file location, for example enabling you to call `get` and
-  # `post` in specs under `spec/controllers`.
-  #
-  # You can disable this behaviour by removing the line below, and instead
-  # explicitly tag your specs with their type, e.g.:
-  #
-  #     RSpec.describe UsersController, :type => :controller do
-  #       # ...
-  #     end
-  #
-  # The different available types are documented in the features, such as in
-  # https://relishapp.com/rspec/rspec-rails/docs
-  config.infer_spec_type_from_file_location!
 
   # Devise helpers
   # From https://github.com/plataformatec/devise#test-helpers
@@ -85,7 +57,32 @@ RSpec.configure do |config|
   # Use FactoryGirl shortcut methods, like `create` instead of `FactoryGirl.create`
   config.include FactoryGirl::Syntax::Methods
 
+
   config.before(:suite) do
+    # Handle database cleaning
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.clean_with :truncation
+
+    # Find factory definitions.
     FactoryGirl.find_definitions
+  end
+
+  config.before(:each) do |example|
+    # Pass `:clean' to destroy objects in fedora/solr and start from scratch
+    ActiveFedora::Cleaner.clean! if example.metadata[:clean_fedora]
+    DatabaseCleaner.start
+  end
+
+
+  # Taken from Hyku
+  # See:https://github.com/projecthydra-labs/hyku/blob/5a9eb5655a4216986acb39763f290e3d4c51d3a4/spec/rails_helper.rb
+  config.after(:each, type: :feature) do
+    Warden.test_reset!
+    Capybara.reset_sessions!
+    page.driver.reset!
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
   end
 end

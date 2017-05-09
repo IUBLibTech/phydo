@@ -62,10 +62,9 @@ group :development, :test do
   gem 'database_cleaner'
 end
 
-gem 'curation_concerns', github: 'projecthydra/curation_concerns', ref: 'v2.0.0.rc2'
-gem 'rsolr', '~> 1.0'
+gem 'hyrax', github: 'projecthydra-labs/hyrax', branch: '1-0-stable'
 gem 'devise'
-gem 'devise-guests', '~> 0.3'
+
 gem 'omniauth-cas'
 gem 'archive-tar-minitar', '~> 0.5.2'
 gem 'blacklight_range_limit', github: 'projectblacklight/blacklight_range_limit', branch: 'master'
@@ -73,16 +72,11 @@ gem 'preservation', github: 'IUBLibTech/hyrax-preservation', branch: 'master'
 
 # CC v2.0.0 seems to not include BL advanced search anymore?
 gem 'blacklight_advanced_search', '~> 6.2.1'
+gem 'rsolr', '~> 1.0'
+gem 'devise-guests', '~> 0.5'
 
-# TODO
-# This is part of a back port of a patch introduced in curation_concerns ~>
-# 1.7.x. This should not be required after upgrading to cuation_concerns ~>
-# 1.7.x. See https://github.com/projecthydra/curation_concerns/pull/1061/files
-gem 'active_fedora-noid', '~> 2.0.0-beta5'
+group :development, :test do
+  gem 'fcrepo_wrapper'
+  gem 'solr_wrapper', '>= 0.3'
+end
 
-
-# TODO
-# These are added as a convenient way to get Solr and Fedora running on a demo.
-# Do we want to run these in production, or have something more robust?
-gem 'solr_wrapper'
-gem 'fcrepo_wrapper'

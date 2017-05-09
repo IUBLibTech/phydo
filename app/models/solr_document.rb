@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 class SolrDocument
   include Blacklight::Solr::Document
-  # Adds CurationConcerns behaviors to the SolrDocument.
-  include CurationConcerns::SolrDocumentBehavior
+  include Blacklight::Gallery::OpenseadragonSolrDocument
+
+  # Adds Hyrax behaviors to the SolrDocument.
+  include Hyrax::SolrDocumentBehavior
 
 
   # self.unique_key = 'id'

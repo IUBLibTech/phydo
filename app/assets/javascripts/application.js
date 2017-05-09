@@ -11,15 +11,18 @@
 // about supported directives.
 //
 //= require jquery
-//= require 'blacklight_advanced_search'
 
 
 //= require jquery_ujs
+//= require dataTables/jquery.dataTables
+//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require turbolinks//
 // Required by Blacklight
 //= require blacklight/blacklight
 
 //= require_tree .
+//= require hyrax
+
 
 
 // For blacklight_range_limit built-in JS, if you don't want it you don't need
