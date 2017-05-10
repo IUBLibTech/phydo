@@ -20,3 +20,5 @@
 .coveralls.yml
 
 /.idea
+
+dump.rdb
