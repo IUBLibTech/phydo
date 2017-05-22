@@ -4,6 +4,7 @@
 ---
 "@context":
   id: "@id"
+  bf: http://id.loc.gov/ontologies/bibframe/
   dc: http://purl.org/dc/elements/1.1/
   dcterms: http://purl.org/dc/terms/
   iiif: http://iiif.io/api/presentation/2#
@@ -40,7 +41,7 @@
   original_identifier:
     "@id": ebucore:hasSource
   original_format:
-    "@id": dc:format
+    "@id": ebucore:hasFormat
   recording_standard:
     "@id": ebucore:hasStandard
   tape_stock_brand:
@@ -100,8 +101,8 @@
     "@id": ebucore:duration
   bit_rate:
     "@id": ebucore:bitRate
-  file_name:
-    "@id": ebucore:filename
+  #file_name:
+  #  "@id": ebucore:filename
   label:
     "@id": fedora:downloadFilename
   filename:
