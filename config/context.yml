@@ -60,24 +60,24 @@
     "@id": skos:changeNote
   encoder_manufacturer:
     "@id": premisrdf:hasHardwareOtherInformation
-  #encoder_model:
-  #  "@id": premisrdf:hasHardwareOtherInformation
-  #encoder_serial_number:
-  #  "@id": premisrdf:hasHardwareOtherInformation
+  encoder_model:
+    "@id": premisrdf:hasHardwareOtherInformation
+  encoder_serial_number:
+    "@id": premisrdf:hasHardwareOtherInformation
   ad_manufacturer:
     "@id": premisrdf:hasHardwareName
-  #ad_model:
-  #  "@id": premisrdf:hasHardwareName
-  #ad_serial_number:
-  #  "@id": premisrdf:hasHardwareName
+  ad_model:
+    "@id": premisrdf:hasHardwareName
+  ad_serial_number:
+    "@id": premisrdf:hasHardwareName
   speed_used:
     "@id": ebucore:playbackSpeed
   tbc_manufacturer:
     "@id": premisrdf:hasHardwareName
-  #tbc_model:
-  #  "@id": premisrdf:hasHardwareName
-  #tbc_serial_number:
-  #  "@id": premisrdf:hasHardwareName
+  tbc_model:
+    "@id": premisrdf:hasHardwareName
+  tbc_serial_number:
+   "@id": premisrdf:hasHardwareName
   tape_thickness:
     "@id": dcterms:description
   total_parts:
@@ -95,30 +95,30 @@
     "@id": ebucore:hasMedium
   codec_name:
     "@id": ebucore:hasCodec
-  #codec_long_name:
-  #  "@id": ebucore:codecName
+  codec_long_name:
+    "@id": ebucore:codecName
   format_duration:
     "@id": ebucore:duration
   bit_rate:
     "@id": ebucore:bitRate
-  #file_name:
-  #  "@id": ebucore:filename
+  file_name:
+    "@id": ebucore:filename
   label:
     "@id": fedora:downloadFilename
   filename:
     "@id": ebucore:filename
-  #format_file_size:
-  #  "@id": ebucore:fileSize
+  format_file_size:
+    "@id": ebucore:fileSize
   file_size:
     "@id": ebucore:fileSize
   identifier:
     "@id": ebucore:identifier
-  #unit_of_origin:
-  #  "@id": ebucore:comments
-  #unit_of_origin_statement:
-  #  "@id": ebucore:comments
-  #alternative_unit_of_origin_statement:
-  #  "@id": ebucore:comments
+  unit_of_origin:
+    "@id": ebucore:comments
+  unit_of_origin_statement:
+    "@id": ebucore:comments
+  alternative_unit_of_origin_statement:
+    "@id": ebucore:comments
   part:
     "@id": ebucore:partNumber
   format_sample_rate:
