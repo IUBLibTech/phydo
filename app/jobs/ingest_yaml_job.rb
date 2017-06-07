@@ -52,7 +52,7 @@ class IngestYAMLJob < ActiveJob::Base
       Hyrax::Actors::FileActor.prepend ::Phydo::FileActor::IngestFileNow
       files.each_with_index do |file, i|
         logger.info "FileSet #{file_set.id}: ingesting file: #{file[:filename]}"
-        actor.create_metadata(resource, file[:file_opts]) if i.zero? && file[:path]
+        actor.create_metadata(file[:file_opts]) if i.zero? && file[:path]
         # TODO: fix hyrax characterization bug; workaround immediately below
         file_set.class.characterization_proxy = file[:use]
         actor.create_content(decorated_file(file), file[:use]) if file[:path] #FIXME: handle purl case
