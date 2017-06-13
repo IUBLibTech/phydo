@@ -5,6 +5,28 @@ class IngestYAMLJob < ActiveJob::Base
   # @param [String] user User to ingest as
   def perform(yaml_file, user)
     logger.info "Ingesting YAML #{yaml_file}"
+    
+    # Tell AddFileToFileSet service to skip versioning because versions will be minted by VersionCommitter (called by save_characterize_and_record_committer) when necessary
+    if store_files?
+      Hydra::Works::AddFileToFileSet.call(file_set,
+                                          local_file,
+                                          relation,
+                                          versioning: false)
+    else
+      Pumpkin::Works::AddExternalFileToFileSet.call(file_set,
+                                                    local_file.original_name,
+                                                    relation)
+    end
+    
+    # Do post file ingest actions
+    CurationConcerns::VersioningService.create(repository_file, user)
+
+    # Uses the stored binary, so only run if we are storing files
+    CharacterizeJob.perform_later(file_set, repository_file.id) if store_files?
+
+    # Ensure that this runs for files that are external, before the master file is cleaned
+    CreateDerivativesJob.perform_later(file_set, repository_file.id, filepath) unless store_files?
+    
     @yaml_file = yaml_file
     @yaml = File.open(yaml_file) { |f| Psych.load(f) }
     @user = user
