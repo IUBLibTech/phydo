@@ -344,10 +344,10 @@ module Phydo
           original_media_preservation_problem: 'PhysicalCondition/PreservationProblem',
           qc_status: 'QCStatus',
           manual_qc_check: 'ManualCheck',
-          encoder_manufacturer: 'Encoder/Manufacturer',
-          ad_manufacturer: 'Analog/Digital Converter/Manufacturer',
+          encoder: '/IU/Carrier/Parts/Part/Ingest/Encoder/Manufacturer',
+          ad: '/IU/Carrier/Parts/Part/Ingest/AdDevices/Manufacturer',
           speed_used: 'Speed_used',
-          tbc_manufacturer: 'Time Base Corrector Devices/Manufacturer',
+          tbc: '/IU/Carrier/Parts/Part/Ingest/TbcDevices/Manufacturer',
           tape_thickness: 'Thickness',
         }
         FILE_ATT_LOOKUPS = {}

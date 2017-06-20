@@ -58,26 +58,14 @@
     "@id": skos:changeNote
   manual_qc_check:
     "@id": skos:changeNote
-  Encoder_manufacturer:
-    "@id": premis:hasHardwareOtherInformation
-  Encoder_model:
-    "@id": premis:hasHardwareOtherInformation
-  Encoder_serial_number:
-    "@id": premis:hasHardwareOtherInformation
-  Analog/Digital Converter_manufacturer:
-    "@id": premis:hasHardwareName
-  Analog/Digital Converter_model:
-    "@id": premis:hasHardwareName
-  Analog/Digital Converter_serial_number:
-    "@id": premis:hasHardwareName
+  encoder:
+    "@id": premisrdf:hasHardwareOtherInformation
+  ad:
+    "@id": premisrdf:hasHardwareName
   speed_used:
     "@id": ebucore:playbackSpeed
-  Time Base Corrector_manufacturer:
-    "@id": premis:hasSoftwareName
-  Time Base Corrector_model:
-    "@id": premis:hasSoftwareName
-  Time Base Corrector_serial_number:
-   "@id": premis:hasSoftwareName
+  tbc:
+   "@id": premisrdf:hasSoftwareName
   tape_thickness:
     "@id": dcterms:description
   total_parts:
