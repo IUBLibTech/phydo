@@ -345,9 +345,9 @@ module Phydo
           qc_status: 'QCStatus',
           manual_qc_check: 'ManualCheck',
           encoder_manufacturer: 'Encoder/Manufacturer',
-          ad_manufacturer: 'AdDevices/Manufacturer',
+          ad_manufacturer: 'Analog/Digital Converter/Manufacturer',
           speed_used: 'Speed_used',
-          tbc_manufacturer: 'TbcDevices/Manufacturer',
+          tbc_manufacturer: 'Time Base Corrector Devices/Manufacturer',
           tape_thickness: 'Thickness',
         }
         FILE_ATT_LOOKUPS = {}
