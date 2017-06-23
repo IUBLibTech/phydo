@@ -17,14 +17,14 @@
   - comadder
   original_identifier:
   - DAT .I3972 96-3-21
-  encoder:
-  - Blackmagicdesign
   ad:
   - AJA
   tbc:
   - Snell and Wilcox
   total_parts:
   - '1'
+  encoder:
+  - 'Encoder: Blackmagicdesign BDLKSTUDIO4K 2347018'
 :file_sets:
 - :filename: MDPI_40000000054496_01_prod.wav
   :attributes:
