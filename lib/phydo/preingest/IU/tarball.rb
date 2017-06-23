@@ -367,8 +367,8 @@ module Phydo
           result[:mdpi_date] = DateTime.parse(result[:mdpi_date].first)
           result[:total_parts] = xml.xpath('count(//Part)').to_i
           result[:encoder] = ["Encoder:", result[:encoder_manufacturer], result[:encoder_model], result[:encoder_serial_number]].join(' ').gsub(/ +/, ' ')
-          result[:ad] = ["ad:", result[:ad_manufacturer], result[:ad_model], result[:ad_serial_number]].join(' ').gsub(/ +/, ' ')
-	  result[:tbc] = ["tbc:", result[:tbc_manufacturer], result[:tbc_model], result[:tbc_serial_number]].join(' ').gsub(/ +/, ' ')
+          result[:ad] = ["Analog/Digital Converter:", result[:ad_manufacturer], result[:ad_model], result[:ad_serial_number]].join(' ').gsub(/ +/, ' ')
+	  result[:tbc] = ["Time Base Corrector:", result[:tbc_manufacturer], result[:tbc_model], result[:tbc_serial_number]].join(' ').gsub(/ +/, ' ')
 	  result
         end
 
