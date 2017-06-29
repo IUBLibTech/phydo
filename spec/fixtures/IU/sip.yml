@@ -3,6 +3,8 @@
 :work_attributes:
   digitization_comments:
   - B-IULMIA
+  original_format:
+  - Betacam
   recording_standard:
   - NTSC
   image_format:
@@ -15,8 +17,14 @@
   - comadder
   original_identifier:
   - DAT .I3972 96-3-21
+  ad:
+  - AJA
+  tbc:
+  - Snell and Wilcox
   total_parts:
   - '1'
+  encoder:
+  - 'Encoder: Blackmagicdesign BDLKSTUDIO4K 2347018'
 :file_sets:
 - :filename: MDPI_40000000054496_01_prod.wav
   :attributes:
@@ -58,7 +66,7 @@
     :file_opts: {}
     :use: intermediate_file
     :md5sum: 7892355550C1105C0144D95EC7D3820F
-    :purl: https://purl.dlib.indiana.edu/iudl/phydo2/MDPI/40000000054496/20160213-082528/MDPI_40000000054496_01_prod.wav
+    :purl: https://purl.dlib.indiana.edu/iudl/hydradam2/MDPI/40000000054496/20160213-082528/MDPI_40000000054496_01_prod.wav
   :events:
   - :attributes:
       :premis_event_type:
@@ -66,7 +74,7 @@
       :premis_agent:
       - mailto:fixme@fixme.fixme
       :premis_event_date_time:
-      - '2016-06-02T12:43:28-04:00'
+      - '2017-05-12T14:31:58-04:00'
       :premis_event_detail:
       - FFprobe multimedia streams analyzer from FFmpeg
       :premis_event_outcome:
@@ -77,7 +85,7 @@
       :premis_agent:
       - mailto:store-admin@iu.edu
       :premis_event_date_time:
-      - '2016-06-02T12:43:28-04:00'
+      - '2017-05-12T14:31:58-04:00'
       :premis_event_detail:
       - 'Program used: python, hashlib.sha256()'
       :premis_event_outcome:
@@ -88,7 +96,7 @@
       :premis_agent:
       - mailto:mailto@mdpi.iu.edu
       :premis_event_date_time:
-      - '2016-06-02T12:43:28-04:00'
+      - '2017-06-20T15:23:24-04:00'
       :premis_event_detail:
       - 'Program used: python, hashlib.sha256()'
       :premis_event_outcome:
@@ -131,7 +139,7 @@
       :premis_agent:
       - mailto:store-admin@iu.edu
       :premis_event_date_time:
-      - '2016-06-02T12:43:28-04:00'
+      - '2017-05-12T14:31:58-04:00'
       :premis_event_detail:
       - 'Program used: python, hashlib.sha256()'
       :premis_event_outcome:
@@ -152,7 +160,7 @@
       :premis_agent:
       - mailto:store-admin@iu.edu
       :premis_event_date_time:
-      - '2016-06-02T12:43:28-04:00'
+      - '2017-05-12T14:31:58-04:00'
       :premis_event_detail:
       - 'Program used: python, hashlib.sha256()'
       :premis_event_outcome:
@@ -201,7 +209,7 @@
     :file_opts: {}
     :use: service_file
     :md5sum: F4C3088D835D35D8741551CF4E8977F0
-    :purl: https://purl.dlib.indiana.edu/iudl/phydo2/MDPI/40000000054496/20160213-082528/MDPI_40000000054496_01_access.mp4
+    :purl: https://purl.dlib.indiana.edu/iudl/hydradam2/MDPI/40000000054496/20160213-082528/MDPI_40000000054496_01_access.mp4
   :events:
   - :attributes:
       :premis_event_type:
@@ -209,7 +217,7 @@
       :premis_agent:
       - mailto:fixme@fixme.fixme
       :premis_event_date_time:
-      - '2016-06-02T12:43:28-04:00'
+      - '2017-05-12T14:31:58-04:00'
       :premis_event_detail:
       - FFprobe multimedia streams analyzer from FFmpeg
       :premis_event_outcome:
@@ -220,7 +228,7 @@
       :premis_agent:
       - mailto:store-admin@iu.edu
       :premis_event_date_time:
-      - '2016-06-02T12:43:28-04:00'
+      - '2017-05-12T14:31:58-04:00'
       :premis_event_detail:
       - 'Program used: python, hashlib.sha256()'
       :premis_event_outcome:
@@ -231,7 +239,7 @@
       :premis_agent:
       - mailto:mailto@mdpi.iu.edu
       :premis_event_date_time:
-      - '2016-06-02T12:43:28-04:00'
+      - '2017-06-20T15:23:24-04:00'
       :premis_event_detail:
       - 'Program used: python, hashlib.sha256()'
       :premis_event_outcome:
@@ -260,7 +268,7 @@
       :premis_agent:
       - mailto:store-admin@iu.edu
       :premis_event_date_time:
-      - '2016-06-02T12:43:28-04:00'
+      - '2017-05-12T14:31:58-04:00'
       :premis_event_detail:
       - 'Program used: python, hashlib.sha256()'
       :premis_event_outcome:
@@ -309,7 +317,7 @@
     :file_opts: {}
     :use: preservation_master_file
     :md5sum: A0F9E4C05B1307788734229C3023F191
-    :purl: https://purl.dlib.indiana.edu/iudl/phydo2/MDPI/40000000054496/20160213-082528/MDPI_40000000054496_01_pres.wav
+    :purl: https://purl.dlib.indiana.edu/iudl/hydradam2/MDPI/40000000054496/20160213-082528/MDPI_40000000054496_01_pres.wav
   :events:
   - :attributes:
       :premis_event_type:
@@ -317,7 +325,7 @@
       :premis_agent:
       - mailto:fixme@fixme.fixme
       :premis_event_date_time:
-      - '2016-06-02T12:43:28-04:00'
+      - '2017-05-12T14:31:58-04:00'
       :premis_event_detail:
       - FFprobe multimedia streams analyzer from FFmpeg
       :premis_event_outcome:
@@ -328,7 +336,7 @@
       :premis_agent:
       - mailto:store-admin@iu.edu
       :premis_event_date_time:
-      - '2016-06-02T12:43:28-04:00'
+      - '2017-05-12T14:31:58-04:00'
       :premis_event_detail:
       - 'Program used: python, hashlib.sha256()'
       :premis_event_outcome:
@@ -339,7 +347,7 @@
       :premis_agent:
       - mailto:mailto@mdpi.iu.edu
       :premis_event_date_time:
-      - '2016-06-02T12:43:28-04:00'
+      - '2017-06-20T15:23:24-04:00'
       :premis_event_detail:
       - 'Program used: python, hashlib.sha256()'
       :premis_event_outcome:

@@ -58,11 +58,11 @@ module Concerns
         index.as :stored_sortable, :facetable, :stored_searchable
       end
       
-      property :encoder_manufacturer, predicate: RDF::Vocab::PREMIS.hasHardwareOtherInformation do |index|
+      property :encoder, predicate: RDF::Vocab::PREMIS.hasHardwareOtherInformation do |index|
         index.as :stored_searchable
       end
       
-      property :ad_manufacturer, predicate: RDF::Vocab::PREMIS.hasHardwareName do |index|
+      property :ad, predicate: RDF::Vocab::PREMIS.hasHardwareName do |index|
         index.as :stored_searchable
       end
       
@@ -70,7 +70,7 @@ module Concerns
         index.as :stored_searchable
       end
       
-      property :tbc_manufacturer, predicate: RDF::Vocab::PREMIS.hasHardwareName do |index|
+      property :tbc, predicate: RDF::Vocab::PREMIS.hasSoftwareName do |index|
         index.as :stored_searchable
       end
       

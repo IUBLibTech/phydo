@@ -344,10 +344,16 @@ module Phydo
           original_media_preservation_problem: 'PhysicalCondition/PreservationProblem',
           qc_status: 'QCStatus',
           manual_qc_check: 'ManualCheck',
-          encoder_manufacturer: 'Encoder/Manufacturer',
-          ad_manufacturer: 'AdDevices/Manufacturer',
+          encoder_manufacturer: '/IU/Carrier/Parts/Part/Ingest/Encoder/Manufacturer',
+          encoder_model: '/IU/Carrier/Parts/Part/Ingest/Encoder/Model',
+          encoder_serial_number: '/IU/Carrier/Parts/Part/Ingest/Encoder/SerialNumber',
+          ad_manufacturer: '/IU/Carrier/Parts/Part/Ingest/AdDevices/Manufacturer',
+	  ad_model: '/IU/Carrier/Parts/Part/Ingest/AdDevices/Model',
+	  ad_serial_number: '/IU/Carrier/Parts/Part/Ingest/AdDevices/SerialNumber',
           speed_used: 'Speed_used',
-          tbc_manufacturer: 'TbcDevices/Manufacturer',
+          tbc_manufacturer: '/IU/Carrier/Parts/Part/Ingest/TbcDevices/Manufacturer',
+	  tbc_model: '/IU/Carrier/Parts/Part/Ingest/TbcDevices/Model',
+	  tbc_serial_number: '/IU/Carrier/Parts/Part/Ingest/TbcDevices/SerialNumber',
           tape_thickness: 'Thickness',
         }
         FILE_ATT_LOOKUPS = {}
@@ -360,7 +366,10 @@ module Phydo
           result = super
           result[:mdpi_date] = DateTime.parse(result[:mdpi_date].first)
           result[:total_parts] = xml.xpath('count(//Part)').to_i
-          result
+          result[:encoder] = ["Encoder:", result[:encoder_manufacturer], result[:encoder_model], result[:encoder_serial_number]].join(' ').gsub(/ +/, ' ')
+          result[:ad] = ["Analog/Digital Converter:", result[:ad_manufacturer], result[:ad_model], result[:ad_serial_number]].join(' ').gsub(/ +/, ' ')
+	  result[:tbc] = ["Time Base Corrector:", result[:tbc_manufacturer], result[:tbc_model], result[:tbc_serial_number]].join(' ').gsub(/ +/, ' ')
+	  result
         end
 
         def parse

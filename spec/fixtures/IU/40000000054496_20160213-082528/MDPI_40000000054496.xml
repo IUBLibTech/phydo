@@ -15,6 +15,21 @@
           <Player_manufacturer>Sony</Player_manufacturer>
           <Player_model>PCM-7040</Player_model>
           <Extraction_workstation>NoaML-01</Extraction_workstation>
+          <TbcDevices>
+            <Model>TBS24</Model>
+            <SerialNumber>2608042</SerialNumber>
+            <Manufacturer>Snell and Wilcox</Manufacturer>
+          </TbcDevices>
+          <AdDevices>
+            <Model>HD10AVA</Model>
+            <SerialNumber>K0175946</SerialNumber>
+            <Manufacturer>AJA</Manufacturer>
+          </AdDevices>
+          <Encoder>
+            <Model>BDLKSTUDIO4K</Model>
+            <SerialNumber>2347018</SerialNumber>
+            <Manufacturer>Blackmagicdesign</Manufacturer>
+          </Encoder>
           <BLER>
             <Channel>
               <ID>1</ID>
