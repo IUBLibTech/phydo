@@ -58,13 +58,13 @@
     "@id": skos:changeNote
   manual_qc_check:
     "@id": skos:changeNote
-  encoder:
+  other_hardware:
     "@id": premisrdf:hasHardwareOtherInformation
-  ad:
+  hardware:
     "@id": premisrdf:hasHardwareName
   speed_used:
     "@id": ebucore:playbackSpeed
-  tbc:
+  software:
    "@id": premisrdf:hasSoftwareName
   tape_thickness:
     "@id": dcterms:description

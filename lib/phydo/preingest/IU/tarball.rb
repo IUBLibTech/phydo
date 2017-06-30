@@ -354,6 +354,9 @@ module Phydo
           tbc_manufacturer: '/IU/Carrier/Parts/Part/Ingest/TbcDevices/Manufacturer',
 	  tbc_model: '/IU/Carrier/Parts/Part/Ingest/TbcDevices/Model',
 	  tbc_serial_number: '/IU/Carrier/Parts/Part/Ingest/TbcDevices/SerialNumber',
+          player_manufacturer: '/IU/Carrier/Parts/Part/Ingest/Player_manufacturer',
+          player_model: '/IU/Carrier/Parts/Part/Ingest/Player_model',
+          player_serial_number: '/IU/Carrier/Parts/Part/Ingest/Player_serial_number',
           tape_thickness: 'Thickness',
         }
         FILE_ATT_LOOKUPS = {}
@@ -366,9 +369,14 @@ module Phydo
           result = super
           result[:mdpi_date] = DateTime.parse(result[:mdpi_date].first)
           result[:total_parts] = xml.xpath('count(//Part)').to_i
-          result[:encoder] = ["Encoder:", result[:encoder_manufacturer], result[:encoder_model], result[:encoder_serial_number]].join(' ').gsub(/ +/, ' ')
-          result[:ad] = ["Analog/Digital Converter:", result[:ad_manufacturer], result[:ad_model], result[:ad_serial_number]].join(' ').gsub(/ +/, ' ')
-	  result[:tbc] = ["Time Base Corrector:", result[:tbc_manufacturer], result[:tbc_model], result[:tbc_serial_number]].join(' ').gsub(/ +/, ' ')
+          encoder = [result[:encoder_manufacturer], result[:encoder_model], result[:encoder_serial_number]].join(' ').gsub(/ +/, ' ')
+          ad = [result[:ad_manufacturer], result[:ad_model], result[:ad_serial_number]].join(' ').gsub(/ +/, ' ')
+	  tbc = [result[:tbc_manufacturer], result[:tbc_model], result[:tbc_serial_number]].join(' ').gsub(/ +/, ' ')
+	  player = [result[:player_manufacturer], result[:player_model], result[:player_serial_number]].join(' ').gsub(/ +/, ' ')
+          result[:hardware] = []
+          { 'Encoder:' => encoder, 'Analog/Digital Converter:' => ad, 'Time Base Corrector:' => tbc, "Player:" => player}.select { |prefix, value| value.present? }.each do |prefix, value|
+            result[:hardware] += Array.wrap("#{prefix} #{value}")
+          end
 	  result
         end
 
