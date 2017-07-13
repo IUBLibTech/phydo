@@ -129,4 +129,9 @@ class SolrDocument
   def preservation_events
     @preservation_events = Preservation::Event.search_with_conditions(hasEventRelatedObject_ssim: fetch(:id))
   end
+
+  def hardware
+    fetch(Solrizer.solr_name(:hardware, :stored_searchable), [])
+  end
+
 end
