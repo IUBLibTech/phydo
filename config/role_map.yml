@@ -1,3 +1,8 @@
+development:
+  admin:
+    - phydo_admin@wgbh.org
+    - andrew_myers@wgbh.org
+    - jason_corum@wgbh.org
 production:
   admin:
     - phydo_admin@wgbh.org
