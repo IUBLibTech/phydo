@@ -1,4 +1,15 @@
 GIT
+  remote: git://github.com/IUBLibTech/hyrax-ingest.git
+  revision: d7adc769daabf7d2dd4c8e4ceb087eb07169397f
+  branch: HDM-1025_add_af_model_associations
+  specs:
+    hyrax-ingest (0.1.0)
+      hyrax (~> 1.0.3)
+      minitar
+      nokogiri
+      rails (~> 5)
+
+GIT
   remote: git://github.com/IUBLibTech/hyrax-preservation.git
   revision: 8433aeaa60193e4fab25586365dee76e6d645529
   branch: master
@@ -512,6 +523,7 @@ GEM
     mini_magick (4.8.0)
     mini_mime (0.1.4)
     mini_portile2 (2.2.0)
+    minitar (0.6.1)
     minitest (5.10.3)
     multi_json (1.12.1)
     multi_xml (0.6.0)
@@ -859,6 +871,7 @@ DEPENDENCIES
   guard-rspec
   guard-rubocop
   hyrax (~> 1.0.3)
+  hyrax-ingest!
   jbuilder (~> 2.0)
   jquery-rails
   launchy
