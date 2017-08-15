@@ -62,7 +62,7 @@ group :development, :test do
   gem 'database_cleaner'
 end
 
-gem 'hyrax', github: 'projecthydra-labs/hyrax', branch: '1-0-stable'
+gem 'hyrax', '~> 1.0.3'
 gem 'devise'
 
 gem 'omniauth-cas'
