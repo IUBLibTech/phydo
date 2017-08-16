@@ -73,7 +73,6 @@ ingest:
             XMLFile:
               filename: example_1_fits.xml
               xpath: //fits/metadata/video/track[@type="video"]/height
-
         - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#locator"
           from:
             XMLFile:

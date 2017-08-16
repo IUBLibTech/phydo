@@ -11,7 +11,6 @@ RSpec.describe "WGBH ingest example 1" do
   let(:file_set) { FileSet.first }
 
   describe 'assigning metadata', :clean_fedora do
-
     it 'fetches metadata from the SIP and puts it in the correct properties' do
       expect(file_set.file_format).to eq ["Quicktime"]
       expect(file_set.codec_name).to eq ["AVdn"]
@@ -29,6 +28,8 @@ RSpec.describe "WGBH ingest example 1" do
       expect(file_set.md5_checksum).to eq ["28e635e58033c26be40460e67625c549"]
       expect(file_set.file_path).to eq ["/Volumes/Public_Archives/Antiques_Roadshow/Antiques_Roadshow_To_Archives/03_St_Louis_Media/Kipro_files_2/STL17C_1.mov"]
       expect(file_set.barcode).to eq ["372304"]
+      expect(file_set.video_width).to eq ["1920 pixels"]
+      expect(file_set.video_height).to eq ["1080 pixels"]
     end
   end
 end

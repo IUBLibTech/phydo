@@ -2,7 +2,6 @@
 port: 8985
 version: 6.6.1
 instance_dir: tmp/solr-test
-version: 6.6.1
 collection:
   dir: solr/config/
   name: phydo-test
