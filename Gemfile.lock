@@ -1,7 +1,6 @@
 GIT
   remote: git://github.com/IUBLibTech/hyrax-ingest.git
-  revision: 940456c99acf342c3d666f86d3c20609b0a01462
-  branch: HDM-1025_add_af_model_associations
+  revision: fbabc989095d2464c5ac84b072faa75c8e585012
   specs:
     hyrax-ingest (0.1.0)
       hyrax (~> 1.0.3)
@@ -899,4 +898,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.14.6
+   1.15.3

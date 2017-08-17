@@ -70,7 +70,7 @@ gem 'archive-tar-minitar', '~> 0.5.2'
 gem 'blacklight_range_limit', github: 'projectblacklight/blacklight_range_limit', branch: 'master'
 gem 'preservation', github: 'IUBLibTech/hyrax-preservation', branch: 'master'
 # TODO: hyrax-ingest branch back to master after PR for this branch is merged
-gem 'hyrax-ingest', github: 'IUBLibTech/hyrax-ingest', branch: 'HDM-1025_add_af_model_associations'
+gem 'hyrax-ingest', github: 'IUBLibTech/hyrax-ingest'
 
 # CC v2.0.0 seems to not include BL advanced search anymore?
 gem 'blacklight_advanced_search', '~> 6.2.1'
