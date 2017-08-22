@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fits xmlns="http://hul.harvard.edu/ois/xml/ns/fits/fits_output" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hul.harvard.edu/ois/xml/ns/fits/fits_output http://hul.harvard.edu/ois/xml/xsd/fits/fits_output.xsd" version="0.10.2" timestamp="7/17/17 3:16 PM">
+  <identification>
+    <identity format="Quicktime" mimetype="video/quicktime" toolname="FITS" toolversion="0.10.2">
+      <tool toolname="MediaInfo" toolversion="0.7.75" />
+      <tool toolname="Droid" toolversion="6.1.5" />
+      <tool toolname="file utility" toolversion="5.04" />
+      <externalIdentifier toolname="Droid" toolversion="6.1.5" type="puid">x-fmt/384</externalIdentifier>
+    </identity>
+  </identification>
+  <fileinfo>
+    <filepath toolname="OIS File Information" toolversion="0.2" status="SINGLE_RESULT">/Volumes/Public_Archives/Antiques_Roadshow/Antiques_Roadshow_To_Archives/03_St_Louis_Media/Kipro_files_2/STL17C_1.mov</filepath>
+    <filename toolname="MediaInfo" toolversion="0.7.75">STL17C_1.mov</filename>
+    <size toolname="MediaInfo" toolversion="0.7.75">19626182203</size>
+    <md5checksum toolname="OIS File Information" toolversion="0.2" status="SINGLE_RESULT">28e635e58033c26be40460e67625c549</md5checksum>
+    <fslastmodified toolname="OIS File Information" toolversion="0.2" status="SINGLE_RESULT">1499487609000</fslastmodified>
+  </fileinfo>
+  <filestatus />
+  <metadata>
+    <video>
+      <location toolname="MediaInfo" toolversion="0.7.75" status="SINGLE_RESULT">/Volumes/Public_Archives/Antiques_Roadshow/Antiques_Roadshow_To_Archives/03_St_Louis_Media/Kipro_files_2/STL17C_1.mov</location>
+      <mimeType toolname="MediaInfo" toolversion="0.7.75" status="SINGLE_RESULT">video/mp4</mimeType>
+      <format toolname="MediaInfo" toolversion="0.7.75" status="SINGLE_RESULT">MPEG-4</format>
+      <formatProfile toolname="MediaInfo" toolversion="0.7.75" status="SINGLE_RESULT">QuickTime</formatProfile>
+      <duration toolname="MediaInfo" toolversion="0.7.75" status="SINGLE_RESULT">1062395</duration>
+      <timecodeStart toolname="MediaInfo" toolversion="0.7.75" status="SINGLE_RESULT">07:41:56;16</timecodeStart>
+      <bitRate toolname="MediaInfo" toolversion="0.7.75" status="SINGLE_RESULT">147788212</bitRate>
+      <dateCreated toolname="MediaInfo" toolversion="0.7.75" status="SINGLE_RESULT">UTC 2017-07-08 04:02:26</dateCreated>
+      <dateModified toolname="MediaInfo" toolversion="0.7.75" status="SINGLE_RESULT">UTC 2017-07-08 04:20:09</dateModified>
+      <track type="video" id="3" toolname="MediaInfo" toolversion="0.7.75" status="SINGLE_RESULT">
+        <videoDataEncoding>AVdn</videoDataEncoding>
+        <codecId>AVdn</codecId>
+        <codecCC>AVdn</codecCC>
+        <codecName>AVdn</codecName>
+        <compression>Unknown</compression>
+        <byteOrder>Unknown</byteOrder>
+        <bitDepth>8 bits</bitDepth>
+        <bitRate>145344430</bitRate>
+        <bitRateMode>Constant</bitRateMode>
+        <duration>1062395</duration>
+        <delay>27716583</delay>
+        <trackSize>19301662720</trackSize>
+        <width>1920 pixels</width>
+        <height>1080 pixels</height>
+        <frameRate>29.970</frameRate>
+        <frameRateMode>Constant</frameRateMode>
+        <frameCount>31840</frameCount>
+        <aspectRatio>16:9</aspectRatio>
+        <scanningFormat>Interlaced</scanningFormat>
+        <scanningOrder>TFF</scanningOrder>
+        <chromaSubsampling>4:2:2</chromaSubsampling>
+        <colorspace>YUV</colorspace>
+      </track>
+      <track type="audio" id="1" toolname="MediaInfo" toolversion="0.7.75" status="SINGLE_RESULT">
+        <audioDataEncoding>PCM</audioDataEncoding>
+        <codecId>in24</codecId>
+        <codecFamily>PCM</codecFamily>
+        <compression>none</compression>
+        <bitRate>1152000</bitRate>
+        <bitRateMode>Constant</bitRateMode>
+        <bitDepth>24 bits</bitDepth>
+        <duration>1062395</duration>
+        <delay>27716583</delay>
+        <trackSize>152984832</trackSize>
+        <samplingRate>48000</samplingRate>
+        <numSamples>50994960</numSamples>
+        <channels>1</channels>
+        <byteOrder>Little</byteOrder>
+      </track>
+      <track type="audio" id="2" toolname="MediaInfo" toolversion="0.7.75" status="SINGLE_RESULT">
+        <audioDataEncoding>PCM</audioDataEncoding>
+        <codecId>in24</codecId>
+        <codecFamily>PCM</codecFamily>
+        <compression>none</compression>
+        <bitRate>1152000</bitRate>
+        <bitRateMode>Constant</bitRateMode>
+        <bitDepth>24 bits</bitDepth>
+        <duration>1062395</duration>
+        <delay>27716583</delay>
+        <trackSize>152984832</trackSize>
+        <samplingRate>48000</samplingRate>
+        <numSamples>50994960</numSamples>
+        <channels>1</channels>
+        <byteOrder>Little</byteOrder>
+      </track>
+    </video>
+  </metadata>
+  <statistics fitsExecutionTime="340388">
+    <tool toolname="MediaInfo" toolversion="0.7.75" executionTime="1755" />
+    <tool toolname="OIS Audio Information" toolversion="0.1" status="did not run" />
+    <tool toolname="ADL Tool" toolversion="0.1" status="did not run" />
+    <tool toolname="VTT Tool" toolversion="0.1" status="did not run" />
+    <tool toolname="Droid" toolversion="6.1.5" executionTime="782" />
+    <tool toolname="Jhove" toolversion="1.11" status="did not run" />
+    <tool toolname="file utility" toolversion="5.04" executionTime="925" />
+    <tool toolname="Exiftool" toolversion="10.00" status="did not run" />
+    <tool toolname="NLNZ Metadata Extractor" toolversion="3.6GA" status="did not run" />
+    <tool toolname="OIS File Information" toolversion="0.2" executionTime="339818" />
+    <tool toolname="OIS XML Metadata" toolversion="0.2" status="did not run" />
+    <tool toolname="ffident" toolversion="0.2" executionTime="859" />
+    <tool toolname="Tika" toolversion="1.10" executionTime="340324" />
+  </statistics>
+</fits>
+

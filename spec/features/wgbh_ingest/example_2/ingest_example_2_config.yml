@@ -1,0 +1,21 @@
+---
+ingest:
+  - FileSet:
+      properties:
+        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasFileFormat"
+          from:
+            XMLFile:
+              filename: /_pbcore\.xml$/
+              xpath: //pbcoreInstantiationDocument/instantiationStandard
+
+        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#width"
+          from:
+            XMLFile:
+              filename: /[^pbcore]\.xml$/
+              xpath: //fits/metadata/video/track[@type="video"]/width
+
+        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#height"
+          from:
+            XMLFile:
+              filename: /[^pbcore]\.xml$/
+              xpath: //fits/metadata/video/track[@type="video"]/height
