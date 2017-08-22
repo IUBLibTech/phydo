@@ -86,6 +86,10 @@ module Concerns
       #   # index.as Solrizer::Descriptor.new(:long, :stored, :searchable)
       # end
 
+      property :file_path, predicate: RDF::Vocab::EBUCore.locator do |index|
+        index.as :sortable, :facetable
+      end
+
     end
   end
 end
