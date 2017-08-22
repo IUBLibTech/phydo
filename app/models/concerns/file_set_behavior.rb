@@ -83,6 +83,10 @@ module Concerns
         index.as :sortable, :facetable
       end
 
+      property :file_path, predicate: RDF::Vocab::EBUCore.locator do |index|
+        index.as :sortable, :facetable
+      end
+
     end
   end
 end
