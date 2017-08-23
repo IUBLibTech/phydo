@@ -31,6 +31,7 @@ module Concerns
         index.as :stored_searchable, :stored_sortable
       end
 
+
       property :identifier, predicate: RDF::Vocab::EBUCore.identifier, multiple: false do |index|
         index.as :symbol
       end
