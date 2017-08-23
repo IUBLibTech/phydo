@@ -85,6 +85,7 @@ ingest:
             XMLFile:
               filename: '/_pbcore.xml$/'
               xpath: '//pbcoreInstantiationDocument/instantiationLocation[@annotation="Barcode identifier"]'
+
       PreservationEvents:
         - properties:
           - rdf_predicate: "http://www.loc.gov/premis/rdf/v1#hasEventType"
