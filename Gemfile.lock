@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/IUBLibTech/hyrax-ingest.git
-  revision: 1affeb88805a2ff1b9b1a7e3cf26121d4802880f
+  revision: 1874a8435109bc37a487c3ab2bc143bfefd8c2ad
   specs:
     hyrax-ingest (0.1.0)
       hyrax (~> 1.0.3)
@@ -107,13 +107,13 @@ GEM
       execjs
     awesome_nested_set (3.1.3)
       activerecord (>= 4.0.0, < 5.2)
-    aws-sdk (2.10.29)
-      aws-sdk-resources (= 2.10.29)
-    aws-sdk-core (2.10.29)
+    aws-sdk (2.10.31)
+      aws-sdk-resources (= 2.10.31)
+    aws-sdk-core (2.10.31)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.10.29)
-      aws-sdk-core (= 2.10.29)
+    aws-sdk-resources (2.10.31)
+      aws-sdk-core (= 2.10.31)
     aws-sigv4 (1.0.1)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -368,8 +368,8 @@ GEM
       hydra-file_characterization (~> 0.3, >= 0.3.3)
       hydra-pcdm (>= 0.9)
       om (~> 3.1)
-    hyrax (1.0.3)
-      active-fedora (>= 11.3.1)
+    hyrax (1.0.4)
+      active-fedora (~> 11.3, >= 11.3.1)
       active_attr (~> 0.9)
       active_fedora-noid (~> 2.0, >= 2.0.2)
       almond-rails (~> 0.1)
@@ -377,7 +377,7 @@ GEM
       blacklight (~> 6.9)
       blacklight-gallery (~> 0.7)
       breadcrumbs_on_rails (~> 3.0)
-      browse-everything (>= 0.10.5)
+      browse-everything (~> 0.10, >= 0.10.5)
       carrierwave (~> 1.0)
       clipboard-rails (~> 1.5)
       dry-equalizer (~> 0.2)
@@ -388,9 +388,9 @@ GEM
       font-awesome-rails (~> 4.2)
       hydra-derivatives (~> 3.3)
       hydra-editor (~> 3.2)
-      hydra-head (>= 10.4.0)
+      hydra-head (~> 10.4, >= 10.4.0)
       hydra-works (~> 0.16)
-      jquery-datatables-rails (~> 3.4.0)
+      jquery-datatables-rails (~> 3.4, >= 3.4.0)
       jquery-ui-rails (~> 5.0)
       json-schema
       kaminari_route_prefix (~> 0.1.1)
@@ -406,10 +406,10 @@ GEM
       rails_autolink (~> 1.1)
       railties (~> 5.0)
       rdf-rdfxml
-      redis-namespace (~> 1.5.2)
+      redis-namespace (~> 1.5, >= 1.5.2)
       redlock (~> 0.1.2)
       retriable (>= 2.9, < 4.0)
-      select2-rails (~> 3.5.9)
+      select2-rails (~> 3.5, >= 3.5.9)
       signet
       tinymce-rails (~> 4.1)
       tinymce-rails-imageupload (~> 4.0.17.beta)
@@ -671,7 +671,7 @@ GEM
     rdf-turtle (2.2.0)
       ebnf (~> 1.1)
       rdf (~> 2.2)
-    rdf-vocab (2.2.3)
+    rdf-vocab (2.2.6)
       rdf (~> 2.2)
     rdf-xsd (2.2.0)
       rdf (~> 2.1)

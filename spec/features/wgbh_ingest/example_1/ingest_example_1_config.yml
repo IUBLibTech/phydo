@@ -2,11 +2,71 @@
 ingest:
   - FileSet:
       properties:
-        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasFileFormat"
+        - rdf_predicate: 'http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#dateCreated'
           from:
             XMLFile:
               filename: example_1_pbcore.xml
-              xpath: //pbcoreInstantiationDocument/instantiationStandard
+              xpath: 'REPLACE_WITH_VALID_XPATH'
+
+        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasFileFormat"
+          from:
+            XMLFile:
+              filename: example_1_fits.xml
+              xpath: //fits/identification/identity/@format
+
+        - rdf_predicate: 'http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#hashValue'
+          from:
+            XMLFile:
+              filename: example_1_fits.xml
+              xpath: '//fits/fileinfo/md5checksum'
+
+        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasCodec"
+          from:
+            XMLFile:
+              filename: example_1_fits.xml
+              xpath: '//fits/metadata/video/track[@type="video"]/codecName'
+
+        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#duration"
+          from:
+            XMLFile:
+              filename: example_1_fits.xml
+              xpath: '//fits/metadata/video/duration'
+
+        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#bitRate"
+          from:
+            XMLFile:
+              filename: example_1_fits.xml
+              xpath: '//fits/metadata/video/bitRate'
+
+        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#filename"
+          from:
+            XMLFile:
+              filename: example_1_fits.xml
+              xpath: '//fits/fileinfo/filename'
+
+        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#fileSize"
+          from:
+            XMLFile:
+              filename: example_1_fits.xml
+              xpath: '//fits/fileinfo/size'
+
+        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#identifier"
+          from:
+            XMLFile:
+              filename: example_1_pbcore.xml
+              xpath: 'REPLACE_WITH_VALID_XPATH'
+
+        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#partNumber"
+          from:
+            XMLFile:
+              filename: example_1_pbcore.xml
+              xpath: 'REPLACE_WITH_VALID_XPATH'
+
+        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#sampleRate"
+          from:
+            XMLFile:
+              filename: example_1_fits.xml
+              xpath: '//fits/metadata/video/track[@type="audio"]/samplingRate'
 
         - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#width"
           from:
@@ -19,3 +79,9 @@ ingest:
             XMLFile:
               filename: example_1_fits.xml
               xpath: //fits/metadata/video/track[@type="video"]/height
+
+        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#locator"
+          from:
+            XMLFile:
+              filename: example_1_fits.xml
+              xpath: //fits/metadata/video/location
