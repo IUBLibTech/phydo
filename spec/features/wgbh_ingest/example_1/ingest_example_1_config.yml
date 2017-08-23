@@ -2,12 +2,6 @@
 ingest:
   - FileSet:
       properties:
-        - rdf_predicate: 'http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#dateCreated'
-          from:
-            XMLFile:
-              filename: example_1_pbcore.xml
-              xpath: 'REPLACE_WITH_VALID_XPATH'
-
         - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasFileFormat"
           from:
             XMLFile:
@@ -85,3 +79,9 @@ ingest:
             XMLFile:
               filename: example_1_fits.xml
               xpath: //fits/metadata/video/location
+
+        - rdf_predicate: 'http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#storageDefinition'
+          from:
+            XMLFile:
+              filename: 'example_1_pbcore.xml'
+              xpath: '//pbcoreInstantiationDocument/instantiationLocation[@annotation="Barcode identifier"]'
