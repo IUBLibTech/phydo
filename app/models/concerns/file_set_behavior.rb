@@ -32,7 +32,7 @@ module Concerns
         index.as :stored_searchable, :sortable
       end
 
-      property :identifier, predicate: RDF::Vocab::EBUCore.identifier do |index|
+      property :identifier, predicate: RDF::Vocab::EBUCore.identifier, multiple: false do |index|
         index.as :symbol
       end
 
