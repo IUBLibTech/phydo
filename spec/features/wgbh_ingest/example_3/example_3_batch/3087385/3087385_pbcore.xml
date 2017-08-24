@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pbcoreInstantiationDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html">
+<instantiationIdentifier source="source file MD5">67e9f2f705554efe62fa3338e8133446</instantiationIdentifier>
+<instantiationIdentifier source="DAM import id">20170721_102742</instantiationIdentifier>
+<instantiationIdentifier source="source file name">STL17C_11.mov</instantiationIdentifier>
+<instantiationDimensions unitsOfMeasure="pixels" annotation="image width x height">1920 x 1080</instantiationDimensions>
+<instantiationDigital source="xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; fits version=&quot;0.10.2&quot;" annotation="source file format">mimetype= video/quicktime </instantiationDigital>
+<instantiationStandard>format= Quicktime </instantiationStandard>
+<instantiationLocation annotation="Barcode identifier">372304</instantiationLocation>
+<instantiationLocation annotation="LTO identifier">000704</instantiationLocation>
+<instantiationLocation annotation="source drive">/Volumes/Public_Archives/Antiques_Roadshow/Antiques_Roadshow_To_Archives/03_St_Louis_Media/Kipro_files_2/STL17C_11.mov</instantiationLocation>
+<instantiationMediaType version="mimetype">video</instantiationMediaType>
+<instantiationGenerations version="Image proxy">3647532f2cf5ee9ba8ed8bd32e257f24.jpg</instantiationGenerations>
+<instantiationGenerations version="Movie proxy">4669a160ded25473a4a738812543f44d.mov</instantiationGenerations>
+<instantiationFileSize unitsOfMeasure="bytes" annotation="units are bytes unless otherwise specified">17152442923</instantiationFileSize>
+<instantiationRelation>
+<instantiationRelationType>Image proxy</instantiationRelationType>
+<instantiationRelationIdentifier>https://s3.amazonaws.com/proxy.mla.wgbh.org/dam/67/e9f/2f7/055/54e/fe6/2fa/333/8e8/133/446/3647532f2cf5ee9ba8ed8bd32e257f24.jpg</instantiationRelationIdentifier>
+</instantiationRelation>
+<instantiationRelation>
+<instantiationRelationType>Movie proxy</instantiationRelationType>
+<instantiationRelationIdentifier>https://s3.amazonaws.com/proxy.mla.wgbh.org/dam/67/e9f/2f7/055/54e/fe6/2fa/333/8e8/133/446/4669a160ded25473a4a738812543f44d.mov</instantiationRelationIdentifier>
+</instantiationRelation>
+<instantiationAnnotation annotationType="Department">Antiques Roadshow</instantiationAnnotation>
+<instantiationAnnotation annotationType="Series">Antiques Roadshow</instantiationAnnotation>
+<instantiationAnnotation annotationType="Series description">ROADSHOW is part adventure, part history lesson, part treasure hunt.  Specialists from the country's leading auction houses and independent dealers from across the nation, travel throughout the United States offering free appraisals of antiques and collectibles.  ANTIQUES ROADSHOW cameras watch as owners recount tales of family heirlooms, yard sale bargains and long-neglected items salvaged from attics and basements, while experts reveal the fascinating truth about these finds.  Series hosT 100-400: Chris Jussel; Series hosT 5-600: Dan Elias.</instantiationAnnotation>
+<instantiationAnnotation annotationType="Program number">2200</instantiationAnnotation>
+<instantiationAnnotation annotationType="Program project">St. Louis</instantiationAnnotation>
+</pbcoreInstantiationDocument>
