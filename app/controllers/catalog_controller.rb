@@ -1,3 +1,6 @@
+# TODO: require 'search_builders/phydo/catalog_search_builder' doesn't work. Why?
+require_relative '../search_builders/phydo/catalog_search_builder'
+
 class CatalogController < ApplicationController
   include Hydra::Catalog
   include Hydra::Controller::ControllerBehavior
@@ -21,7 +24,7 @@ class CatalogController < ApplicationController
 
     config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
     config.show.partials.insert(1, :openseadragon)
-    config.search_builder_class = Hyrax::CatalogSearchBuilder
+    config.search_builder_class = Phydo::CatalogSearchBuilder
 
     # Show gallery view
     config.view.gallery.partials = [:index_header, :index]
