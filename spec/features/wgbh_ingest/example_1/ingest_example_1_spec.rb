@@ -16,7 +16,7 @@ RSpec.describe "WGBH ingest example 1" do
       expect(file_set.codec_name).to eq ["AVdn"]
       expect(file_set.format_duration).to eq ['1062395']
       expect(file_set.file_name).to eq ["STL17C_1.mov"]
-      expect(file_set.format_file_size).to eq ["19626182203"]
+      expect(file_set.format_file_size).to eq "19626182203"
       expect(file_set.bit_rate).to eq ["147788212"]
 
       # TODO: Ask Rebecca if grabbing the first value from the first audio
