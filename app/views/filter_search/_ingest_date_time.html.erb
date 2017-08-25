@@ -4,9 +4,9 @@
 %>
 <form id="ingest_date_time_filter" action="/catalog">
   <label>From</label>
-  <input name="ingest_date_time_after" value="<%= params['ingest_date_time_after'] %>" />
+  <input name="ingest_date_time_after" type="date" value="<%= params['ingest_date_time_after'] %>" /><br />
   <label>To</label>
-  <input name="ingest_date_time_before" value="<%= params['ingest_date_time_before'] %>" />
+  <input name="ingest_date_time_before" type="date" value="<%= params['ingest_date_time_before'] %>" /><br />
 
   <!-- TODO: This logic needs to be replicated for all filter forms. Better in a helper method? -->
   <% Rack::Utils.parse_query(request.query_string).except("ingest_date_time_after", "ingest_date_time_before").each do |param, val| %>
@@ -17,5 +17,5 @@
     <% end %>
   <% end %>
 
-  <button type="submit">Submit</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
