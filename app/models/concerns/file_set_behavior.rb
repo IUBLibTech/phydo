@@ -19,16 +19,16 @@ module Concerns
          index.as :stored_sortable, :facetable
       end
 
-      # property :file_format_long_name, predicate: RDF::Vocab::EBUCore.hasFileFormat do |index|
-      #    index.as :stored_searchable, :stored_sortable, :facetable
-      # end
+      property :file_format_long_name, predicate: RDF::Vocab::PREMIS.hasFormatName do |index|
+         index.as :stored_searchable, :stored_sortable, :facetable
+      end
 
       property :file_name, predicate: RDF::Vocab::EBUCore.filename do |index|
-         index.as :stored_searchable
+         index.as :stored_searchable, :sortable
       end
 
       property :format_file_size, predicate: RDF::Vocab::EBUCore.fileSize, multiple: false do |index|
-        index.as :long, :stored, :searchable, :sortable
+        index.as :stored_searchable, :sortable
       end
 
       property :identifier, predicate: RDF::Vocab::EBUCore.identifier, multiple: false do |index|
