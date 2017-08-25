@@ -1,0 +1,224 @@
+---
+filesets:
+  bag-info.txt:
+    checksum: MD5:fe12736ef91ac16b98a9c5b8f63d5a96
+    date_generated: 1455056896
+    file_format: text/plain
+    file_name: bag-info.txt
+    file_path: MDPI:40000000034001:20151215-053122:bag-info.txt
+    file_size: '342'
+    identifier: '40000000034001'
+  bagit.txt:
+    checksum: MD5:c2d0e1ad522732bb1589775fcd930df6
+    date_generated: 1450175482
+    file_format: text/plain
+    file_name: bagit.txt
+    file_path: MDPI:40000000034001:20151215-053122:bagit.txt
+    file_size: '54'
+    identifier: '40000000034001'
+  data/MDPI_40000000034001.xml:
+    checksum: MD5:0a8bde8e2f6bc56867a4db359f90cda0
+    date_generated: 1450175391
+    file_format: text/xml
+    file_name: MDPI_40000000034001.xml
+    file_path: MDPI:40000000034001:20151215-053122:data/MDPI_40000000034001.xml
+    file_size: '2514'
+    identifier: '40000000034001'
+  data/MDPI_40000000034001_01_access.mp4:
+    audio_codec_type: aac
+    bit_rate: '193380'
+    checksum: MD5:9e391f72478a77b81b7040bd277af86f
+    date_generated: 1450175395
+    duration: '7593.715000'
+    file_format: mov,mp4,m4a,3gp,3g2,mj2
+    file_name: MDPI_40000000034001_01_access.mp4
+    file_path: MDPI:40000000034001:20151215-053122:data/MDPI_40000000034001_01_access.mp4
+    file_size: '183559137'
+    identifier: '40000000034001'
+    part: 1
+    sample_rate: '44100'
+    use: Access
+  data/MDPI_40000000034001_01_pres.eqm:
+    checksum: MD5:fccd396f9076c90919e7df99828602ea
+    date_generated: 1450175396
+    file_format: application/octet-stream
+    file_name: MDPI_40000000034001_01_pres.eqm
+    file_path: MDPI:40000000034001:20151215-053122:data/MDPI_40000000034001_01_pres.eqm
+    file_size: '30057'
+    identifier: '40000000034001'
+    part: 1
+  data/MDPI_40000000034001_01_pres.wav:
+    audio_codec_type: pcm_s16le
+    bit_rate: '1422875'
+    checksum: MD5:2b4266cbf303381de28c842fc7d2d9d7
+    date_generated: 1450175407
+    duration: '7593.668209'
+    file_format: wav
+    file_name: MDPI_40000000034001_01_pres.wav
+    file_path: MDPI:40000000034001:20151215-053122:data/MDPI_40000000034001_01_pres.wav
+    file_size: '1350605618'
+    identifier: '40000000034001'
+    part: 1
+    sample_rate: '44100'
+    use: Preservation
+  data/MDPI_40000000034001_01_pres.wmf:
+    checksum: MD5:28fdcd852cc02bd4b4dcc36cbcfa9719
+    date_generated: 1450175408
+    file_format: image/wmf
+    file_name: MDPI_40000000034001_01_pres.wmf
+    file_path: MDPI:40000000034001:20151215-053122:data/MDPI_40000000034001_01_pres.wmf
+    file_size: '2161656'
+    identifier: '40000000034001'
+    part: 1
+  data/MDPI_40000000034001_01_prod.wav:
+    audio_codec_type: pcm_s16le
+    bit_rate: '1422875'
+    checksum: MD5:6de97a7bb6fca10095579d7e33ecdd96
+    date_generated: 1450175426
+    duration: '7593.668209'
+    file_format: wav
+    file_name: MDPI_40000000034001_01_prod.wav
+    file_path: MDPI:40000000034001:20151215-053122:data/MDPI_40000000034001_01_prod.wav
+    file_size: '1350605618'
+    identifier: '40000000034001'
+    part: 1
+    sample_rate: '44100'
+    use: Production
+  data/generated/MDPI_40000000034001_01_access_ffprobe.xml:
+    checksum: MD5:06bc508bb09bbe3b618cef318166b439
+    date_generated: 1450385472
+    file_format: text/xml
+    file_name: MDPI_40000000034001_01_access_ffprobe.xml
+    file_path: MDPI:40000000034001:20151215-053122:data/generated/MDPI_40000000034001_01_access_ffprobe.xml
+    file_size: '1730'
+    identifier: '40000000034001'
+    part: 1
+  data/generated/MDPI_40000000034001_01_high.mp4:
+    audio_codec_type: pcm_s16le
+    bit_rate: '1422875'
+    checksum: MD5:866dac5cd6c6de0b3cd6ece20bd02bc8
+    date_generated: 1450385480
+    duration: '7593.668209'
+    file_format: wav
+    file_name: MDPI_40000000034001_01_high.mp4
+    file_path: MDPI:40000000034001:20151215-053122:data/generated/MDPI_40000000034001_01_high.mp4
+    file_size: '145573118'
+    identifier: '40000000034001'
+    part: 1
+    sample_rate: '44100'
+    use: High-Quality Deliverable
+  data/generated/MDPI_40000000034001_01_high_ffprobe.xml:
+    checksum: MD5:db73000b257b5fff27f502240c6a53f8
+    date_generated: 1450385481
+    file_format: text/xml
+    file_name: MDPI_40000000034001_01_high_ffprobe.xml
+    file_path: MDPI:40000000034001:20151215-053122:data/generated/MDPI_40000000034001_01_high_ffprobe.xml
+    file_size: '1885'
+    identifier: '40000000034001'
+    part: 1
+  data/generated/MDPI_40000000034001_01_med.mp4:
+    audio_codec_type: pcm_s16le
+    bit_rate: '1422875'
+    checksum: MD5:25f1311ec96a428cdf62c106c96de1fe
+    date_generated: 1450385477
+    duration: '7593.668209'
+    file_format: wav
+    file_name: MDPI_40000000034001_01_med.mp4
+    file_path: MDPI:40000000034001:20151215-053122:data/generated/MDPI_40000000034001_01_med.mp4
+    file_size: '122802954'
+    identifier: '40000000034001'
+    part: 1
+    sample_rate: '44100'
+    use: Medium-Quality Deliverable
+  data/generated/MDPI_40000000034001_01_med_ffprobe.xml:
+    checksum: MD5:db73000b257b5fff27f502240c6a53f8
+    date_generated: 1450385478
+    file_format: text/xml
+    file_name: MDPI_40000000034001_01_med_ffprobe.xml
+    file_path: MDPI:40000000034001:20151215-053122:data/generated/MDPI_40000000034001_01_med_ffprobe.xml
+    file_size: '1885'
+    identifier: '40000000034001'
+    part: 1
+  data/generated/MDPI_40000000034001_01_pres_ffprobe.xml:
+    checksum: MD5:939adda72fdff7cb996c4d42cd43e6bd
+    date_generated: 1450385473
+    file_format: text/xml
+    file_name: MDPI_40000000034001_01_pres_ffprobe.xml
+    file_path: MDPI:40000000034001:20151215-053122:data/generated/MDPI_40000000034001_01_pres_ffprobe.xml
+    file_size: '1887'
+    identifier: '40000000034001'
+    part: 1
+  data/generated/MDPI_40000000034001_01_prod_audioinspector_uncertain.xml:
+    checksum: MD5:c1e4bb71b9a7cf68f226f9f99f1d07c8
+    date_generated: 1450385553
+    file_format: text/xml
+    file_name: MDPI_40000000034001_01_prod_audioinspector_uncertain.xml
+    file_path: MDPI:40000000034001:20151215-053122:data/generated/MDPI_40000000034001_01_prod_audioinspector_uncertain.xml
+    file_size: '31106810'
+    identifier: '40000000034001'
+    part: 1
+  data/generated/MDPI_40000000034001_01_prod_ffprobe.xml:
+    checksum: MD5:db73000b257b5fff27f502240c6a53f8
+    date_generated: 1450385474
+    file_format: text/xml
+    file_name: MDPI_40000000034001_01_prod_ffprobe.xml
+    file_path: MDPI:40000000034001:20151215-053122:data/generated/MDPI_40000000034001_01_prod_ffprobe.xml
+    file_size: '1885'
+    identifier: '40000000034001'
+    part: 1
+  data/generated/MDPI_40000000034001_group.txt:
+    checksum: MD5:0dbb1951cb4e5fbe3d3dfeac9523f641
+    date_generated: 1455056867
+    file_format: text/plain
+    file_name: MDPI_40000000034001_group.txt
+    file_path: MDPI:40000000034001:20151215-053122:data/generated/MDPI_40000000034001_group.txt
+    file_size: '51'
+    identifier: '40000000034001'
+  data/generated/MDPI_40000000034001_mods.xml:
+    checksum: MD5:3dd59d60b374a51fad2e84d4b4f06ae6
+    date_generated: 1455056889
+    file_format: text/xml
+    file_name: MDPI_40000000034001_mods.xml
+    file_path: MDPI:40000000034001:20151215-053122:data/generated/MDPI_40000000034001_mods.xml
+    file_size: '6450'
+    identifier: '40000000034001'
+  data/generated/MDPI_40000000034001_pod.xml:
+    checksum: MD5:477c4f8c78fa49d13c4f03b1f62084e1
+    date_generated: 1455056878
+    file_format: text/xml
+    file_name: MDPI_40000000034001_pod.xml
+    file_path: MDPI:40000000034001:20151215-053122:data/generated/MDPI_40000000034001_pod.xml
+    file_size: '3944'
+    identifier: '40000000034001'
+  data/generated/README.txt:
+    checksum: MD5:d8f1428bb73e52733caec26b7b4a8491
+    date_generated: 1455056894
+    file_format: text/plain
+    file_name: README.txt
+    file_path: MDPI:40000000034001:20151215-053122:data/generated/README.txt
+    file_size: '2541'
+    identifier: '40000000034001'
+  manifest-md5.txt:
+    checksum: MD5:c629f0899325d1f58b3bd00ce734604f
+    date_generated: 1455056895
+    file_format: text/plain
+    file_name: manifest-md5.txt
+    file_path: MDPI:40000000034001:20151215-053122:manifest-md5.txt
+    file_size: '1427'
+    identifier: '40000000034001'
+  tagmanifest-md5.txt:
+    checksum: MD5:141d0392fee2446b1f82b7cbd7b778dc
+    date_generated: 1455056897
+    file_format: text/plain
+    file_name: tagmanifest-md5.txt
+    file_path: MDPI:40000000034001:20151215-053122:tagmanifest-md5.txt
+    file_size: '142'
+    identifier: '40000000034001'
+work:
+  digitized_by_entity: Memnon Archiving Services Inc
+  identifier: '40000000034001'
+  original_format: DAT
+  original_identifier: DAT .I3975 96-10-7
+  title: '[Program, 1996-1997, no. 202]'
+  total_parts: 1
+  unit_of_origin: B-MUSIC
