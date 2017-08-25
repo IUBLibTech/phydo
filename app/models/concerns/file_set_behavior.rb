@@ -24,13 +24,12 @@ module Concerns
       end
 
       property :file_name, predicate: RDF::Vocab::EBUCore.filename do |index|
-         index.as :stored_searchable
+         index.as :stored_searchable, :sortable
       end
 
       property :format_file_size, predicate: RDF::Vocab::EBUCore.fileSize, multiple: false do |index|
-        index.as :stored_searchable, :stored_sortable
+        index.as :stored_searchable, :sortable
       end
-
 
       property :identifier, predicate: RDF::Vocab::EBUCore.identifier, multiple: false do |index|
         index.as :symbol

@@ -2,7 +2,6 @@
 language: ruby
 script:
   - bundle exec rake db:migrate
-  - bundle exec rake ci
 before_script:
   - jdk_switcher use oraclejdk8
 services:
