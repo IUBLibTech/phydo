@@ -1,0 +1,30 @@
+<div class="panel panel-default facet_limit blacklight-human_readable_type_sim premis-panel">
+  <div class="collapse-toggle panel-heading" data-toggle="collapse" data-target="#premis-event_sim" aria-expanded="true">
+    <h3 class="panel-title facet-field-heading">
+      <a data-no-turbolink="true" href="#">PREMIS Event Type</a>
+    </h3>
+  </div>
+  <div id="premis-event_sim" class="panel-collapse facet-content collapse in" aria-expanded="true" style>
+    <div class="panel-body">
+      <form id="premis_event_type_filter" action="<%= preservation.events_url %>">
+        <% Preservation::PremisEventType.all.each do |premis_event_type| %>
+          <div class="event-input">
+            <input type="checkbox" id="premis_event_type_<%= premis_event_type.abbr %>" name="premis_event_type[]" value="<%= premis_event_type.abbr %>" <%= Array(request.params['premis_event_type']).include?(premis_event_type.abbr) ? 'checked="checked"' : '' %>/>
+            <label for="premis_event_type_<%= premis_event_type.abbr %>"><%= premis_event_type.label.sub(/^PREMIS/ , '') %></label>
+          </div>
+        <% end %>
+
+        <!-- TODO: This logic needs to be replicated for all filter forms. Better in a helper method? -->
+        <% Rack::Utils.parse_query(request.query_string).except("premis_event_type[]").each do |param, val| %>
+          <% # Sometimes `val` may be an array, but not always. So we just array-ify
+             # it here to cover both cases. %>
+          <% Array(val).each do |single_val| %>
+            <input type="hidden" name="<%= param %>" value="<%= single_val %>" />
+          <% end %>
+        <% end %>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

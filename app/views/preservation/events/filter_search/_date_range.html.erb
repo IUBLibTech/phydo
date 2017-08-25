@@ -1,0 +1,31 @@
+<div class="panel panel-default facet_limit blacklight-human_readable_type_sim premis-panel">
+  <div class="collapse-toggle panel-heading preservation-panel" data-toggle="collapse" data-target="#event-date_sim" aria-expanded="true">
+    <h3 class="panel-title facet-field-heading">
+      <a data-no-turbolink="true" href="#">Date</a>
+    </h3>
+  </div>
+  <div id="event-date_sim" class="panel-collapse facet-content collapse in" aria-expanded="true" style>
+    <div class="panel-body">
+      <form id="date_time_range_filter" action="<%= preservation.events_url %>">
+        <div class="event-input">
+          <label>From</label>
+          <input name="after" type="date" value="<%= params['after'] %>" />
+        </div>
+        <div class="event-input">
+          <label>To</label>
+          <input name="before" type="date" value="<%= params['before'] %>" />
+        </div>
+        <!-- TODO: This logic needs to be replicated for all filter forms. Better in a helper method? -->
+        <% Rack::Utils.parse_query(request.query_string).except("after", "before").each do |param, val| %>
+          <% # Sometimes `val` may be an array, but not always. So we just array-ify
+             # it here to cover both cases. %>
+          <% Array(val).each do |single_val| %>
+            <input type="hidden" name="<%= param %>" value="<%= single_val %>" />
+          <% end %>
+        <% end %>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
