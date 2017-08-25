@@ -19,23 +19,20 @@ module Concerns
          index.as :stored_sortable, :facetable
       end
 
-      # property :file_format_long_name, predicate: RDF::Vocab::EBUCore.hasFileFormat do |index|
-      #    index.as :stored_searchable, :stored_sortable, :facetable
-      # end
-
-      property :file_name, predicate: RDF::Vocab::EBUCore.filename do |index|
-         index.as :stored_searchable
+      property :file_format_long_name, predicate: RDF::Vocab::PREMIS.hasFormatName do |index|
+         index.as :stored_searchable, :stored_sortable, :facetable
       end
 
-      property :format_file_size, predicate: RDF::Vocab::EBUCore.fileSize
+      property :file_name, predicate: RDF::Vocab::EBUCore.filename do |index|
+         index.as :stored_searchable, :sortable
+      end
 
-      # FIXME: not sure we want to duplicate use of this predicate?
-      # property :mdpi_barcode, predicate: RDF::Vocab::EBUCore.identifier, multiple: false do |index|
-        # index.as :symbol
-      # end
+      property :format_file_size, predicate: RDF::Vocab::EBUCore.fileSize, multiple: false do |index|
+        index.as :stored_searchable, :sortable
+      end
 
-      property :identifier, predicate: RDF::Vocab::EBUCore.identifier do |index|
-         index.as :stored_searchable
+      property :identifier, predicate: RDF::Vocab::EBUCore.identifier, multiple: false do |index|
+        index.as :symbol
       end
 
       # TODO use correct predicates for Unit of Origin properties
@@ -82,10 +79,6 @@ module Concerns
       property :bit_rate, predicate: RDF::Vocab::EBUCore.bitRate do |index|
         index.as :stored_searchable, :sortable, :facetable
       end
-      # property :fileSize, predicate: RDF::Vocab::EBUCore.fileSize, multiple: false do |index|
-      #   # index.as Solrizer::Descriptor.new(:long, :stored, :searchable)
-      # end
-
       property :file_path, predicate: RDF::Vocab::EBUCore.locator do |index|
         index.as :sortable, :facetable
       end

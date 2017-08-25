@@ -10,20 +10,20 @@ GIT
 
 GIT
   remote: git://github.com/IUBLibTech/hyrax-preservation.git
-  revision: 8433aeaa60193e4fab25586365dee76e6d645529
+  revision: dcc40e56a97cc4d4a28c65f03f95933a50095be4
   branch: master
   specs:
     preservation (0.1.0)
-      hyrax
+      hyrax (~> 1.0.4)
       jquery-ui-rails (~> 5.0.5)
 
 GIT
   remote: git://github.com/projectblacklight/blacklight_range_limit.git
-  revision: 16d7b1d1b9f44f25193f351cef5b4121d0214571
+  revision: 582251360e154702507cc5b296d2db2f18899909
   branch: master
   specs:
     blacklight_range_limit (6.1.2)
-      blacklight (~> 6.0)
+      blacklight (>= 6.0.2)
       jquery-rails
       rails (>= 3.0)
 
@@ -94,8 +94,8 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    addressable (2.5.1)
-      public_suffix (~> 2.0, >= 2.0.2)
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
     almond-rails (0.1.0)
       rails (>= 4.2, < 6)
     archive-tar-minitar (0.5.2)
@@ -107,13 +107,13 @@ GEM
       execjs
     awesome_nested_set (3.1.3)
       activerecord (>= 4.0.0, < 5.2)
-    aws-sdk (2.10.31)
-      aws-sdk-resources (= 2.10.31)
-    aws-sdk-core (2.10.31)
+    aws-sdk (2.10.33)
+      aws-sdk-resources (= 2.10.33)
+    aws-sdk-core (2.10.33)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.10.31)
-      aws-sdk-core (= 2.10.31)
+    aws-sdk-resources (2.10.33)
+      aws-sdk-core (= 2.10.33)
     aws-sigv4 (1.0.1)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -165,7 +165,7 @@ GEM
       signet
       skydrive
     builder (3.2.3)
-    byebug (9.0.6)
+    byebug (9.1.0)
     cancancan (1.17.0)
     capybara (2.15.1)
       addressable
@@ -317,7 +317,7 @@ GEM
       tilt
     hamster (3.0.0)
       concurrent-ruby (~> 1.0)
-    hashdiff (0.3.5)
+    hashdiff (0.3.6)
     hashie (3.5.6)
     hiredis (0.6.1)
     htmlentities (4.3.4)
@@ -575,7 +575,7 @@ GEM
       pry (>= 0.9.10, < 0.11.0)
     pry-rails (0.3.6)
       pry (>= 0.10.4)
-    public_suffix (2.0.5)
+    public_suffix (3.0.0)
     qa (1.2.0)
       activerecord-import
       deprecation
@@ -622,7 +622,7 @@ GEM
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     rb-readline (0.5.5)
-    rdf (2.2.7)
+    rdf (2.2.8)
       hamster (~> 3.0)
       link_header (~> 0.0, >= 0.0.8)
     rdf-aggregate-repo (2.2.0)
@@ -651,8 +651,8 @@ GEM
       rdf (~> 2.0)
       rdf-rdfa (~> 2.0)
       rdf-xsd (~> 2.0)
-    rdf-reasoner (0.4.2)
-      rdf (~> 2.2)
+    rdf-reasoner (0.4.3)
+      rdf (~> 2.2, >= 2.2.8)
       rdf-vocab (~> 2.2)
       rdf-xsd (~> 2.1)
     rdf-tabular (2.2.0)
@@ -898,4 +898,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.15.3
+   1.14.6
