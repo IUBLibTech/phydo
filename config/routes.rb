@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   mount Qa::Engine => '/authorities'
   mount Hyrax::Engine, at: '/'
+  mount AsyncControls::Engine, at: '/'
+
   resources :welcome, only: 'index'
   root 'hyrax/homepage#index'
   curation_concerns_basic_routes
