@@ -13,7 +13,7 @@ RSpec.describe "WGBH ingest example 3 batch" do
 
   let(:file_sets) { FileSet.all }
 
-  it 'ingests all of the SIPs', :clean_fedora do
+  it 'ingests all of the SIPs', :clean_fedora, :large_ingest do
     expect(file_sets.count).to eq num_sips
   end
 end
