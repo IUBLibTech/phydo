@@ -43,8 +43,7 @@
     - '1422874'
     file_name:
     - "/srv/scratch/transcoder_workspace_xcode-04_prod/MDPI_40000000054496.downloading/data/MDPI_40000000054496_01_prod.wav"
-    format_file_size:
-    - '1352884274'
+    format_file_size: '1352884274'
     format_sample_rate:
     - '44100'
     md5_checksum:
@@ -182,14 +181,12 @@
     - '193380'
     file_name:
     - "/srv/scratch/transcoder_workspace_xcode-04_prod/MDPI_40000000054496.downloading/data/MDPI_40000000054496_01_access.mp4"
-    format_file_size:
-    - '183868943'
+    format_file_size: '183868943'
     format_sample_rate:
     - '44100'
     unit_of_origin:
     - B-IULMIA
-    identifier:
-    - '40000000542243'
+    identifier: '40000000542243'
     md5_checksum:
     - F4C3088D835D35D8741551CF4E8977F0
     part:
@@ -290,14 +287,12 @@
     - '1422874'
     file_name:
     - "/srv/scratch/transcoder_workspace_xcode-04_prod/MDPI_40000000054496.downloading/data/MDPI_40000000054496_01_pres.wav"
-    format_file_size:
-    - '1352884274'
+    format_file_size: '1352884274'
     format_sample_rate:
     - '44100'
     unit_of_origin:
     - B-IULMIA
-    identifier:
-    - '40000000542243'
+    identifier: '40000000542243'
     md5_checksum:
     - A0F9E4C05B1307788734229C3023F191
     part:
