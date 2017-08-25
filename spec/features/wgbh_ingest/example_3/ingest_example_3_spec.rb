@@ -35,10 +35,14 @@ RSpec.describe "WGBH ingest example 3 batch" do
 
       # Expect exactly 1 ingest event.
       expect(ingest_events.count).to eq 1
-
+      
       # Expect the PREMIS agent of the ingest event to be that which is specified in the ingest config.
       premis_agent = ingest_events.first.premis_agent.first.to_uri.to_s
       expect(premis_agent).to eq 'mailto:admin@example.org'
     end
+  end
+
+  it 'ingests all of the SIPs', :clean_fedora, :large_ingest do
+    expect(file_sets.count).to eq num_sips
   end
 end
