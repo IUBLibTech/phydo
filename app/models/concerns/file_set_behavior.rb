@@ -28,7 +28,7 @@ module Concerns
       end
 
       property :format_file_size, predicate: RDF::Vocab::EBUCore.fileSize, multiple: false do |index|
-        index.as :long, :stored, :searchable, :sortable
+        index.as :stored_searchable, :stored_sortable
       end
 
       property :identifier, predicate: RDF::Vocab::EBUCore.identifier, multiple: false do |index|
