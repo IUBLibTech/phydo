@@ -7,7 +7,7 @@
   <div id="premis-event_sim" class="panel-collapse facet-content collapse in" aria-expanded="true" style>
     <div class="panel-body">
       <form id="premis_event_type_filter" action="<%= preservation.events_url %>">
-        <% Preservation::PremisEventType.all.each do |premis_event_type| %>
+        <% Hyrax::Preservation::PremisEventType.all.each do |premis_event_type| %>
           <div class="event-input">
             <input type="checkbox" id="premis_event_type_<%= premis_event_type.abbr %>" name="premis_event_type[]" value="<%= premis_event_type.abbr %>" <%= Array(request.params['premis_event_type']).include?(premis_event_type.abbr) ? 'checked="checked"' : '' %>/>
             <label for="premis_event_type_<%= premis_event_type.abbr %>"><%= premis_event_type.label.sub(/^PREMIS/ , '') %></label>
