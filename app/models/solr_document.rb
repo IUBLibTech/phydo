@@ -130,6 +130,16 @@ class SolrDocument
     @preservation_events = Preservation::Event.search_with_conditions(hasEventRelatedObject_ssim: fetch(:id))
   end
 
+  def recent_preservation_events
+    recents = []
+    types = preservation_events.map { |pe| pe[:premis_event_type_ssim]&.first }.uniq
+    types.each do |type|
+      events = preservation_events.select { |pe| pe[:premis_event_type_ssim]&.first == type }
+      recents << events.max { |e1, e2| e1[:premis_event_date_time_dtsim]&.first.to_s <=> e2[:premis_event_date_time_dtsim]&.first.to_s }
+    end
+    recents
+  end
+
   def hardware
     fetch(Solrizer.solr_name(:hardware, :stored_searchable), [])
   end
