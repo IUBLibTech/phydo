@@ -41,6 +41,7 @@ describe Phydo::FileSetPresenter do
       expect(presenter.system_modified).to be_a String
     end
   end
+
   describe '#deaccessioned?' do
     let(:deaccession) do
       dea = Hyrax::Preservation::Event.create(premis_event_type: [Hyrax::Preservation::PremisEventType.new('dea').uri], premis_event_outcome: Array.wrap(outcome))
