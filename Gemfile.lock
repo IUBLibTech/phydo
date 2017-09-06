@@ -1,19 +1,21 @@
 GIT
   remote: git://github.com/IUBLibTech/hyrax-ingest.git
-  revision: 1874a8435109bc37a487c3ab2bc143bfefd8c2ad
+  revision: 868935ffcae02ab3c857b1ce9099039f5411798b
+  branch: add_preservation_event_ingester
   specs:
     hyrax-ingest (0.1.0)
       hyrax (~> 1.0.3)
+      hyrax-preservation
       minitar
       nokogiri
       rails (~> 5)
 
 GIT
   remote: git://github.com/IUBLibTech/hyrax-preservation.git
-  revision: dcc40e56a97cc4d4a28c65f03f95933a50095be4
-  branch: master
+  revision: 80eee95f0e04d328f218660441d1b94a20cc9021
+  branch: namesapec_under_hyrax
   specs:
-    preservation (0.1.0)
+    hyrax-preservation (0.1.0)
       hyrax (~> 1.0.4)
       jquery-ui-rails (~> 5.0.5)
 
@@ -871,11 +873,11 @@ DEPENDENCIES
   guard-rubocop
   hyrax (~> 1.0.3)
   hyrax-ingest!
+  hyrax-preservation!
   jbuilder (~> 2.0)
   jquery-rails
   launchy
   omniauth-cas
-  preservation!
   pry-nav
   pry-rails
   rails (~> 5.0.0, >= 5.0.0.1)

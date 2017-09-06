@@ -1,12 +1,12 @@
 FactoryGirl.define do
-  factory :preservation_event, class: Preservation::Event do
+  factory :preservation_event, class: Hyrax::Preservation::Event do
 
     transient do
       premis_agent_email false
       premis_event_related_object nil
     end
 
-    premis_event_type { [Preservation::PremisEventType.all.sample.uri] }
+    premis_event_type { [Hyrax::Preservation::PremisEventType.all.sample.uri] }
     premis_event_date_time { [DateTime.now - rand(30000).hours] }
     sequence(:premis_agent) { |n| [::RDF::URI.new("mailto:premis_agent_#{n}@phydo.org")] }
 

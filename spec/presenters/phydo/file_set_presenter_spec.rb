@@ -41,4 +41,4 @@ describe Phydo::FileSetPresenter do
       expect(presenter.system_modified).to be_a String
     end
   end
-end  
+end

@@ -68,8 +68,11 @@ gem 'devise'
 gem 'omniauth-cas'
 gem 'archive-tar-minitar', '~> 0.5.2'
 gem 'blacklight_range_limit', github: 'projectblacklight/blacklight_range_limit', branch: 'master'
-gem 'preservation', github: 'IUBLibTech/hyrax-preservation', branch: 'master'
-gem 'hyrax-ingest', github: 'IUBLibTech/hyrax-ingest'
+# TODO: Until hyrax-preservation is published on rubygems, we need to pull from github, and the
+#   branch has to be the same branch used by hyrax-ingest, which is only specified in the
+#   Gemfile (not gemspec) of the hyrax-ingest gem. Currently that branch is: 'namesapec_under_hyrax' (sic).
+gem 'hyrax-preservation', github: 'IUBLibTech/hyrax-preservation', branch: 'namesapec_under_hyrax'
+gem 'hyrax-ingest', github: 'IUBLibTech/hyrax-ingest', branch: 'add_preservation_event_ingester'
 
 # CC v2.0.0 seems to not include BL advanced search anymore?
 gem 'blacklight_advanced_search', '~> 6.2.1'

@@ -67,11 +67,11 @@ class IngestYAMLJob < ActiveJob::Base
     end
 
     def add_event(file_set, event_attributes, prep_attributes: true)
-      e = Preservation::Event.new
+      e = Hyrax::Preservation::Event.new
       e.premis_event_related_object = file_set
       if prep_attributes
         event_attributes[:premis_event_type] = event_attributes[:premis_event_type].map do |pet|
-          Preservation::PremisEventType.new(pet).uri
+          Hyrax::Preservation::PremisEventType.new(pet).uri
         end
         event_attributes[:premis_agent] = event_attributes[:premis_agent].map do |agent|
           ::RDF::URI.new(agent)
