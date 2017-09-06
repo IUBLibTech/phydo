@@ -2,7 +2,8 @@ class FileSetIndexer < Hyrax::FileSetIndexer
 
   def generate_solr_document
     super.tap do |solr_doc|
-      solr_doc[Solrizer.solr_name('filename')] = object.file_name
+      solr_doc[Solrizer.solr_name(:title)] = object.file_name
+      solr_doc[Solrizer.solr_name(:filename)] = object.file_name
 
       # Change indexing strategy for file_size from 32-bit ingteger to a
       # 'long' integer.
