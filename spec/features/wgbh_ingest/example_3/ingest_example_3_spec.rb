@@ -35,7 +35,7 @@ RSpec.describe "WGBH ingest example 3 batch" do
 
       # Expect exactly 1 ingest event.
       expect(ingest_events.count).to eq 1
-      
+
       # Expect the PREMIS agent of the ingest event to be that which is specified in the ingest config.
       premis_agent = ingest_events.first.premis_agent.first.to_uri.to_s
       expect(premis_agent).to eq 'mailto:admin@example.org'
@@ -43,6 +43,21 @@ RSpec.describe "WGBH ingest example 3 batch" do
   end
 
   it 'ingests all of the SIPs', :clean_fedora, :large_ingest do
-    expect(file_sets.count).to eq num_sips
+    expect(FileSet.all.count).to eq @sip_paths.count
+  end
+
+  it 'ingests a single preservation event with PREMIS event type of "Ingest" and PREMIS agent of mailto:admin@example.org', :clean_fedora, :large_ingest do
+    FileSet.all.each do |file_set|
+      # Expect exactly 1 preservation event.
+      expect(file_set.preservation_events.count).to eq 1
+
+      # Expect the PREMIS event type to be that which was specified in the ingest config YAML.
+      premis_event_type_uri = file_set.preservation_events.first.premis_event_type.first.to_uri.to_s
+      expect(premis_event_type_uri).to eq 'http://id.loc.gov/vocabulary/preservation/eventType/ing'
+
+      # Expect the PREMIS agent to be that which was specified in the ingest config YAML.
+      premis_agent = file_set.preservation_events.first.premis_agent.first.to_uri.to_s
+      expect(premis_agent).to eq 'mailto:admin@example.org'
+    end
   end
 end
