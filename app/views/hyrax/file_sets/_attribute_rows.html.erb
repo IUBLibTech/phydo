@@ -5,6 +5,9 @@
   <%= presenter.attribute_to_html(:file_name) %>
   <%= presenter.attribute_to_html(:date_generated, render_as: :faceted) %>
   <%= presenter.attribute_to_html(:file_format, render_as: :faceted) %>
+  <%= presenter.attribute_to_html(:file_format_long_name, catalog_search_link: true) %>
+  <%= presenter.attribute_to_html(:codec_name, catalog_search_link: true) %>
+  <%= presenter.attribute_to_html(:codec_long_name, catalog_search_link: true) %>
   <%= presenter.attribute_to_html(:audio_codec_type, render_as: :faceted) %>
   <%= presenter.attribute_to_html(:format_sample_rate, render_as: :faceted) %>
   <%= presenter.attribute_to_html(:video_codec_type, render_as: :faceted) %>
