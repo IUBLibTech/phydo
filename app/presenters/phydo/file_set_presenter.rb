@@ -44,5 +44,9 @@ module Phydo
         link_to premis_event_type_label, Hyrax::Preservation::Engine.routes.url_helpers.event_path(preservation_event[:id])
       end.join('<br />').html_safe
     end
+
+    def barcode
+      @solr_document['barcode_ssim']&.first
+    end
   end
 end

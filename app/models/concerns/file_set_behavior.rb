@@ -90,7 +90,6 @@ module Concerns
       property :barcode, predicate: RDF::Vocab::EBUCore.storageDefinition do |index|
         index.as :symbol
       end
-
     end
   end
 end
