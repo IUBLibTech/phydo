@@ -33,8 +33,7 @@ class CatalogController < ApplicationController
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = {
       qt: "search",
-      rows: 10,
-      qf: "title_tesim description_tesim creator_tesim keyword_tesim"
+      rows: 10
     }
 
     # solr field configuration for document/show views
@@ -106,6 +105,7 @@ class CatalogController < ApplicationController
     config.add_show_field solr_name("resource_type", :stored_searchable), label: "Resource Type"
     config.add_show_field solr_name("format", :stored_searchable), label: "File Format"
     config.add_show_field solr_name("identifier", :stored_searchable), label: "Identifier"
+    config.add_show_field solr_name("barcode", :symbol), label: "Barcode"
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
@@ -260,6 +260,14 @@ class CatalogController < ApplicationController
 
     config.add_search_field('rights') do |field|
       solr_name = solr_name("rights", :stored_searchable)
+      field.solr_local_parameters = {
+        qf: solr_name,
+        pf: solr_name
+      }
+    end
+
+    config.add_search_field('barcode') do |field|
+      solr_name = solr_name("barcode", :symbol)
       field.solr_local_parameters = {
         qf: solr_name,
         pf: solr_name
