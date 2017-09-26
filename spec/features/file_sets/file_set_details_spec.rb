@@ -1,7 +1,9 @@
+require 'hyrax/preservation'
+
 require 'rails_helper'
 
 describe 'FileSet details view' do
-  context 'when the FileSet has associated Preservation Events' do
+  context 'when the FileSet has associated Hyrax::Preservation Events' do
     let(:user) { FactoryGirl.create(:user) }
     let(:file_set) { FactoryGirl.create(:file_set, user: user) }
     let(:event) { FactoryGirl.create(:preservation_event, premis_event_related_object: file_set) }
@@ -16,7 +18,7 @@ describe 'FileSet details view' do
       event.save!
     end
 
-    it 'displays a list of links to each Preservation Event details page' do
+    it 'displays a list of links to each Hyrax::Preservation Event details page' do
       visit url_for(file_set)
       expect(page).to have_link(event.premis_event_type_label, event_url)
     end

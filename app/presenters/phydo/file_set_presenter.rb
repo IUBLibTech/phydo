@@ -1,3 +1,5 @@
+require 'hyrax/preservation'
+
 module Phydo
   class FileSetPresenter < ::Hyrax::FileSetPresenter
     include ActionView::Helpers::UrlHelper
@@ -30,8 +32,8 @@ module Phydo
     # instance. So instead we just have this method mark up the attr values.
     def preservation_events
       solr_document.preservation_events.map do |preservation_event|
-        premis_event_type_label = Preservation::PremisEventType.find_by_abbr(preservation_event[:premis_event_type_ssim]&.first)&.label || "Unknown Event Type"
-        link_to premis_event_type_label, Preservation::Engine.routes.url_helpers.event_path(preservation_event[:id])
+        premis_event_type_label = Hyrax::Preservation::PremisEventType.find_by_abbr(preservation_event[:premis_event_type_ssim]&.first)&.label || "Unknown Event Type"
+        link_to premis_event_type_label, Hyrax::Preservation::Engine.routes.url_helpers.event_path(preservation_event[:id])
       end.join('<br />').html_safe
     end
   end
