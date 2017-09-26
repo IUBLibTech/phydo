@@ -106,6 +106,7 @@ class CatalogController < ApplicationController
     config.add_show_field solr_name("format", :stored_searchable), label: "File Format"
     config.add_show_field solr_name("identifier", :stored_searchable), label: "Identifier"
     config.add_show_field solr_name("barcode", :symbol), label: "Barcode"
+    config.add_show_field solr_name("last_fixity_date_time", :stored_searchable, type: :date), label: "Last Fixity Date"
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields

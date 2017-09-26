@@ -69,7 +69,7 @@ gem 'omniauth-cas'
 gem 'archive-tar-minitar', '~> 0.5.2'
 gem 'blacklight_range_limit', github: 'projectblacklight/blacklight_range_limit', branch: 'master'
 gem 'hyrax-preservation', github: 'IUBLibTech/hyrax-preservation', branch: 'master'
-gem 'hyrax-ingest', github: 'IUBLibTech/hyrax-ingest', branch: 'master'
+gem 'hyrax-ingest', github: 'IUBLibTech/hyrax-ingest', branch: 'add_reporting'
 
 # CC v2.0.0 seems to not include BL advanced search anymore?
 gem 'blacklight_advanced_search', '~> 6.2.1'

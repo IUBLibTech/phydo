@@ -1,0 +1,22 @@
+
+<h2>Last Fixity Date/Time</h2>
+<%
+# TODO: use URL helepr instead of hardcoded "/catalog"?
+%>
+<form id="last_fixity_date_time_filter" action="/catalog">
+  <label>From</label>
+  <input name="last_fixity_date_time_after" type="date" value="<%= params['last_fixity_date_time_after'] %>" /><br />
+  <label>To</label>
+  <input name="last_fixity_date_time_before" type="date" value="<%= params['last_fixity_date_time_before'] %>" /><br />
+
+  <!-- TODO: This logic needs to be replicated for all filter forms. Better in a helper method? -->
+  <% Rack::Utils.parse_query(request.query_string).except("last_fixity_date_time_after", "last_fixity_date_time_before").each do |param, val| %>
+    <% # Sometimes `val` may be an array, but not always. So we just array-ify
+       # it here to cover both cases. %>
+    <% Array(val).each do |single_val| %>
+      <input type="hidden" name="<%= param %>" value="<%= single_val %>" />
+    <% end %>
+  <% end %>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -25,12 +25,29 @@ class FileSetIndexer < Hyrax::FileSetIndexer
       solr_doc[Solrizer.solr_name(:quality_level, :stored_searchable)] = object.quality_level
       solr_doc[Solrizer.solr_name(:original_checksum, :symbol)] = object.original_checksum
 
+      # TODO: add accessors to the FileSet model to provide quicker, cleaner
+      # access to data about the 1st ingest event.
       ingest_preservation_event = object.preservation_events.detect { |event| event.premis_event_type_abbr == 'ing' }
       if ingest_preservation_event
         Solrizer.set_field(solr_doc,
                            'ingest_date_time',
                            ingest_preservation_event.premis_event_date_time.first,
                            :stored_searchable)
+      end
+
+      # TODO: add accessors to the FileSet model to provide quicker, cleaner
+      # access to data about the last fixity event.
+      fixity_events = object.preservation_events.select { |event| event.premis_event_type_abbr == 'fix' }
+      if (fixity_events.count)
+        last_fixity_event = fixity_events.sort_by { |event| event.premis_event_date_time.first }.reverse.first
+        last_fixity_date_time = last_fixity_event&.premis_event_date_time&.first
+
+        if last_fixity_date_time
+          Solrizer.set_field(solr_doc,
+                             'last_fixity_date_time',
+                             last_fixity_date_time,
+                             :stored_searchable)
+        end
       end
     end
   end

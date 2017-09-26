@@ -1,7 +1,7 @@
 GIT
   remote: git://github.com/IUBLibTech/hyrax-ingest.git
-  revision: e113bdaf4255d14e0d7dfe0356d795fbb7b4738b
-  branch: master
+  revision: 8b2adafb94405adee34ca8486c2a5d899ede806e
+  branch: add_reporting
   specs:
     hyrax-ingest (0.1.0)
       hyrax (~> 1.0.3)
