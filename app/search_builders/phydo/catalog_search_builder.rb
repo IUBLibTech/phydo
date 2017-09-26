@@ -6,7 +6,8 @@ module Phydo
       :apply_barcode_filter,
       :apply_filename_filter,
       :apply_file_path_segment_filter,
-      :apply_file_format_filter
+      :apply_file_format_filter,
+      :apply_last_fixity_date_time_filter
     ]
 
     def models

@@ -130,7 +130,6 @@ ingest:
 
         # Properties for a message digest calculation event.
         - properties:
-
           # PREMIS event type is 'mes'
           - rdf_predicate: "http://www.loc.gov/premis/rdf/v1#hasEventType"
             from:
@@ -151,4 +150,3 @@ ingest:
                 xpath: "//pbcoreInstantiationDocument/instantiationExtension/extensionWrap[starts-with(@annotation, 'fixity check')]/extensionElement[.='eventDate']/following-sibling::extensionValue"
             transform:
               ToDate: from_yyyy-mm-dd
-
