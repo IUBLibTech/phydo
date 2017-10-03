@@ -1,3 +1,5 @@
+require 'hyrax/preservation'
+
 Rails.application.routes.draw do
 
   mount Blacklight::Engine => '/'
@@ -31,7 +33,7 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  mount Preservation::Engine, at: '/preservation'
+  mount Hyrax::Preservation::Engine, at: '/preservation'
   concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
 
   # Adds routes to large file interactions provided through Phydo::StorageControllerBehavior

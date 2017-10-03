@@ -1,3 +1,5 @@
+require 'hyrax/preservation'
+
 # frozen_string_literal: true
 class SolrDocument
   include Blacklight::Solr::Document
@@ -127,7 +129,7 @@ class SolrDocument
   end
 
   def preservation_events
-    @preservation_events = Preservation::Event.search_with_conditions(hasEventRelatedObject_ssim: fetch(:id))
+    @preservation_events = Hyrax::Preservation::Event.search_with_conditions(hasEventRelatedObject_ssim: fetch(:id))
   end
 
   def hardware
