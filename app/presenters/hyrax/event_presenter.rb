@@ -10,12 +10,24 @@ module Hyrax
       @request = request
     end
 
-    def type
+    def type_display
       Hyrax::Preservation::PremisEventType.find_by_abbr(event[:premis_event_type_ssim]&.first)&.label || "Unknown Event Type"
     end
 
-    def link
+    def type_link
+      Hyrax::Preservation::Engine.routes.url_helpers.events_path(related_object: related_object, 'premis_event_type[]' => type_code)
+    end
+
+    def event_link
       Hyrax::Preservation::Engine.routes.url_helpers.event_path(event[:id])
+    end
+
+    def type_code
+      event[:premis_event_type_ssim]&.first
+    end
+
+    def related_object
+      event[:hasEventRelatedObject_ssim]&.first
     end
 
     def outcome
