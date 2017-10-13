@@ -2,7 +2,6 @@ module Phydo
   class CatalogSearchBuilder < Hyrax::CatalogSearchBuilder
 
     self.default_processor_chain += [
-      :apply_last_fixity_date_time_filter,
       :apply_barcode_filter,
       :apply_filename_filter,
       :apply_file_path_segment_filter,
