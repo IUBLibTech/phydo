@@ -1,7 +1,10 @@
 module Phydo
   class CatalogSearchBuilder < Hyrax::CatalogSearchBuilder
 
-    self.default_processor_chain += [:apply_last_fixity_date_time_filter]
+    self.default_processor_chain += [
+      :apply_last_fixity_date_time_filter,
+      :apply_barcode_filter
+    ]
 
     def models
       super + [::FileSet]
@@ -15,6 +18,13 @@ module Phydo
       solr_params
     end
 
+    def apply_barcode_filter(solr_params)
+      if barcode_filter
+        solr_params[:fq] ||= []
+        solr_params[:fq] << barcode_filter
+      end
+      solr_params
+    end
 
     private
 
@@ -45,6 +55,13 @@ module Phydo
         DateTime.parse(unformatted_date.to_s).utc.strftime("%Y-%m-%dT%H:%M:%SZ")
       rescue ArgumentError => e
         nil
+      end
+
+      def barcode_filter
+        @barcode_filter ||=
+          if blacklight_params['barcode']
+            'barcode_ssim:' + blacklight_params['barcode']
+          end
       end
   end
 end
