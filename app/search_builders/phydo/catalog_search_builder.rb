@@ -59,7 +59,7 @@ module Phydo
 
       def barcode_filter
         @barcode_filter ||=
-          if blacklight_params['barcode']
+          unless blacklight_params['barcode'].blank?
             'barcode_ssim:' + blacklight_params['barcode']
           end
       end
