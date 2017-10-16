@@ -28,9 +28,7 @@ RSpec.describe Phydo::CatalogSearchBuilder do
         blacklight_param => '') }
 
     let(:builder_with_value) { described_class.new(scope).with(params_with_value) }
-
     let(:builder_no_value) { described_class.new(scope).with(params) }
-
     let(:builder_empty_value) { described_class.new(scope).with(params_empty_value) }
 
     context 'when there is a value in params' do
