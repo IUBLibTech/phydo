@@ -31,9 +31,9 @@ module Concerns
         index.as :stored_searchable, :stored_sortable
       end
 
-      property :identifier, predicate: RDF::Vocab::EBUCore.identifier, multiple: false do |index|
-        index.as :symbol
-      end
+      # property :identifier, predicate: RDF::Vocab::EBUCore.identifier, multiple: false do |index|
+      #   index.as :symbol
+      # end
 
       # TODO use correct predicates for Unit of Origin properties
       # property :unit_of_origin, predicate: RDF::Vocab::EBUCore.description do |index|
@@ -64,7 +64,10 @@ module Concerns
       property :quality_level, predicate: RDF::Vocab::EBUCore.encodingLevel, multiple: false do |index|
         index.as :stored_searchable, :facetable
       end
-      property :codec_type, predicate: RDF::Vocab::EBUCore.hasMedium do |index|
+      property :audio_codec_type, predicate: RDF::Vocab::EBUCore.hasAudioFormat do |index|
+        index.as :stored_searchable, :facetable
+      end
+      property :video_codec_type, predicate: RDF::Vocab::EBUCore.hasVideoFormat do |index|
         index.as :stored_searchable, :facetable
       end
       property :codec_name, predicate: RDF::Vocab::EBUCore.hasCodec do |index|
