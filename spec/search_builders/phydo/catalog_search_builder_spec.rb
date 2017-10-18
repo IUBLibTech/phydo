@@ -23,9 +23,16 @@ RSpec.describe Phydo::CatalogSearchBuilder do
         'action' => 'index',
         'barcode' => '123456') }
 
+    let(:params_empty_barcode) { ActionController::Parameters.new(
+        'controller' => 'catalog',
+        'action' => 'index',
+        'barcode' => '') }
+
     let(:builder_with_barcode) { described_class.new(scope).with(params_with_barcode) }
 
     let(:builder_no_barcode) { described_class.new(scope).with(params) }
+
+    let(:builder_empty_barcode) { described_class.new(scope).with(params_empty_barcode) }
 
     context 'when there is a barcode in params' do
       subject { builder_with_barcode.query }
@@ -39,7 +46,15 @@ RSpec.describe Phydo::CatalogSearchBuilder do
       subject { builder_no_barcode.query }
 
       it 'does not filter for barcode when not in params' do
-        expect(subject[:fq]).not_to include('barcode_ssim:123456')
+        expect(subject[:fq]).not_to include('barcode_ssim:')
+      end
+    end
+
+    context 'when there is an empty barcode in params' do
+      subject { builder_empty_barcode.query }
+
+      it 'does not filter for barcode when not in params' do
+        expect(subject[:fq]).not_to include('barcode_ssim:')
       end
     end
   end
