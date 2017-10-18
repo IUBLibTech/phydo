@@ -1,7 +1,7 @@
 <tr class="attributes">
-  <td class="attribute"><%= link_to(event.try(:type), event.try(:link)) %></td>
+  <td class="attribute"><%= link_to(event.try(:type_display), event.try(:type_link)) %></td>
+  <td class="attribute"><%= link_to(event.try(:date), event.try(:event_link)) %></td>
   <td class="attribute"><%= event.try(:outcome) %></td>
-  <td class="attribute"><%= event.try(:date) %></td>
   <td class="attribute"><%= event.try(:agent) %></td>
 </tr>
 
