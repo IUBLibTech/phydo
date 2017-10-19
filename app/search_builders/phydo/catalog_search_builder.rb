@@ -6,7 +6,8 @@ module Phydo
       :apply_filename_filter,
       :apply_file_path_segment_filter,
       :apply_file_format_filter,
-      :apply_last_fixity_date_time_filter
+      :apply_last_fixity_date_time_filter,
+      :apply_file_path_filter
     ]
 
     def models
@@ -49,6 +50,13 @@ module Phydo
       if file_format_filter
         solr_params[:fq] ||= []
         solr_params[:fq] << file_format_filter
+      end
+    end
+
+    def apply_file_path_filter(solr_params)
+      if file_path_filter
+        solr_params[:fq] ||= []
+        solr_params[:fq] << file_path_filter
       end
       solr_params
     end
@@ -109,6 +117,13 @@ module Phydo
         @file_format ||=
           unless blacklight_params['file_format'].blank?
             'file_format_long_name_tesim:*' + blacklight_params['file_format'] + '*'
+          end
+      end
+
+      def file_path_filter
+        @file_path_filter ||=
+          unless blacklight_params['file_path'].blank?
+            "file_path_sim:\"#{blacklight_params['file_path']}\""
           end
       end
   end
