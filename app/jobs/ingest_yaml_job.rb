@@ -29,6 +29,7 @@ class IngestYAMLJob < ActiveJob::Base
 
       ingest_file_sets(resource: resource, files: @yaml[:filesets])
       resource.save! if resource
+      logger.info "Ingested #{resource.class}: #{resource.id} with #{resource.file_sets.count} files."
     end
 
     def ingest_file_sets(parent: nil, resource: nil, files: [])

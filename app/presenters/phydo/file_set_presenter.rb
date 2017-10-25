@@ -4,6 +4,11 @@ module Phydo
   class FileSetPresenter < ::Hyrax::FileSetPresenter
     include ActionView::Helpers::UrlHelper
 
+    delegate :identifier, :date_generated, :file_format, :audio_codec_type, :video_codec_type,
+             :duration, :quality_level, :mdpi_timestamp, :file_size, :bit_rate, :md5_checksum,
+             :video_width, :video_height, :format_sample_rate, :quality_level,
+             to: :solr_document
+
     def link_name
       current_ability.can?(:read, id) ? filename : 'File'
     end

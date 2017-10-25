@@ -41,16 +41,24 @@ module Concerns
          index.as :stored_searchable, :facetable, :stored_sortable
       end
 
-      property :part, predicate: RDF::Vocab::EBUCore.partNumber
+      property :part, predicate: RDF::Vocab::EBUCore.partNumber do |index|
+        index.as :facetable, :stored_sortable
+      end
 
-      property :format_sample_rate, predicate: RDF::Vocab::EBUCore.sampleRate
+      property :format_sample_rate, predicate: RDF::Vocab::EBUCore.sampleRate do |index|
+        index.as :stored_searchable, :facetable, :stored_sortable
+      end
 
-      property :video_width, predicate: RDF::Vocab::EBUCore.width
+      property :video_width, predicate: RDF::Vocab::EBUCore.width do |index|
+        index.as :stored_searchable, :facetable, :stored_sortable
+      end
 
-      property :video_height, predicate: RDF::Vocab::EBUCore.height
+      property :video_height, predicate: RDF::Vocab::EBUCore.height do |index|
+        index.as :stored_searchable, :facetable, :stored_sortable
+      end
 
       property :md5_checksum, predicate: RDF::Vocab::NFO.hashValue do |index|
-         index.as :stored_searchable
+         index.as :symbol
       end
       # FIXME: not sure we want to duplicate use of this predicate?
       # property :original_checksum, predicate: RDF::Vocab::EBUCore.hashValue do |index|
