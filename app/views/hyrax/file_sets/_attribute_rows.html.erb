@@ -4,8 +4,11 @@
   <%= presenter.attribute_to_html(:date_generated, render_as: :faceted) %>
   <%= presenter.attribute_to_html(:file_format, render_as: :faceted) %>
   <%= presenter.attribute_to_html(:audio_codec_type, render_as: :faceted) %>
+  <%= presenter.attribute_to_html(:format_sample_rate, render_as: :faceted) %>
   <%= presenter.attribute_to_html(:video_codec_type, render_as: :faceted) %>
-  <%= presenter.attribute_to_html(:duration) %>
+  <%= presenter.attribute_to_html(:video_width, render_as: :faceted) %>
+  <%= presenter.attribute_to_html(:video_height, render_as: :faceted) %>
+  <%= presenter.attribute_to_html(:format_duration) %>
   <%= presenter.attribute_to_html(:quality_level, render_as: :faceted) %>
   <%= presenter.attribute_to_html(:mdpi_timestamp) %>
   <%= presenter.attribute_to_html(:file_size, label: 'File Size (bytes)') %>

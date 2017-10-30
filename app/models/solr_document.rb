@@ -104,8 +104,16 @@ class SolrDocument
     fetch(Solrizer.solr_name(:codec_long_name, :stored_searchable), [])
   end
 
-  def duration
-    fetch(Solrizer.solr_name(:duration, :stored_searchable), [])
+  def video_width
+    fetch(Solrizer.solr_name(:video_width, :stored_searchable), [])
+  end
+
+  def video_height
+    fetch(Solrizer.solr_name(:video_height, :stored_searchable), [])
+  end
+
+  def format_duration
+    fetch(Solrizer.solr_name(:format_duration, :stored_searchable), [])
   end
 
   def bit_rate

@@ -22,8 +22,8 @@ class FileSetIndexer < Hyrax::FileSetIndexer
       # solr_doc[facetable_file_format] ||= []
       # solr_doc[facetable_file_format] += object.file_format.to_a
 
-      solr_doc[Solrizer.solr_name(:quality_level, :stored_searchable)] = object.quality_level
-      solr_doc[Solrizer.solr_name(:original_checksum, :symbol)] = object.original_checksum
+      # solr_doc[Solrizer.solr_name(:quality_level, :stored_searchable)] = object.quality_level
+      # solr_doc[Solrizer.solr_name(:original_checksum, :symbol)] = object.original_checksum
 
       ingest_preservation_event = object.preservation_events.detect { |event| event.premis_event_type_abbr == 'ing' }
       if ingest_preservation_event
@@ -33,5 +33,10 @@ class FileSetIndexer < Hyrax::FileSetIndexer
                            :stored_searchable)
       end
     end
+  end
+
+  # Directly set file_format instead of deriving from mime type.
+  def file_format
+    object.file_format.to_a
   end
 end
