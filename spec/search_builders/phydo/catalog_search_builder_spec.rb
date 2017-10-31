@@ -58,4 +58,51 @@ RSpec.describe Phydo::CatalogSearchBuilder do
       end
     end
   end
+
+  describe '.apply_filename_filter' do
+    let(:params) { ActionController::Parameters.new(
+        'controller' => 'catalog',
+        'action' => 'index') }
+
+    let(:params_with_filename) { ActionController::Parameters.new(
+        'controller' => 'catalog',
+        'action' => 'index',
+        'filename' => 'test_file.xml') }
+
+    let(:params_empty_filename) { ActionController::Parameters.new(
+        'controller' => 'catalog',
+        'action' => 'index',
+        'filename' => '') }
+
+    let(:builder_with_filename) { described_class.new(scope).with(params_with_filename) }
+
+    let(:builder_no_filename) { described_class.new(scope).with(params) }
+
+    let(:builder_empty_filename) { described_class.new(scope).with(params_empty_filename) }
+
+    context 'when there is a filename in params' do
+      subject { builder_with_filename.query }
+
+      it 'filters for filename when present in params' do
+        expect(subject[:fq]).to include('label_tesim:test_file.xml')
+      end
+    end
+
+    context 'when there is no filename in params' do
+      subject { builder_no_filename.query }
+
+      it 'does not filter for filename when not in params' do
+        expect(subject[:fq]).not_to include('label_tesim:')
+      end
+    end
+
+    context 'when there is an empty filename in params' do
+      subject { builder_empty_filename.query }
+
+      it 'does not filter for filename when not in params' do
+        expect(subject[:fq]).not_to include('label_tesim:')
+      end
+    end
+  end
+
 end

@@ -1,0 +1,19 @@
+<h2>Filename</h2>
+<%
+# TODO: use URL helper instead of hardcoded "/catalog"?
+%>
+<form id="filename_filter" action="/catalog">
+  <label>Filename</label>
+  <input name="filename" type="text" value="<%= params['filename'] %>" /><br />
+
+  <!-- TODO: This logic needs to be replicated for all filter forms. Better in a helper method? -->
+  <% Rack::Utils.parse_query(request.query_string).except("filename").each do |param, val| %>
+    <% # Sometimes `val` may be an array, but not always. So we just array-ify
+       # it here to cover both cases. %>
+    <% Array(val).each do |single_val| %>
+      <input type="hidden" name="<%= param %>" value="<%= single_val %>" />
+    <% end %>
+  <% end %>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
