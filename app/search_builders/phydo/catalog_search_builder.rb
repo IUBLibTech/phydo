@@ -3,7 +3,8 @@ module Phydo
 
     self.default_processor_chain += [
       :apply_last_fixity_date_time_filter,
-      :apply_barcode_filter
+      :apply_barcode_filter,
+      :apply_filename_filter
     ]
 
     def models
@@ -22,6 +23,14 @@ module Phydo
       if barcode_filter
         solr_params[:fq] ||= []
         solr_params[:fq] << barcode_filter
+      end
+      solr_params
+    end
+
+    def apply_filename_filter(solr_params)
+      if filename_filter
+        solr_params[:fq] ||= []
+        solr_params[:fq] << filename_filter
       end
       solr_params
     end
@@ -61,6 +70,13 @@ module Phydo
         @barcode_filter ||=
           unless blacklight_params['barcode'].blank?
             'barcode_ssim:' + blacklight_params['barcode']
+          end
+      end
+
+      def filename_filter
+        @filename_filter ||=
+          unless blacklight_params['filename'].blank?
+            'label_tesim:' + blacklight_params['filename']
           end
       end
   end
