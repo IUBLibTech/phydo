@@ -128,3 +128,27 @@ ingest:
             transform:
               ToDate: from_yyyy-mm-dd
 
+        # Properties for a message digest calculation event.
+        - properties:
+
+          # PREMIS event type is 'mes'
+          - rdf_predicate: "http://www.loc.gov/premis/rdf/v1#hasEventType"
+            from:
+              PremisEventType: 'mes'
+
+          # PREMIS event outcome is in a PBCore instantiation extension.
+          - rdf_predicate: "http://www.loc.gov/premis/rdf/v1#hasEventOutcome"
+            from:
+              XMLFile:
+                filename: /\d{6}.xml$/
+                xpath: '//fits/fileinfo/md5checksum'
+
+          # PREMIS event date time is in the PBCore instantiation extension.
+          - rdf_predicate: "http://www.loc.gov/premis/rdf/v1#hasEventDateTime"
+            from:
+              XMLFile:
+                filename: '/_pbcore.xml$/'
+                xpath: "//pbcoreInstantiationDocument/instantiationExtension/extensionWrap[starts-with(@annotation, 'fixity check')]/extensionElement[.='eventDate']/following-sibling::extensionValue"
+            transform:
+              ToDate: from_yyyy-mm-dd
+
