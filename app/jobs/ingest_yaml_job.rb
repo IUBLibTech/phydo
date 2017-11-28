@@ -19,6 +19,7 @@ class IngestYAMLJob < ActiveJob::Base
       if @yaml[:work]
         resource = Work.new
         resource.attributes = translate_properties(resource,@yaml[:work])
+        resource.visibility = Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_AUTHENTICATED
         resource.apply_depositor_metadata @user
         resource.save!
         logger.info "Created #{resource.class}: #{resource.id}"
@@ -37,6 +38,7 @@ class IngestYAMLJob < ActiveJob::Base
         logger.info "Ingesting FileSet for #{v[:file_name]}"
         file_set = FileSet.new
         file_set.attributes = translate_properties(file_set, v)
+        file_set.visibility = resource.visibility
         file_set.apply_depositor_metadata(@user)
         file_set.save!
         resource.ordered_members << file_set
@@ -47,7 +49,8 @@ class IngestYAMLJob < ActiveJob::Base
     end
 
     def external_uri_for(file_params)
-      "http://birch.dlib.indiana.edu:8555/caches/sda/files/#{file_params[:file_name].first}"
+      "http://helium.dlib.indiana.edu:8080/sda/status/#{file_params[:file_name].first}"
+      # "http://birch.dlib.indiana.edu:8555/caches/sda/files/#{file_params[:file_name].first}"
       # "http://carbon.dlib.indiana.edu:8100/sda/status/#{file_params[:identifier].first}/#{file_params[:file_name].first}"
     end
 
@@ -115,13 +118,21 @@ class IngestYAMLJob < ActiveJob::Base
     end
       
     def add_ingestion_event(file_set)
-      event = {}
-      event[:attributes] = {
+      ing_event = {}
+      ing_event[:attributes] = {
         premis_event_type: ['ing'],
         premis_agent: ['mailto:' + @user.email],
         premis_event_outcome: ['SUCCESS'],
         premis_event_date_time: [DateTime.now]
       }
-      ingest_events(file_set, [event])
+      mes_event = {}
+      mes_event[:attributes] = {
+          premis_event_type: ['mes'],
+          premis_agent: ['mailto:' + @user.email],
+          premis_event_outcome: [file_set.md5_checksum.first.to_s],
+          premis_event_detail: ['From ingestion package'],
+          premis_event_date_time: [DateTime.now]
+      }
+      ingest_events(file_set, [ing_event, mes_event])
     end
 end
