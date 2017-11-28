@@ -3,6 +3,7 @@ require 'hyrax/preservation'
 module Phydo
   class FileSetPresenter < ::Hyrax::FileSetPresenter
     include ActionView::Helpers::UrlHelper
+    include ExternalStorage::ExternalStorageBehavior
 
     delegate :identifier, :date_generated, :file_format, :audio_codec_type, :video_codec_type,
              :format_duration, :quality_level, :mdpi_timestamp, :file_size, :bit_rate, :md5_checksum,

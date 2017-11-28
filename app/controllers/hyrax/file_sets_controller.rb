@@ -1,7 +1,7 @@
 module Hyrax
   class FileSetsController < ApplicationController
     include Hyrax::FileSetsControllerBehavior
-    include AsyncControls::AsyncControlsBehavior
+    include ExternalStorage::ExternalFileSetBehavior
 
     # override FileSetControllerBehavior to use customized presenter class
     self.show_presenter = Phydo::FileSetPresenter

@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Unicorn as the app server
 # gem 'unicorn'
+gem 'puma'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -62,7 +63,7 @@ group :development, :test do
   gem 'database_cleaner'
 end
 
-gem 'hyrax', '~> 1.0.3'
+gem 'hyrax', '~> 1.0.5'
 gem 'devise'
 
 gem 'omniauth-cas'
@@ -70,12 +71,12 @@ gem 'archive-tar-minitar', '~> 0.5.2'
 gem 'blacklight_range_limit', github: 'projectblacklight/blacklight_range_limit', branch: 'master'
 gem 'hyrax-ingest', github: 'IUBLibTech/hyrax-ingest', branch: 'master'
 gem 'hyrax-preservation', github: 'IUBLibTech/hyrax-preservation', branch: 'master'
-gem 'async_controls', github: 'IUBLibTech/async_controls', branch: 'master'
+gem 'external_storage', github: 'samvera-labs/samvera-external_storage'
+gem 'storage_proxy_api', github: 'samvera-labs/storage_proxy_api'
 
 
 # CC v2.0.0 seems to not include BL advanced search anymore?
 gem 'blacklight_advanced_search', '~> 6.2.1'
-gem 'rsolr', '~> 1.0'
 gem 'devise-guests', '~> 0.5'
 
 group :development, :test do
