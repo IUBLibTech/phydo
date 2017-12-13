@@ -37,4 +37,5 @@ Rails.application.routes.draw do
   mount Hyrax::Preservation::Engine, at: '/preservation'
   concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
 
+  mount ExternalStorage::Engine, at: '/'
 end

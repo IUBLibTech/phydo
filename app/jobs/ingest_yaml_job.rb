@@ -1,4 +1,5 @@
 require 'hyrax/preservation'
+require 'external_storage/config'
 
 class IngestYAMLJob < ActiveJob::Base
   queue_as :ingest
@@ -49,9 +50,7 @@ class IngestYAMLJob < ActiveJob::Base
     end
 
     def external_uri_for(file_params)
-      "http://helium.dlib.indiana.edu:8080/sda/status/#{file_params[:file_name].first}"
-      # "http://birch.dlib.indiana.edu:8555/caches/sda/files/#{file_params[:file_name].first}"
-      # "http://carbon.dlib.indiana.edu:8100/sda/status/#{file_params[:identifier].first}/#{file_params[:file_name].first}"
+      "#{ExternalStorage::Config.config.external_uri_host}/#{file_params[:file_path].first}"
     end
 
     def field_map

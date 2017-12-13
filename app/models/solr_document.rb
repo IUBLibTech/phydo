@@ -36,6 +36,10 @@ class SolrDocument
     fetch(Solrizer.solr_name(:file_size, Solrizer::Descriptor.new(:long, :stored, :indexed)), [])
   end
 
+  def file_path
+    fetch(Solrizer.solr_name(:file_path, :symbol), [])
+  end
+
   def quality_level
     fetch(Solrizer.solr_name(:quality_level, :stored_searchable), [])
   end

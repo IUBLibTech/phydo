@@ -13,6 +13,7 @@ module Concerns
 
       property :date_generated, predicate: RDF::Vocab::EBUCore.dateCreated do |index|
          index.as :stored_searchable, :facetable, :stored_sortable
+         index.type :date
       end
 
       property :file_format, predicate: RDF::Vocab::PREMIS.hasFormatName do |index|
@@ -91,7 +92,7 @@ module Concerns
         index.as :stored_searchable, :sortable, :facetable
       end
       property :file_path, predicate: RDF::Vocab::EBUCore.locator do |index|
-        index.as :sortable, :facetable
+        index.as :symbol
       end
 
     end

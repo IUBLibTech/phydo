@@ -31,7 +31,7 @@ GIT
 
 GIT
   remote: git://github.com/samvera-labs/samvera-external_storage.git
-  revision: 1bc4bcabd5c22b81b407ca2c4d32baf27116f5c7
+  revision: 68108c744b8119a1e6be76e8e448a3d1e0018971
   specs:
     external_storage (0.1.0)
       hyrax
@@ -929,4 +929,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.15.4
+   1.16.0
