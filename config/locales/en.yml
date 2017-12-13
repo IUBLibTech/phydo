@@ -21,3 +21,11 @@
 
 en:
   hello: "Hello world"
+  fixity_check_report:
+    subject: "PHYDO Fixity Check Report"
+    headers:
+      - 'File name'
+      - 'Title'
+      - 'File path'
+      - 'Last fixity check date'
+    message: "Find fixity check report attached."
