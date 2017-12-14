@@ -52,8 +52,8 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'guard-rspec', require: false
   gem 'guard-rubocop', require: false
-  gem 'rubocop', '~> 0.34.0', require: false
-  gem 'rubocop-rspec', '~> 1.3.0', require: false
+  gem 'rubocop', '~> 0.49', require: false
+  gem 'rubocop-rspec', '~> 1.20.1', require: false
   gem 'simplecov', require: false
   gem 'byebug'
   gem 'pry-rails'
