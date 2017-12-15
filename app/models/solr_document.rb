@@ -145,7 +145,7 @@ class SolrDocument
   end
 
   def mes_events
-    @mes_events ||= Hyrax::Preservation::Event.search_with_conditions(hasEventRelatedObject_ssim: fetch(:id), premis_event_type_ssim: 'mes')
+    @mes_events ||= Hyrax::Preservation::Event.search_with_conditions(hasEventRelatedObject_ssim: fetch(:id), premis_event_type_ssim: 'mes').delete_if { |mes| mes["premis_event_date_time_dtsim"].nil? }
   end
 
   def current_mes_event
