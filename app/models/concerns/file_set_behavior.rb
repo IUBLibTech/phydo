@@ -32,9 +32,9 @@ module Concerns
         index.as :stored_searchable, :stored_sortable
       end
 
-      # property :identifier, predicate: RDF::Vocab::EBUCore.identifier, multiple: false do |index|
-      #   index.as :symbol
-      # end
+      property :identifier, predicate: RDF::Vocab::EBUCore.identifier do |index|
+        index.as :symbol
+      end
 
       # TODO use correct predicates for Unit of Origin properties
       # property :unit_of_origin, predicate: RDF::Vocab::EBUCore.description do |index|
