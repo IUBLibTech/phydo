@@ -1,6 +1,6 @@
 <% provide :page_title, @presenter.page_title %>
 <% provide :page_header do %>
-  <h1>File Details <small><%= @presenter %></small></h1>
+  <h1>File Details <small><%= @presenter %></small><span class="label label-danger"><%= 'Deaccessioned' if @presenter.deaccessioned? %></span></h1>
 <% end %>
 <%= media_display @presenter %>
 <%= render 'attributes', presenter: @presenter %>
