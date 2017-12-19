@@ -33,5 +33,9 @@ module Phydo
     def system_modified
       DateTime.parse(solr_document.system_modified).strftime("%Y-%m-%d %H:%I:%S")
     end
+
+    def deaccessioned?
+      @solr_document.recent_preservation_events.select { |e| e['premis_event_type_ssim'].first == 'dea' && e['premis_event_outcome_tesim'].first.match(/(succ|pass)/i) }.any?
+    end
   end
 end
