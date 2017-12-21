@@ -71,6 +71,9 @@ gem 'blacklight_range_limit', github: 'projectblacklight/blacklight_range_limit'
 gem 'hyrax-ingest', github: 'IUBLibTech/hyrax-ingest', branch: 'master'
 gem 'hyrax-preservation', github: 'IUBLibTech/hyrax-preservation', branch: 'master'
 
+# Pin rdf-vocab to 2.2.8 since 2.2.9 introduced breaking changes
+gem 'rdf-vocab', '2.2.8'
+
 # CC v2.0.0 seems to not include BL advanced search anymore?
 gem 'blacklight_advanced_search', '~> 6.2.1'
 gem 'rsolr', '~> 1.0'

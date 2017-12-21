@@ -22,7 +22,7 @@ GIT
 
 GIT
   remote: git://github.com/projectblacklight/blacklight_range_limit.git
-  revision: f1cb424f431055fdf85facdf30bc37f3f4386bfe
+  revision: 2d5956e3230df86a8df33b84749bb0f91ef739df
   branch: master
   specs:
     blacklight_range_limit (6.3.1)
@@ -108,8 +108,8 @@ GEM
       execjs
     awesome_nested_set (3.1.3)
       activerecord (>= 4.0.0, < 5.2)
-    aws-partitions (1.49.0)
-    aws-sdk-core (3.11.0)
+    aws-partitions (1.51.0)
+    aws-sdk-core (3.12.0)
       aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
@@ -325,7 +325,7 @@ GEM
     hamster (3.0.0)
       concurrent-ruby (~> 1.0)
     hashdiff (0.3.7)
-    hashie (3.5.6)
+    hashie (3.5.7)
     hiredis (0.6.1)
     htmlentities (4.3.4)
     http_logger (0.5.1)
@@ -681,8 +681,8 @@ GEM
     rdf-turtle (2.2.2)
       ebnf (~> 1.1)
       rdf (>= 2.2, < 4.0)
-    rdf-vocab (2.2.9)
-      rdf (>= 2.2, < 4.0)
+    rdf-vocab (2.2.8)
+      rdf (~> 2.2)
     rdf-xsd (2.2.1)
       rdf (>= 2.2, < 4.0)
     rdoc (4.3.0)
@@ -900,6 +900,7 @@ DEPENDENCIES
   rails (~> 5.0.0, >= 5.0.0.1)
   rails-controller-testing
   rb-readline
+  rdf-vocab (= 2.2.8)
   rsolr (~> 1.0)
   rspec-rails
   rubocop (~> 0.49)
