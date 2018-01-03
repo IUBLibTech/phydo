@@ -1,4 +1,5 @@
 require 'hyrax/preservation'
+require 'external_storage/config'
 
 class IngestYAMLJob < ActiveJob::Base
   queue_as :ingest
@@ -8,7 +9,7 @@ class IngestYAMLJob < ActiveJob::Base
   def perform(yaml_file, user)
     logger.info "Ingesting YAML #{yaml_file}"
     @yaml_file = yaml_file
-    @yaml = File.open(yaml_file) { |f| Psych.load(f) }
+    @yaml = File.open(yaml_file) { |f| HashWithIndifferentAccess.new(YAML.safe_load(f)) }
     @user = user
     ingest
   end
@@ -16,9 +17,10 @@ class IngestYAMLJob < ActiveJob::Base
   private
 
     def ingest
-      if @yaml[:resource]
-        resource = @yaml[:resource].constantize.new
-        resource.attributes = @yaml[:work_attributes] if @yaml[:work_attributes].present?
+      if @yaml[:work]
+        resource = Work.new
+        resource.attributes = translate_properties(resource,@yaml[:work])
+        resource.visibility = Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_AUTHENTICATED
         resource.apply_depositor_metadata @user
         resource.save!
         logger.info "Created #{resource.class}: #{resource.id}"
@@ -27,37 +29,65 @@ class IngestYAMLJob < ActiveJob::Base
         logger.info "No parent resource specified."
       end
 
-      ingest_file_sets(resource: resource, files: @yaml[:file_sets])
+      ingest_file_sets(resource: resource, files: @yaml[:filesets])
       resource.save! if resource
+      logger.info "Ingested #{resource.class}: #{resource.id} with #{resource.file_sets.count} files."
     end
 
     def ingest_file_sets(parent: nil, resource: nil, files: [])
-      files.select { |f| f[:attributes].present? }.each do |f|
-        logger.info "Ingesting FileSet for #{f[:filename]}"
+      files.select { |k, v| v[:file_name].present? }.each do |k, v|
+        logger.info "Ingesting FileSet for #{v[:file_name]}"
         file_set = FileSet.new
-        file_set.attributes = f[:attributes]
+        file_set.attributes = translate_properties(file_set, v)
+        file_set.visibility = resource.visibility
         file_set.apply_depositor_metadata(@user)
         file_set.save!
-        actor = Hyrax::Actors::FileSetActor.new(file_set, @user)
-        ingest_files(resource, file_set, actor, f[:files]) if f[:files].present?
-        ingest_events(file_set, f[:events]) if f[:events].present?
+        resource.ordered_members << file_set
+        actor = Phydo::FileSetActor.new(file_set, @user)
+        ingest_external_file(resource, file_set, actor, [v])
         add_ingestion_event(file_set)
       end
     end
 
-    def decorated_file(f)
-      IoDecorator.new(open(f[:path]), f[:mime_type], File.basename(f[:path]))
+    def external_uri_for(file_params)
+      "#{ExternalStorage::Config.config.external_uri_host}/#{file_params[:file_path].first}"
     end
 
-    def ingest_files(resource, file_set, actor, files)
-      require './lib/phydo/file_actor/ingest_file_now.rb'
-      Hyrax::Actors::FileActor.prepend ::Phydo::FileActor::IngestFileNow
+    def field_map
+      @field_map ||= {
+          file_size: :format_file_size,
+          duration: :format_duration,
+          sample_rate: :format_sample_rate,
+          use: :quality_level,
+          checksum: :md5_checksum
+      }.with_indifferent_access
+    end
+
+    def translate_properties(object, properties)
+      # Perform field name remapping
+      field_map.each do |key, value|
+        if properties.key?(key) && object.class.attribute_method?(value)
+          properties[value] = properties.delete(key)
+        end
+      end
+
+      # Wrap any scalars that are going into multivalued fields
+      properties.each do |key, value|
+        if object.class.multiple? key
+          properties[key] = Array.wrap value
+        end
+      end
+    end
+
+    def ingest_external_file(resource, file_set, actor, files)
+      # require './lib/phydo/file_actor/ingest_file_now.rb'
+      # Hyrax::Actors::FileActor.prepend ::Phydo::FileActor::IngestFileNow
       files.each_with_index do |file, i|
-        logger.info "FileSet #{file_set.id}: ingesting file: #{file[:filename]}"
-        actor.create_metadata(file[:file_opts]) if i.zero? && file[:path]
+        logger.info "FileSet #{file_set.id}: ingesting file: #{file[:file_name]}"
+        actor.create_metadata(file[:file_opts]) if i.zero? && file[:file_path]
         # TODO: fix hyrax characterization bug; workaround immediately below
-        file_set.class.characterization_proxy = file[:use]
-        actor.create_content(decorated_file(file), file[:use]) if file[:path] #FIXME: handle purl case
+        file_set.class.characterization_proxy = file[:use] || :original_file
+        actor.create_content(file[:file_name], external_uri_for(file), file[:use]) if file[:file_path] #FIXME: handle purl case
       end
     end
 
@@ -87,13 +117,21 @@ class IngestYAMLJob < ActiveJob::Base
     end
       
     def add_ingestion_event(file_set)
-      event = {}
-      event[:attributes] = {
+      ing_event = {}
+      ing_event[:attributes] = {
         premis_event_type: ['ing'],
         premis_agent: ['mailto:' + @user.email],
         premis_event_outcome: ['SUCCESS'],
         premis_event_date_time: [DateTime.now]
       }
-      ingest_events(file_set, [event])
+      mes_event = {}
+      mes_event[:attributes] = {
+          premis_event_type: ['mes'],
+          premis_agent: ['mailto:' + @user.email],
+          premis_event_outcome: [file_set.md5_checksum.first.to_s],
+          premis_event_detail: ['From ingestion package'],
+          premis_event_date_time: [DateTime.now]
+      }
+      ingest_events(file_set, [ing_event, mes_event])
     end
 end
