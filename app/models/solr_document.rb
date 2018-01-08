@@ -36,6 +36,10 @@ class SolrDocument
     fetch(Solrizer.solr_name(:file_size, Solrizer::Descriptor.new(:long, :stored, :indexed)), [])
   end
 
+  def file_path
+    fetch(Solrizer.solr_name(:file_path, :symbol), [])
+  end
+
   def quality_level
     fetch(Solrizer.solr_name(:quality_level, :stored_searchable), [])
   end
@@ -52,8 +56,8 @@ class SolrDocument
     fetch('mdpi_timestamp_isi', [])
   end
 
-  def original_checksum
-    fetch(Solrizer.solr_name(:original_checksum, :symbol), [])
+  def md5_checksum
+    fetch(Solrizer.solr_name(:md5_checksum, :symbol), [])
   end
   
   def system_create
@@ -88,8 +92,12 @@ class SolrDocument
     fetch(Solrizer.solr_name(:file_format_long_name, :symbol), [])
   end
 
-  def codec_type
-    fetch(Solrizer.solr_name(:codec_type, :stored_searchable), [])
+  def audio_codec_type
+    fetch(Solrizer.solr_name(:audio_codec_type, :stored_searchable), [])
+  end
+
+  def video_codec_type
+    fetch(Solrizer.solr_name(:video_codec_type, :stored_searchable), [])
   end
 
   def codec_name
@@ -100,12 +108,24 @@ class SolrDocument
     fetch(Solrizer.solr_name(:codec_long_name, :stored_searchable), [])
   end
 
-  def duration
-    fetch(Solrizer.solr_name(:duration, :stored_searchable, type: :integer), [])
+  def video_width
+    fetch(Solrizer.solr_name(:video_width, :stored_searchable), [])
+  end
+
+  def video_height
+    fetch(Solrizer.solr_name(:video_height, :stored_searchable), [])
+  end
+
+  def format_duration
+    fetch(Solrizer.solr_name(:format_duration, :stored_searchable), [])
   end
 
   def bit_rate
-    fetch(Solrizer.solr_name(:bit_rate, :stored_searchable, type: :integer), [])
+    fetch(Solrizer.solr_name(:bit_rate, :stored_searchable), [])
+  end
+
+  def format_sample_rate
+    fetch(Solrizer.solr_name(:format_sample_rate, :stored_searchable), [])
   end
 
   def unit_of_origin

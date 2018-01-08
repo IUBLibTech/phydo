@@ -190,6 +190,9 @@ Hyrax.config do |config|
   end
 end
 
+# Use our FileSetPresenter
+Hyrax::MemberPresenterFactory.file_presenter_class = Phydo::FileSetPresenter
+
 Date::DATE_FORMATS[:standard] = "%m/%d/%Y"
 
 Qa::Authorities::Local.register_subauthority('subjects', 'Qa::Authorities::Local::TableBasedAuthority')

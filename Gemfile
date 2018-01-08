@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'rails', '~> 5.1.3'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -9,7 +9,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 
@@ -18,7 +18,7 @@ gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder', '~> 2.5'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Unicorn as the app server
 # gem 'unicorn'
+gem 'puma'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -62,7 +63,7 @@ group :development, :test do
   gem 'database_cleaner'
 end
 
-gem 'hyrax', '~> 1.0.3'
+gem 'hyrax', '~> 1.0.5'
 gem 'devise'
 
 gem 'omniauth-cas'
@@ -70,10 +71,12 @@ gem 'archive-tar-minitar', '~> 0.5.2'
 gem 'blacklight_range_limit', github: 'projectblacklight/blacklight_range_limit', branch: 'master'
 gem 'hyrax-ingest', github: 'IUBLibTech/hyrax-ingest', branch: 'master'
 gem 'hyrax-preservation', github: 'IUBLibTech/hyrax-preservation', branch: 'master'
+gem 'external_storage', github: 'samvera-labs/samvera-external_storage'
+gem 'storage_proxy_api', github: 'samvera-labs/storage_proxy_api'
+
 
 # CC v2.0.0 seems to not include BL advanced search anymore?
 gem 'blacklight_advanced_search', '~> 6.2.1'
-gem 'rsolr', '~> 1.0'
 gem 'devise-guests', '~> 0.5'
 
 group :development, :test do

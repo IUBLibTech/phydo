@@ -86,7 +86,7 @@ module Concerns
       # From pod_xml
       
       # The attribute name is identifier in Google doc and the Predicate is same as context.yml for this property
-      property :mdpi_barcode, predicate: RDF::Vocab::EBUCore.identifier, multiple: false do |index|
+      property :mdpi_barcode, predicate: RDF::Vocab::EBUCore.identifier do |index|
         index.as :symbol
       end
       
