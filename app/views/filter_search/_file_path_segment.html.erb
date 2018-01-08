@@ -1,0 +1,19 @@
+<h2>File Path Segment</h2>
+<%
+# TODO: use URL helepr instead of hardcoded "/catalog"?
+%>
+<form id="file_path_segment_filter" action="/catalog">
+  <label>File path segment</label>
+  <input name="file_path_segment" value="<%= params['file_path_segment'] %>" />
+
+  <!-- TODO: This logic needs to be replicated for all filter forms. Better in a helper method? -->
+  <% Rack::Utils.parse_query(request.query_string).except("file_path_segment").each do |param, val| %>
+    <% # Sometimes `val` may be an array, but not always. So we just array-ify
+       # it here to cover both cases. %>
+    <% Array(val).each do |single_val| %>
+      <input type="hidden" name="<%= param %>" value="<%= single_val %>" />
+    <% end %>
+  <% end %>
+
+  <button type="submit">Submit</button>
+</form>

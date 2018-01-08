@@ -92,7 +92,7 @@ module Concerns
         index.as :stored_searchable, :sortable, :facetable
       end
       property :file_path, predicate: RDF::Vocab::EBUCore.locator do |index|
-        index.as :stored_searchable, :symbol
+        index.as :stored_searchable, :symbol, :sortable
       end
 
     end
