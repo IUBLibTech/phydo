@@ -84,7 +84,7 @@ RSpec.describe Phydo::CatalogSearchBuilder do
       subject { builder_with_filename.query }
 
       it 'filters for filename when present in params' do
-        expect(subject[:fq]).to include('label_tesim:test_file.xml')
+        expect(subject[:fq]).to include("file_name_tesim:\"test_file.xml\"")
       end
     end
 
@@ -92,7 +92,7 @@ RSpec.describe Phydo::CatalogSearchBuilder do
       subject { builder_no_filename.query }
 
       it 'does not filter for filename when not in params' do
-        expect(subject[:fq]).not_to include('label_tesim:')
+        expect(subject[:fq]).not_to include('file_name_tesim:')
       end
     end
 
@@ -100,7 +100,7 @@ RSpec.describe Phydo::CatalogSearchBuilder do
       subject { builder_empty_filename.query }
 
       it 'does not filter for filename when not in params' do
-        expect(subject[:fq]).not_to include('label_tesim:')
+        expect(subject[:fq]).not_to include('file_name_tesim:')
       end
     end
   end
