@@ -4,9 +4,9 @@ class FixityCheckJob < ActiveJob::Base
   queue_as :fixity_check
 
   def initialize(options={})
-    raise ArgumentError, "Required option :user is missing" unless options.key?(:user)
-    raise ArgumentError, "Required option :ids is missing" unless options.key?(:ids)
-    raise ArgumentError, "Option :ids should be an array of FileSet IDs" unless options[:ids].is_a?(Array)
+    # TODO: better validation of user option
+    raise ArgumentError, "Required option :user is missing" unless options[:user]
+    raise ArgumentError, "Option :ids should be an array of FileSet IDs" unless options[:ids].respond_to? :each
     @user = options[:user]
     @ids = options[:ids]
   end
@@ -29,6 +29,18 @@ class FixityCheckJob < ActiveJob::Base
       create_events(failing_docs,'fail')
     end
 
+    def user_email
+      @user_email ||= if @user.respond_to? :email
+        @user.email
+      else
+        @user.to_s
+      end
+    end
+
+    def premis_agent_uri
+      ::RDF::URI.new('mailto:' + user_email)
+    end
+
     def solr_docs_for_fixity_check
       solr_doc_ids_for_fixity_check.map { |id| SolrDocument.find(id) }
     end
@@ -47,7 +59,7 @@ class FixityCheckJob < ActiveJob::Base
     def event_attributes(status)
       event_attributes = {
         premis_event_type: [ Hyrax::Preservation::PremisEventType.new('fix').uri ],
-        premis_agent: [ ::RDF::URI.new('mailto:' + @user.email) ],
+        premis_agent: [ premis_agent_uri ],
         premis_event_outcome: [ status ],
         premis_event_date_time: [ DateTime.now ]
       }

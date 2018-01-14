@@ -22,3 +22,5 @@
 /.idea
 
 dump.rdb
+
+hyrax_ingest_report.log

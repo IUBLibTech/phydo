@@ -2,7 +2,12 @@ class FileSetIndexer < Hyrax::FileSetIndexer
 
   def generate_solr_document
     super.tap do |solr_doc|
-      solr_doc[Solrizer.solr_name(:title)] = object.file_name
+      solr_doc[Solrizer.solr_name(:title)] = unless object.title.empty?
+        object.title
+      else
+        object.file_name
+      end
+
       solr_doc[Solrizer.solr_name(:filename)] = object.file_name
 
       # Change indexing strategy for file_size from 32-bit ingteger to a
@@ -36,19 +41,11 @@ class FileSetIndexer < Hyrax::FileSetIndexer
                            :stored_searchable)
       end
 
-      # TODO: add accessors to the FileSet model to provide quicker, cleaner
-      # access to data about the last fixity event.
-      fixity_events = object.preservation_events.select { |event| event.premis_event_type_abbr == 'fix' }
-      if (fixity_events.count)
-        last_fixity_event = fixity_events.sort_by { |event| event.premis_event_date_time.first }.reverse.first
-        last_fixity_date_time = last_fixity_event&.premis_event_date_time&.first
-
-        if last_fixity_date_time
-          Solrizer.set_field(solr_doc,
-                             'last_fixity_date_time',
-                             last_fixity_date_time,
-                             :stored_searchable)
-        end
+      unless object.fixity_events.empty?
+        Solrizer.set_field(solr_doc,
+                           'last_fixity_date_time',
+                           object.fixity_events.last.premis_event_date_time.first,
+                           :stored_searchable)
       end
     end
   end

@@ -1,0 +1,30 @@
+---
+ingest:
+  - FileSet:
+      update:
+        id:
+          from:
+            CSVFile:
+              filename: checksums.csv
+              shared: true
+              row: next
+              column : ID
+      PreservationEvents:
+        - properties:
+          - rdf_predicate: "http://www.loc.gov/premis/rdf/v1#hasEventType"
+            from:
+              PremisEventType: 'mes'
+          - rdf_predicate: "http://www.loc.gov/premis/rdf/v1#hasEventOutcome"
+            from:
+              CSVFile:
+                filename: checksums.csv
+                column: CHECKSUM
+                row: next
+                shared: true
+          - rdf_predicate: "http://www.loc.gov/premis/rdf/v1#hasAgent"
+            from:
+              RdfUri: 'mailto:admin@example.org'
+          # PREMIS event date time is the current time
+          - rdf_predicate: "http://www.loc.gov/premis/rdf/v1#hasEventDateTime"
+            from:
+              DateTime: now
