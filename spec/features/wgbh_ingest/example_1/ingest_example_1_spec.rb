@@ -4,7 +4,7 @@ require 'hyrax/ingest/runner'
 RSpec.describe "WGBH ingest example 1" do
 
   before do
-    @runner = Hyrax::Ingest::Runner.new(config_file_path: File.expand_path('../ingest_example_1_config.yml', __FILE__), source_files_path: File.expand_path('../example_1_files', __FILE__))
+    @runner = Hyrax::Ingest::Runner.new(config_file_path: File.expand_path('../ingest_example_1_config.yml', __FILE__), sip_path: File.expand_path('../example_1_files', __FILE__))
     @runner.run!
   end
 

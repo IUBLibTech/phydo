@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/IUBLibTech/hyrax-ingest.git
-  revision: d1ff954be403c515c6c3b4b22c53250e62d3f3cd
+  revision: c4fa2bc1a5a19962c4ebb826e59980a330709627
   branch: master
   specs:
     hyrax-ingest (0.1.0)
@@ -918,4 +918,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.15.3
+   1.14.6

@@ -145,20 +145,26 @@ class SolrDocument
   end
 
   def mes_events
-    @mes_events ||= Hyrax::Preservation::Event.search_with_conditions(hasEventRelatedObject_ssim: fetch(:id), premis_event_type_ssim: 'mes').delete_if { |mes| mes["premis_event_date_time_dtsim"].nil? }
+    @mes_events ||= begin
+      Hyrax::Preservation::Event.search_with_conditions(hasEventRelatedObject_ssim: fetch(:id), premis_event_type_ssim: 'mes')
+    end.sort_by do |mes|
+      # Sort first by premis event date time, if found; otherwise by the system create date.
+      mes["premis_event_date_time_dtsim"] || mes['system_create_dtsi']
+    end
   end
 
   def current_mes_event
-    @current_mes_event ||= Hyrax::Preservation::Event.find(mes_events.sort_by { |dt| dt["premis_event_date_time_dtsim"] }.last.id)
+    mes_events.last
+    # @current_mes_event ||= Hyrax::Preservation::Event.find(mes_events&.sort_by { |dt| dt["premis_event_date_time_dtsim"] }&.last&.id)
   end
 
   def previous_mes_event
-    @previous_mes_event ||= Hyrax::Preservation::Event.find(mes_events.sort_by { |dt| dt["premis_event_date_time_dtsim"] }[-2].id)
+    mes_events[-2]
+    # @previous_mes_event ||= Hyrax::Preservation::Event.find(mes_events&.sort_by { |dt| dt["premis_event_date_time_dtsim"] }[-2]&.id)
   end
 
   def current_mes_event_changed?
-    return true if current_mes_event.premis_event_outcome != previous_mes_event.premis_event_outcome
-    false
+    !!( current_mes_event && previous_mes_event && (current_mes_event['premis_event_outcome_tesim'] != previous_mes_event['premis_event_outcome_tesim']) )
   end
 
   def hardware

@@ -84,3 +84,6 @@ group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
 end
 
+# Pin rdf-vocab to 2.2.8 because 2.2.9 updates the EBUCore ontology (and the ruby interface used to get the URIs).
+# Updating the gem will require updating which EBU predicates we're using.
+gem 'rdf-vocab', '2.2.8'

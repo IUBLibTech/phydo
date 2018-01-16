@@ -15,11 +15,11 @@ module Concerns
          index.as :stored_searchable, :facetable, :stored_sortable
       end
 
-      property :file_format, predicate: RDF::Vocab::PREMIS.hasFormatName do |index|
+      property :file_format, predicate: RDF::Vocab::EBUCore.hasFileFormat do |index|
          index.as :stored_sortable, :facetable
       end
 
-      property :file_format_long_name, predicate: RDF::Vocab::EBUCore.hasFileFormat do |index|
+      property :file_format_long_name, predicate: RDF::Vocab::PREMIS.hasFormatName do |index|
          index.as :stored_searchable, :stored_sortable, :facetable
       end
 
@@ -89,6 +89,19 @@ module Concerns
 
       property :barcode, predicate: RDF::Vocab::EBUCore.storageDefinition do |index|
         index.as :symbol
+      end
+    end
+
+    # Returns a list of associated Preservation::Event objects that have
+    # PREMIS event type of 'fix', and are sorted by PREMIS event date.
+    # TODO: move to Hyrax-preservation gem as a behavior that gets added to
+    # FileSet.
+    def fixity_events
+      preservation_events.select do |event|
+        premis_event_type_uri = event.premis_event_type.first.id
+        Hyrax::Preservation::PremisEventType.find_by_uri(premis_event_type_uri).abbr == 'fix'
+      end.sort do |fixity_event|
+        fixity_event.premis_event_date_time.first
       end
     end
   end

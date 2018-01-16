@@ -107,4 +107,5 @@ ingest:
               XMLFile:
                 filename: '/_fits.xml$/'
                 xpath: '//fits/fileinfo/fslastmodified'
-
+            transform:
+              ToDate: from_timestamp_with_ms
