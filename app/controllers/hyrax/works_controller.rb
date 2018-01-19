@@ -7,5 +7,6 @@ module Hyrax
     include Hyrax::WorksControllerBehavior
     include Hyrax::BreadcrumbsForWorks
     self.curation_concern_type = ::Work
+    self.show_presenter = Phydo::WorkPresenter
   end
 end

@@ -13,96 +13,60 @@ RSpec.describe Phydo::CatalogSearchBuilder do
            current_user: me)
   end
 
-  describe '.apply_barcode_filter' do
+  shared_examples 'apply_filter examples' do |blacklight_param, blacklight_value, solr_param, solr_value|
     let(:params) { ActionController::Parameters.new(
         'controller' => 'catalog',
         'action' => 'index') }
-
-    let(:params_with_barcode) { ActionController::Parameters.new(
+    let(:params_with_value) { ActionController::Parameters.new(
         'controller' => 'catalog',
         'action' => 'index',
-        'barcode' => '123456') }
+        blacklight_param => blacklight_value) }
 
-    let(:params_empty_barcode) { ActionController::Parameters.new(
+    let(:params_empty_value) { ActionController::Parameters.new(
         'controller' => 'catalog',
         'action' => 'index',
-        'barcode' => '') }
+        blacklight_param => '') }
 
-    let(:builder_with_barcode) { described_class.new(scope).with(params_with_barcode) }
+    let(:builder_with_value) { described_class.new(scope).with(params_with_value) }
 
-    let(:builder_no_barcode) { described_class.new(scope).with(params) }
+    let(:builder_no_value) { described_class.new(scope).with(params) }
 
-    let(:builder_empty_barcode) { described_class.new(scope).with(params_empty_barcode) }
+    let(:builder_empty_value) { described_class.new(scope).with(params_empty_value) }
 
-    context 'when there is a barcode in params' do
-      subject { builder_with_barcode.query }
+    context 'when there is a value in params' do
+      subject { builder_with_value.query }
 
-      it 'filters for barcode when present in params' do
-        expect(subject[:fq]).to include('barcode_ssim:123456')
+      it 'filters for value when present in params' do
+        expect(subject[:fq]).to include(solr_param + ':' + solr_value)
       end
     end
 
-    context 'when there is no barcode in params' do
-      subject { builder_no_barcode.query }
+    context 'when there is no value in params' do
+      subject { builder_no_value.query }
 
-      it 'does not filter for barcode when not in params' do
-        expect(subject[:fq]).not_to include('barcode_ssim:')
+      it 'does not filter for value when not in params' do
+        expect(subject[:fq]).not_to include(solr_param)
       end
     end
 
-    context 'when there is an empty barcode in params' do
-      subject { builder_empty_barcode.query }
+    context 'when there is an empty value in params' do
+      subject { builder_empty_value.query }
 
-      it 'does not filter for barcode when not in params' do
-        expect(subject[:fq]).not_to include('barcode_ssim:')
+      it 'does not filter for value when not in params' do
+        expect(subject[:fq]).not_to include(solr_param)
       end
     end
+  end
+
+  describe '.apply_barcode_filter' do
+    include_examples 'apply_filter examples', 'barcode', '123456', 'barcode_ssim', '123456'
   end
 
   describe '.apply_filename_filter' do
-    let(:params) { ActionController::Parameters.new(
-        'controller' => 'catalog',
-        'action' => 'index') }
-
-    let(:params_with_filename) { ActionController::Parameters.new(
-        'controller' => 'catalog',
-        'action' => 'index',
-        'filename' => 'test_file.xml') }
-
-    let(:params_empty_filename) { ActionController::Parameters.new(
-        'controller' => 'catalog',
-        'action' => 'index',
-        'filename' => '') }
-
-    let(:builder_with_filename) { described_class.new(scope).with(params_with_filename) }
-
-    let(:builder_no_filename) { described_class.new(scope).with(params) }
-
-    let(:builder_empty_filename) { described_class.new(scope).with(params_empty_filename) }
-
-    context 'when there is a filename in params' do
-      subject { builder_with_filename.query }
-
-      it 'filters for filename when present in params' do
-        expect(subject[:fq]).to include("file_name_tesim:\"test_file.xml\"")
-      end
-    end
-
-    context 'when there is no filename in params' do
-      subject { builder_no_filename.query }
-
-      it 'does not filter for filename when not in params' do
-        expect(subject[:fq]).not_to include('file_name_tesim:')
-      end
-    end
-
-    context 'when there is an empty filename in params' do
-      subject { builder_empty_filename.query }
-
-      it 'does not filter for filename when not in params' do
-        expect(subject[:fq]).not_to include('file_name_tesim:')
-      end
-    end
+    include_examples 'apply_filter examples', 'filename', 'test_file.xml', 'file_name_tesim', '"test_file.xml"'
   end
 
+  describe '.apply_file_path_segment_filter' do
+    include_examples 'apply_filter examples', 'file_path_segment', '/test/path', 'file_path_tesim', '"/test/path"'
+  end
 end

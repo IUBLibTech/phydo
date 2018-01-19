@@ -1,0 +1,54 @@
+---
+filesets:
+  data/MDPI_40000000575441.xml:
+    checksum: MD5:8daa21ab993d35b56f9ece81f07c6db9
+    date_generated: 1470890103
+    file_format: text/xml
+    file_name: MDPI_40000000575441.xml
+    file_path: MDPI:40000000575441:20160811-003610:data/MDPI_40000000575441.xml
+    file_size: '5838'
+    identifier: '40000000575441'
+  data/MDPI_40000000575441_01_access.mp4:
+    audio_codec_type: aac
+    bit_rate: '210974'
+    checksum: MD5:70c130b48922a9b8b286ab024dce2d64
+    date_generated: 1470890104
+    duration: '1947.411000'
+    file_format: mov,mp4,m4a,3gp,3g2,mj2
+    file_name: MDPI_40000000575441_01_access.mp4
+    file_path: MDPI:40000000575441:20160811-003610:data/MDPI_40000000575441_01_access.mp4
+    file_size: '51356807'
+    identifier: '40000000575441'
+    part: 1
+    sample_rate: '96000'
+    use: Access
+  data/MDPI_40000000575441_02_access.mp4:
+    audio_codec_type: aac
+    bit_rate: '201706'
+    checksum: MD5:a474d41bfc4ee1f380e4689a1ad7fbb6
+    date_generated: 1470890118
+    duration: '612.614000'
+    file_format: mov,mp4,m4a,3gp,3g2,mj2
+    file_name: MDPI_40000000575441_02_access.mp4
+    file_path: MDPI:40000000575441:20160811-003610:data/MDPI_40000000575441_02_access.mp4
+    file_size: '15445999'
+    identifier: '40000000575441'
+    part: 2
+    sample_rate: '96000'
+    use: Access
+  data/generated/README.txt:
+    checksum: MD5:cd2970432de20045137c45f74a8f5c8d
+    date_generated: 1474995025
+    file_format: text/plain
+    file_name: README.txt
+    file_path: MDPI:40000000575441:20160811-003610:data/generated/README.txt
+    file_size: '4491'
+    identifier: '40000000575441'
+work:
+  digitized_by_entity: IU Media Digitization Studios
+  identifier: '01234567891011'
+  original_format: Open Reel Audio Tape
+  original_identifier: TEST 12345
+  title: 'Test with 2 Parts'
+  total_parts: 2
+  unit_of_origin: B-TEST

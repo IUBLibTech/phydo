@@ -29,11 +29,22 @@ class SolrDocument
   use_extension( Hydra::ContentNegotiation )
 
   def filename
-    File.basename(fetch(Solrizer.solr_name(:file_name, :stored_searchable), ['Unknown']).first)
+    @filename ||= begin
+      full_filename = fetch(Solrizer.solr_name(:file_name, :stored_searchable)).first
+      if full_filename
+        File.basename(full_filename)
+      else
+        'Unknown'
+      end
+    end
   end
 
   def file_size
     fetch(Solrizer.solr_name(:file_size, Solrizer::Descriptor.new(:long, :stored, :indexed)), [])
+  end
+
+  def file_path
+    fetch(Solrizer.solr_name(:file_path, :symbol), [])
   end
 
   def quality_level
@@ -52,8 +63,8 @@ class SolrDocument
     fetch('mdpi_timestamp_isi', [])
   end
 
-  def original_checksum
-    fetch(Solrizer.solr_name(:original_checksum, :symbol), [])
+  def md5_checksum
+    fetch(Solrizer.solr_name(:md5_checksum, :symbol), [])
   end
 
   def system_create
@@ -88,8 +99,12 @@ class SolrDocument
     fetch(Solrizer.solr_name(:file_format_long_name, :symbol), [])
   end
 
-  def codec_type
-    fetch(Solrizer.solr_name(:codec_type, :stored_searchable), [])
+  def audio_codec_type
+    fetch(Solrizer.solr_name(:audio_codec_type, :stored_searchable), [])
+  end
+
+  def video_codec_type
+    fetch(Solrizer.solr_name(:video_codec_type, :stored_searchable), [])
   end
 
   def codec_name
@@ -100,12 +115,24 @@ class SolrDocument
     fetch(Solrizer.solr_name(:codec_long_name, :stored_searchable), [])
   end
 
-  def duration
-    fetch(Solrizer.solr_name(:duration, :stored_searchable, type: :integer), [])
+  def video_width
+    fetch(Solrizer.solr_name(:video_width, :stored_searchable), [])
+  end
+
+  def video_height
+    fetch(Solrizer.solr_name(:video_height, :stored_searchable), [])
+  end
+
+  def format_duration
+    fetch(Solrizer.solr_name(:format_duration, :stored_searchable), [])
   end
 
   def bit_rate
-    fetch(Solrizer.solr_name(:bit_rate, :stored_searchable, type: :integer), [])
+    fetch(Solrizer.solr_name(:bit_rate, :stored_searchable), [])
+  end
+
+  def format_sample_rate
+    fetch(Solrizer.solr_name(:format_sample_rate, :stored_searchable), [])
   end
 
   def unit_of_origin

@@ -3,6 +3,12 @@ require 'hyrax/preservation'
 module Phydo
   class FileSetPresenter < ::Hyrax::FileSetPresenter
     include ActionView::Helpers::UrlHelper
+    include ExternalStorage::ExternalStorageBehavior
+
+    delegate :identifier, :date_generated, :file_format, :audio_codec_type, :video_codec_type,
+             :format_duration, :quality_level, :mdpi_timestamp, :file_size, :bit_rate, :md5_checksum,
+             :file_path, :video_width, :video_height, :format_sample_rate, :quality_level,
+             to: :solr_document
 
     def link_name
       current_ability.can?(:read, id) ? filename : 'File'
@@ -29,7 +35,7 @@ module Phydo
     end
 
     def deaccessioned?
-      @solr_document.recent_preservation_events.select { |e| e['premis_event_type_ssim'].first == 'dea' && e['premis_event_outcome_tesim'].first.match(/(succ|pass)/i) }.any?
+      @solr_document.recent_preservation_events.select { |e| e['premis_event_type_ssim']&.first == 'dea' && e['premis_event_outcome_tesim']&.first.to_s.match(/(succ|pass)/i) }.any?
     end
 
     # @note TODO: It would be nice to just have this presenter delegate

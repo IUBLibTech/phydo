@@ -13,6 +13,7 @@ module Concerns
 
       property :date_generated, predicate: RDF::Vocab::EBUCore.dateCreated do |index|
          index.as :stored_searchable, :facetable, :stored_sortable
+         index.type :date
       end
 
       property :file_format, predicate: RDF::Vocab::EBUCore.hasFileFormat do |index|
@@ -31,7 +32,7 @@ module Concerns
         index.as :stored_searchable, :sortable
       end
 
-      property :identifier, predicate: RDF::Vocab::EBUCore.identifier, multiple: false do |index|
+      property :identifier, predicate: RDF::Vocab::EBUCore.identifier do |index|
         index.as :symbol
       end
 
@@ -41,16 +42,24 @@ module Concerns
          index.as :stored_searchable, :facetable, :stored_sortable
       end
 
-      property :part, predicate: RDF::Vocab::EBUCore.partNumber
+      property :part, predicate: RDF::Vocab::EBUCore.partNumber do |index|
+        index.as :facetable, :stored_sortable
+      end
 
-      property :format_sample_rate, predicate: RDF::Vocab::EBUCore.sampleRate
+      property :format_sample_rate, predicate: RDF::Vocab::EBUCore.sampleRate do |index|
+        index.as :stored_searchable, :facetable, :stored_sortable
+      end
 
-      property :video_width, predicate: RDF::Vocab::EBUCore.width
+      property :video_width, predicate: RDF::Vocab::EBUCore.width do |index|
+        index.as :stored_searchable, :facetable, :stored_sortable
+      end
 
-      property :video_height, predicate: RDF::Vocab::EBUCore.height
+      property :video_height, predicate: RDF::Vocab::EBUCore.height do |index|
+        index.as :stored_searchable, :facetable, :stored_sortable
+      end
 
       property :md5_checksum, predicate: RDF::Vocab::NFO.hashValue do |index|
-         index.as :stored_searchable
+         index.as :symbol
       end
       # FIXME: not sure we want to duplicate use of this predicate?
       # property :original_checksum, predicate: RDF::Vocab::EBUCore.hashValue do |index|
@@ -64,7 +73,10 @@ module Concerns
       property :quality_level, predicate: RDF::Vocab::EBUCore.encodingLevel, multiple: false do |index|
         index.as :stored_searchable, :facetable
       end
-      property :codec_type, predicate: RDF::Vocab::EBUCore.hasMedium do |index|
+      property :audio_codec_type, predicate: RDF::Vocab::EBUCore.hasAudioFormat do |index|
+        index.as :stored_searchable, :facetable
+      end
+      property :video_codec_type, predicate: RDF::Vocab::EBUCore.hasVideoFormat do |index|
         index.as :stored_searchable, :facetable
       end
       property :codec_name, predicate: RDF::Vocab::EBUCore.hasCodec do |index|
@@ -80,7 +92,7 @@ module Concerns
         index.as :stored_searchable, :sortable, :facetable
       end
       property :file_path, predicate: RDF::Vocab::EBUCore.locator do |index|
-        index.as :sortable, :facetable
+        index.as :stored_searchable, :symbol, :sortable
       end
 
       property :file_path, predicate: RDF::Vocab::EBUCore.locator do |index|
