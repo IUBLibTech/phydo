@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pbcoreInstantiationDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html">
+<instantiationIdentifier source="source file MD5">61974e6d8609caba9ab3bf1bfac70bc0</instantiationIdentifier>
+<instantiationIdentifier source="source file name">SC1ATK7.mov</instantiationIdentifier>
+<instantiationIdentifier source="PIM identifier">A037970</instantiationIdentifier>
+<instantiationIdentifier source="DAM import id">20150619_135205</instantiationIdentifier>
+<instantiationIdentifier source="PIM identifier">M0660940</instantiationIdentifier>
+<instantiationIdentifier source="PIM identifier">F0678526</instantiationIdentifier>
+<instantiationIdentifier source="PIM identifier">F0678106</instantiationIdentifier>
+<instantiationDigital source="xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; fits version=&quot;0.8.4&quot;" annotation="source file format">mimetype= video/quicktime </instantiationDigital>
+<instantiationStandard>format= ISO Media, Apple QuickTime movie </instantiationStandard>
+<instantiationLocation annotation="Barcode identifier">358139</instantiationLocation>
+<instantiationLocation annotation="LTO identifier">000095</instantiationLocation>
+<instantiationLocation annotation="source drive">/Volumes/MS COLDER FIELD MASTER CLONE/MSC_ORIGINAL FOOTAGE/MSC_4xx_KiPro_1080_30P/MSC403_Frog_B1_RT/AJA/SC1ATK7.mov</instantiationLocation>
+<instantiationMediaType version="mimetype">video</instantiationMediaType>
+<instantiationGenerations version="Image proxy">0958b1c94fedbf1af151eb8bd306ac65.jpg</instantiationGenerations>
+<instantiationGenerations version="Movie proxy">d18edc685afa5cddb52fb54a8b9c2fed.mov</instantiationGenerations>
+<instantiationFileSize unitsOfMeasure="bytes" annotation="units are bytes unless otherwise specified">20347337079</instantiationFileSize>
+<instantiationRelation>
+<instantiationRelationType>Image proxy</instantiationRelationType>
+<instantiationRelationIdentifier>https://s3.amazonaws.com/proxy.mla.wgbh.org/dam/61/974/e6d/860/9ca/ba9/ab3/bf1/bfa/c70/bc0/0958b1c94fedbf1af151eb8bd306ac65.jpg</instantiationRelationIdentifier>
+</instantiationRelation>
+<instantiationRelation>
+<instantiationRelationType>Movie proxy</instantiationRelationType>
+<instantiationRelationIdentifier>https://s3.amazonaws.com/proxy.mla.wgbh.org/dam/61/974/e6d/860/9ca/ba9/ab3/bf1/bfa/c70/bc0/d18edc685afa5cddb52fb54a8b9c2fed.mov</instantiationRelationIdentifier>
+</instantiationRelation>
+<instantiationAnnotation annotationType="Department">NOVA</instantiationAnnotation>
+<instantiationAnnotation annotationType="Series">NOVA</instantiationAnnotation>
+<instantiationAnnotation annotationType="Series description">Series Description: Premiered March 1974
+NOVA is a general-interest documentary series that addresses a single science issue each week.  Billed as "science adventures for curious grown-ups" when it first aired  in March, 1974, NOVA continues to offer an informative and entertaining approach to a challenging subject.  1996 marked NOVA's 23rd season, which makes it the longest-running science program on national television.  It is also one of television's most acclaimed series, having won every major television award, most of them many times over.</instantiationAnnotation>
+<instantiationAnnotation annotationType="Program number">4020</instantiationAnnotation>
+<instantiationAnnotation annotationType="Program project">Making Stuff: Colder</instantiationAnnotation>
+<instantiationAnnotation annotationType="Series">Cold is the new HOT, in this brave new world. For centuries we’ve fought it, shunned it, and huddled against it. Cold has always been the enemy of life, but now it may hold the key to a new generation of science and technology that will improve our lives. In COLDER, David Pogue explores the frontiers of cold science from saving the lives of severe trauma patients and cooling a warming planet to ultracold physics, where bizarre new properties of matter are the norm and the basis of new technologies like levitating trains and quantum computers.</instantiationAnnotation>
+<instantiationExtension>
+<extensionWrap annotation="fixity check - (20170330_135739)">
+<extensionElement>eventDate</extensionElement>
+<extensionValue>2017-03-30</extensionValue>
+</extensionWrap>
+</instantiationExtension>
+<instantiationExtension>
+<extensionWrap annotation="fixity check - (20170330_135739)">
+<extensionElement>eventDetail</extensionElement>
+<extensionValue>program="OpenSSL"; version="0.9.8zg"</extensionValue>
+</extensionWrap>
+</instantiationExtension>
+<instantiationExtension>
+<extensionWrap annotation="fixity check - (20170330_135739)">
+<extensionElement>eventOutcomeInformation</extensionElement>
+<extensionValue>pass</extensionValue>
+</extensionWrap>
+</instantiationExtension>
+<instantiationExtension>
+<extensionWrap annotation="fixity check - (20170330_135739)">
+<extensionElement>eventStaff</extensionElement>
+<extensionValue>Rebecca Fraimow</extensionValue>
+</extensionWrap>
+</instantiationExtension>
+</pbcoreInstantiationDocument>

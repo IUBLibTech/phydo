@@ -17,7 +17,6 @@ RSpec.describe Phydo::CatalogSearchBuilder do
     let(:params) { ActionController::Parameters.new(
         'controller' => 'catalog',
         'action' => 'index') }
-
     let(:params_with_value) { ActionController::Parameters.new(
         'controller' => 'catalog',
         'action' => 'index',
@@ -64,7 +63,7 @@ RSpec.describe Phydo::CatalogSearchBuilder do
   end
 
   describe '.apply_filename_filter' do
-    include_examples 'apply_filter examples', 'filename', 'test_file.xml', 'label_tesim', 'test_file.xml'
+    include_examples 'apply_filter examples', 'filename', 'test_file.xml', 'file_name_tesim', '"test_file.xml"'
   end
 
   describe '.apply_file_path_segment_filter' do

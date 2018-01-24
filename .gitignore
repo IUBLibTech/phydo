@@ -20,3 +20,8 @@
 .coveralls.yml
 
 /.idea
+
+dump.rdb
+
+hyrax_ingest_report.log
+fixity_pass_fail_report.csv

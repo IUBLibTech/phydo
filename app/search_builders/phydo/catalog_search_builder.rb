@@ -85,7 +85,7 @@ module Phydo
       def filename_filter
         @filename_filter ||=
           unless blacklight_params['filename'].blank?
-            'label_tesim:' + blacklight_params['filename']
+            "file_name_tesim:" + "\"#{blacklight_params['filename']}\""
           end
       end
 

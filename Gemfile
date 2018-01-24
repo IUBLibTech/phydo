@@ -75,6 +75,9 @@ gem 'external_storage', github: 'samvera-labs/samvera-external_storage'
 gem 'storage_proxy_api', github: 'samvera-labs/storage_proxy_api'
 
 
+# Pin rdf-vocab to 2.2.8 since 2.2.9 introduced breaking changes
+gem 'rdf-vocab', '2.2.8'
+
 # CC v2.0.0 seems to not include BL advanced search anymore?
 gem 'blacklight_advanced_search', '~> 6.2.1'
 gem 'devise-guests', '~> 0.5'
@@ -84,3 +87,6 @@ group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
 end
 
+# Pin rdf-vocab to 2.2.8 because 2.2.9 updates the EBUCore ontology (and the ruby interface used to get the URIs).
+# Updating the gem will require updating which EBU predicates we're using.
+gem 'rdf-vocab', '2.2.8'

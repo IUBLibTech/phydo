@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pbcoreInstantiationDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html">
+<instantiationIdentifier source="source file MD5">63ab6f1c03a33f2b4c2148eb6bb8c425</instantiationIdentifier>
+<instantiationIdentifier source="source file name">AJA.txt</instantiationIdentifier>
+<instantiationIdentifier source="PIM identifier">A037970</instantiationIdentifier>
+<instantiationIdentifier source="DAM import id">20150619_135205</instantiationIdentifier>
+<instantiationIdentifier source="PIM identifier">M0660941</instantiationIdentifier>
+<instantiationIdentifier source="PIM identifier">F0678527</instantiationIdentifier>
+<instantiationIdentifier source="PIM identifier">F0678107</instantiationIdentifier>
+<instantiationDigital source="xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; fits version=&quot;0.8.4&quot;" annotation="source file format">mimetype= text/plain </instantiationDigital>
+<instantiationStandard>format= Plain text </instantiationStandard>
+<instantiationLocation annotation="Barcode identifier">358139</instantiationLocation>
+<instantiationLocation annotation="LTO identifier">000095</instantiationLocation>
+<instantiationLocation annotation="source drive">/Volumes/MS COLDER FIELD MASTER CLONE/MSC_ORIGINAL FOOTAGE/MSC_4xx_KiPro_1080_30P/MSC404_Frog_B2_RT/OffloadLogs/AJA.txt</instantiationLocation>
+<instantiationMediaType version="mimetype">text</instantiationMediaType>
+<instantiationFileSize unitsOfMeasure="bytes" annotation="units are bytes unless otherwise specified">1654</instantiationFileSize>
+<instantiationAnnotation annotationType="Department">NOVA</instantiationAnnotation>
+<instantiationAnnotation annotationType="Series">NOVA</instantiationAnnotation>
+<instantiationAnnotation annotationType="Series description">Series Description: Premiered March 1974
+NOVA is a general-interest documentary series that addresses a single science issue each week.  Billed as "science adventures for curious grown-ups" when it first aired  in March, 1974, NOVA continues to offer an informative and entertaining approach to a challenging subject.  1996 marked NOVA's 23rd season, which makes it the longest-running science program on national television.  It is also one of television's most acclaimed series, having won every major television award, most of them many times over.</instantiationAnnotation>
+<instantiationAnnotation annotationType="Program number">4020</instantiationAnnotation>
+<instantiationAnnotation annotationType="Program project">Making Stuff: Colder</instantiationAnnotation>
+<instantiationAnnotation annotationType="Series">Cold is the new HOT, in this brave new world. For centuries we’ve fought it, shunned it, and huddled against it. Cold has always been the enemy of life, but now it may hold the key to a new generation of science and technology that will improve our lives. In COLDER, David Pogue explores the frontiers of cold science from saving the lives of severe trauma patients and cooling a warming planet to ultracold physics, where bizarre new properties of matter are the norm and the basis of new technologies like levitating trains and quantum computers.</instantiationAnnotation>
+<instantiationExtension>
+<extensionWrap annotation="fixity check - (20170330_135739)">
+<extensionElement>eventDate</extensionElement>
+<extensionValue>2017-03-30</extensionValue>
+</extensionWrap>
+</instantiationExtension>
+<instantiationExtension>
+<extensionWrap annotation="fixity check - (20170330_135739)">
+<extensionElement>eventDetail</extensionElement>
+<extensionValue>program="OpenSSL"; version="0.9.8zg"</extensionValue>
+</extensionWrap>
+</instantiationExtension>
+<instantiationExtension>
+<extensionWrap annotation="fixity check - (20170330_135739)">
+<extensionElement>eventOutcomeInformation</extensionElement>
+<extensionValue>pass</extensionValue>
+</extensionWrap>
+</instantiationExtension>
+<instantiationExtension>
+<extensionWrap annotation="fixity check - (20170330_135739)">
+<extensionElement>eventStaff</extensionElement>
+<extensionValue>Rebecca Fraimow</extensionValue>
+</extensionWrap>
+</instantiationExtension>
+</pbcoreInstantiationDocument>
