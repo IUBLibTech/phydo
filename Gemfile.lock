@@ -1,4 +1,14 @@
 GIT
+  remote: git://github.com/IUBLibTech/hydra-role-management.git
+  revision: 5d83248eaf3fcd230a9975ddf0d30c3f6509273a
+  branch: master
+  specs:
+    hydra-role-management (1.0.0)
+      blacklight
+      bootstrap_form
+      cancancan
+
+GIT
   remote: git://github.com/IUBLibTech/hyrax-ingest.git
   revision: 537807d2b90015784eba4547d80fefcf9b443503
   branch: master
@@ -170,6 +180,7 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap_form (2.7.0)
     breadcrumbs_on_rails (3.0.1)
     browse-everything (0.15.0)
       addressable (~> 2.5)
@@ -900,6 +911,7 @@ DEPENDENCIES
   fcrepo_wrapper
   guard-rspec
   guard-rubocop
+  hydra-role-management!
   hyrax (~> 1.0.5)
   hyrax-ingest!
   hyrax-preservation!
