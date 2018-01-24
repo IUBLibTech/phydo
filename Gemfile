@@ -65,6 +65,7 @@ end
 
 gem 'hyrax', '~> 1.0.5'
 gem 'devise'
+gem 'hydra-role-management'
 
 gem 'omniauth-cas'
 gem 'archive-tar-minitar', '~> 0.5.2'
