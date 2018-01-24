@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe FixityCheckJob do
 
+  subject { described_class.new( { user: user, ids: %w(123 456) } ) }
+
   let(:user) { User.first_or_create!(email: 'test@example.com', password: 'password') }
 
   let(:file_set_attrs) { [ { id: '123', title: 'Title 1' }, { id: '456', title: 'Title 2' } ] }
@@ -30,7 +32,7 @@ RSpec.describe FixityCheckJob do
         end
       end
 
-      described_class.new( { user: user, ids: %w(123 456) } ).run
+      subject.run
     end
 
     it 'creates passing fix event for FileSet if last 2 mes events match' do
@@ -39,6 +41,11 @@ RSpec.describe FixityCheckJob do
 
     it 'creates failing fix event for FileSet if last 2 mes events do not match' do
       expect( Hyrax::Preservation::Event.search_with_conditions(hasEventRelatedObject_ssim: "456", premis_event_type_ssim: 'fix').first["premis_event_outcome_tesim"] ).to eq(["fail"])
+    end
+
+    it 'generates a pass/fail report' do
+      expect(File.read('fixity_pass_fail_report.csv')).to include "456,fail"
+      expect(File.read('fixity_pass_fail_report.csv')).to include "123,pass"
     end
   end
 end

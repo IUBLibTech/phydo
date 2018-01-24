@@ -1,6 +1,7 @@
 require 'hyrax/preservation'
 
 class FixityCheckJob < ActiveJob::Base
+
   queue_as :fixity_check
 
   def initialize(options={})
@@ -14,19 +15,26 @@ class FixityCheckJob < ActiveJob::Base
   def run
     logger.info "Running fixity check."
     check
+    File.write('fixity_pass_fail_report.csv', pass_fail_report_csv)
   end
 
   private
 
     def check
-      passing_docs = []
-      failing_docs = []
-      solr_docs_for_fixity_check.each do |doc|
-        passing_docs << doc if !doc.current_mes_event_changed?
-        failing_docs << doc if doc.current_mes_event_changed?
-      end
       create_events(passing_docs,'pass')
       create_events(failing_docs,'fail')
+    end
+
+    def passing_docs
+      @passing_docs ||= solr_docs_for_fixity_check.select do |doc|
+        !doc.current_mes_event_changed?
+      end
+    end
+
+    def failing_docs
+      @failing_docs ||= solr_docs_for_fixity_check.select do |doc|
+        doc.current_mes_event_changed?
+      end
     end
 
     def user_email
@@ -70,5 +78,14 @@ class FixityCheckJob < ActiveJob::Base
       e.attributes = event_attrs
       e.premis_event_related_object = FileSet.find(doc_id)
       e.save!
+    end
+
+    def pass_fail_report_csv
+      @pass_fail_report_csv ||= begin
+        csv = ["ID,STATUS"]
+        csv += passing_docs.map { |doc| "#{doc.id},pass" }
+        csv += failing_docs.map { |doc| "#{doc.id},fail" }
+        csv.join("\n")
+      end
     end
 end
