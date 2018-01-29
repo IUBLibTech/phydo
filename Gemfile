@@ -78,6 +78,9 @@ gem 'storage_proxy_api', github: 'samvera-labs/storage_proxy_api'
 # Pin rdf-vocab to 2.2.8 since 2.2.9 introduced breaking changes
 gem 'rdf-vocab', '2.2.8'
 
+# Pin rdf-vocab to 2.2.8 since 2.2.9 introduced breaking changes
+gem 'rdf-vocab', '2.2.8'
+
 # CC v2.0.0 seems to not include BL advanced search anymore?
 gem 'blacklight_advanced_search', '~> 6.2.1'
 gem 'devise-guests', '~> 0.5'
