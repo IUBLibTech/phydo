@@ -24,12 +24,19 @@ class SolrDocument
   # Recommendation: Use field names from Dublin Core
   use_extension(Blacklight::Document::DublinCore)
 
-  # Do content negotiation for AF models. 
+  # Do content negotiation for AF models.
 
   use_extension( Hydra::ContentNegotiation )
 
   def filename
-    File.basename(fetch(Solrizer.solr_name(:file_name, :stored_searchable), ['Unknown']).first)
+    @filename ||= begin
+      full_filename = fetch(Solrizer.solr_name(:file_name, :stored_searchable)).first
+      if full_filename
+        File.basename(full_filename)
+      else
+        'Unknown'
+      end
+    end
   end
 
   def file_size
@@ -59,11 +66,11 @@ class SolrDocument
   def md5_checksum
     fetch(Solrizer.solr_name(:md5_checksum, :symbol), [])
   end
-  
+
   def system_create
     fetch(Solrizer.solr_name(:system_create, :stored_sortable, type: :date), [])
   end
-  
+
   def system_modified
     fetch(Solrizer.solr_name(:system_modified, :stored_sortable, type: :date), [])
   end
@@ -163,6 +170,30 @@ class SolrDocument
       recents
     end
   end
+
+  def mes_events
+    @mes_events ||= begin
+      Hyrax::Preservation::Event.search_with_conditions(hasEventRelatedObject_ssim: fetch(:id), premis_event_type_ssim: 'mes')
+    end.sort_by do |mes|
+      # Sort first by premis event date time, if found; otherwise by the system create date.
+      mes["premis_event_date_time_dtsim"] || mes['system_create_dtsi']
+    end
+  end
+
+  def current_mes_event
+    mes_events.last
+    # @current_mes_event ||= Hyrax::Preservation::Event.find(mes_events&.sort_by { |dt| dt["premis_event_date_time_dtsim"] }&.last&.id)
+  end
+
+  def previous_mes_event
+    mes_events[-2]
+    # @previous_mes_event ||= Hyrax::Preservation::Event.find(mes_events&.sort_by { |dt| dt["premis_event_date_time_dtsim"] }[-2]&.id)
+  end
+
+  def current_mes_event_changed?
+    !!( current_mes_event && previous_mes_event && (current_mes_event['premis_event_outcome_tesim'] != previous_mes_event['premis_event_outcome_tesim']) )
+  end
+
   def hardware
     fetch(Solrizer.solr_name(:hardware, :stored_searchable), [])
   end

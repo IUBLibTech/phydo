@@ -1,0 +1,152 @@
+---
+ingest:
+  - FileSet:
+      properties:
+        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasFileFormat"
+          from:
+            XMLFile:
+              filename: /\d{6}.xml$/
+              xpath: //fits/identification/identity/@format
+
+        - rdf_predicate: 'http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#hashValue'
+          from:
+            XMLFile:
+              filename: /\d{6}.xml$/
+              xpath: '//fits/fileinfo/md5checksum'
+
+        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#hasCodec"
+          from:
+            XMLFile:
+              filename: /\d{6}.xml$/
+              xpath: '//fits/metadata/video/track[@type="video"]/codecName'
+
+        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#duration"
+          from:
+            XMLFile:
+              filename: /\d{6}.xml$/
+              xpath: '//fits/metadata/video/duration'
+
+        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#bitRate"
+          from:
+            XMLFile:
+              filename: /\d{6}.xml$/
+              xpath: '//fits/metadata/video/bitRate'
+
+        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#filename"
+          from:
+            XMLFile:
+              filename: /\d{6}.xml$/
+              xpath: '//fits/fileinfo/filename'
+
+        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#fileSize"
+          from:
+            XMLFile:
+              filename: /\d{6}.xml$/
+              xpath: '//fits/fileinfo/size'
+
+        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#identifier"
+          from:
+            XMLFile:
+              filename: /_pbcore.xml$/
+              xpath: 'REPLACE_WITH_VALID_XPATH'
+
+        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#partNumber"
+          from:
+            XMLFile:
+              filename: /_pbcore.xml$/
+              xpath: 'REPLACE_WITH_VALID_XPATH'
+
+        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#sampleRate"
+          from:
+            XMLFile:
+              filename: /\d{6}.xml$/
+              xpath: '//fits/metadata/video/track[@type="audio"]/samplingRate'
+
+        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#width"
+          from:
+            XMLFile:
+              filename: /\d{6}.xml$/
+              xpath: //fits/metadata/video/track[@type="video"]/width
+
+        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#height"
+          from:
+            XMLFile:
+              filename: /\d{6}.xml$/
+              xpath: //fits/metadata/video/track[@type="video"]/height
+
+        - rdf_predicate: "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#locator"
+          from:
+            XMLFile:
+              filename: /\d{6}.xml$/
+              xpath: //fits/metadata/video/location
+
+        - rdf_predicate: 'http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#storageDefinition'
+          from:
+            XMLFile:
+              filename: '/_pbcore.xml$/'
+              xpath: '//pbcoreInstantiationDocument/instantiationLocation[@annotation="Barcode identifier"]'
+
+      # Ingest config for a FileSet's preservation events
+      PreservationEvents:
+
+        # Properties for the the ingest event.
+        - properties:
+          # PREMIS event type is 'ing'
+          - rdf_predicate: "http://www.loc.gov/premis/rdf/v1#hasEventType"
+            from:
+              PremisEventType: 'ing'
+          # Agent is admin@example.org (must be a valid URI, so using a mailto URI here)
+          - rdf_predicate: "http://www.loc.gov/premis/rdf/v1#hasAgent"
+            from:
+              RdfUri: 'mailto:admin@example.org'
+          # PREMIS event date time is the current time
+          - rdf_predicate: "http://www.loc.gov/premis/rdf/v1#hasEventDateTime"
+            from:
+              DateTime: now
+
+        # Properties for a fixity check event.
+        - properties:
+
+          # PREMIS event type is 'fix'
+          - rdf_predicate: "http://www.loc.gov/premis/rdf/v1#hasEventType"
+            from:
+              PremisEventType: 'fix'
+
+          # PREMIS event outcome is in a PBCore instantiation extension.
+          - rdf_predicate: "http://www.loc.gov/premis/rdf/v1#hasEventOutcome"
+            from:
+              XMLFile:
+                filename: /_pbcore\.xml$/
+                xpath: "//pbcoreInstantiationDocument/instantiationExtension/extensionWrap[starts-with(@annotation, 'fixity check')]/extensionElement[.='eventOutcomeInformation']/following-sibling::extensionValue"
+
+          # PREMIS event date time is in the PBCore instantiation extension.
+          - rdf_predicate: "http://www.loc.gov/premis/rdf/v1#hasEventDateTime"
+            from:
+              XMLFile:
+                filename: '/_pbcore.xml$/'
+                xpath: "//pbcoreInstantiationDocument/instantiationExtension/extensionWrap[starts-with(@annotation, 'fixity check')]/extensionElement[.='eventDate']/following-sibling::extensionValue"
+            transform:
+              ToDate: from_yyyy-mm-dd
+
+        # Properties for a message digest calculation event.
+        - properties:
+          # PREMIS event type is 'mes'
+          - rdf_predicate: "http://www.loc.gov/premis/rdf/v1#hasEventType"
+            from:
+              PremisEventType: 'mes'
+
+          # PREMIS event outcome is in a PBCore instantiation extension.
+          - rdf_predicate: "http://www.loc.gov/premis/rdf/v1#hasEventOutcome"
+            from:
+              XMLFile:
+                filename: /\d{6}.xml$/
+                xpath: '//fits/fileinfo/md5checksum'
+
+          # PREMIS event date time is in the PBCore instantiation extension.
+          - rdf_predicate: "http://www.loc.gov/premis/rdf/v1#hasEventDateTime"
+            from:
+              XMLFile:
+                filename: '/_pbcore.xml$/'
+                xpath: "//pbcoreInstantiationDocument/instantiationExtension/extensionWrap[starts-with(@annotation, 'fixity check')]/extensionElement[.='eventDate']/following-sibling::extensionValue"
+            transform:
+              ToDate: from_yyyy-mm-dd

@@ -28,3 +28,10 @@ table.attributes {
     }
   }
 }
+
+/** Filter Search Ingest DateTime **/
+#ingest_date_time_filter {
+  input {
+    float: right;
+  }
+}
