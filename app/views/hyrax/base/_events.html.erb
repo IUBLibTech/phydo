@@ -14,6 +14,7 @@
     </tbody>
   </table>
   <div>
-    <%= link_to 'See all events for this object', Hyrax::Preservation::Engine.routes.url_helpers.events_path(related_object: presenter.id) %>
+    <%= link_to 'See all events for this object', Hyrax::Preservation::Engine.routes.url_helpers.events_path(related_object: presenter.id) %><br/>
+    <%= link_to('Request fixity check for this object', "#{presenter.id}/fixity") if can?(:fixity, FileSet) %>
   </div>
 <% end %>

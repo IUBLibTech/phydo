@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   include Hydra::User
   # Connects this user object to Role-management behaviors.
   include Hydra::RoleManagement::UserRoles
+  load Rails.root.join('app', 'models', 'concerns', 'user_roles.rb')
+  include Phydo::RoleManagement::UserRoles
 
   # Connects this user object to Hyrax behaviors.
   include Hyrax::User

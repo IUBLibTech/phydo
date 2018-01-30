@@ -1,13 +1,19 @@
 class Ability
   include Hydra::Ability
-  
   include Hyrax::Ability
   self.ability_logic += [:everyone_can_create_curation_concerns]
 
   # Define any customized permissions here.
   def custom_permissions
-    can [:file_status, :stage, :unstage, :fixity], FileSet
+    can [:file_status, :stage, :unstage], FileSet
 
+    if current_user.admin?
+      can [:create, :show, :add_user, :remove_user, :index, :edit, :update, :destroy], Role
+    end
+
+    if current_user.collection_manager?
+      can [:fixity], FileSet
+    end
     # Limits deleting objects to a the admin user
     #
     # if current_user.admin?

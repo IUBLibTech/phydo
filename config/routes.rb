@@ -33,6 +33,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'concern/file_sets/:id/fixity', to: 'hyrax/file_sets#fixity', as: 'file_set_fixity'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   mount Hyrax::Preservation::Engine, at: '/preservation'
