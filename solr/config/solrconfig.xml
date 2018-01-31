@@ -68,7 +68,7 @@
     </autoCommit>
 
     <autoSoftCommit>
-      <maxTime>${solr.autoSoftCommit.maxTime:-1}</maxTime>
+      <maxTime>${solr.autoSoftCommit.maxTime:10000}</maxTime>
     </autoSoftCommit>
   </updateHandler>
 
@@ -284,7 +284,7 @@
       -->
   </searchComponent>
 
-  <searchComponent name="suggest" class="solr.SuggestComponent">
+  <!-- <searchComponent name="suggest" class="solr.SuggestComponent">
     <lst name="suggester">
       <str name="name">mySuggester</str>
       <str name="lookupImpl">FuzzyLookupFactory</str>
@@ -304,6 +304,7 @@
       <str>suggest</str>
     </arr>
   </requestHandler>
+  -->
 
   <requestHandler name="/update/extract" class="org.apache.solr.handler.extraction.ExtractingRequestHandler">
     <lst name="defaults">
