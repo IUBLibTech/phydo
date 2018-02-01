@@ -8,7 +8,7 @@ class Ability
     can [:file_status, :stage, :unstage], FileSet
 
     if current_user.admin?
-      can [:create, :show, :add_user, :remove_user, :index, :edit, :update, :destroy], Role
+      can [:show, :add_user, :remove_user, :index], Role
     end
 
     if current_user.collection_manager?

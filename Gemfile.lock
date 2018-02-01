@@ -1,4 +1,14 @@
 GIT
+  remote: git://github.com/IUBLibTech/hydra-role-management.git
+  revision: 5d83248eaf3fcd230a9975ddf0d30c3f6509273a
+  branch: master
+  specs:
+    hydra-role-management (1.0.0)
+      blacklight
+      bootstrap_form
+      cancancan
+
+GIT
   remote: git://github.com/IUBLibTech/hyrax-ingest.git
   revision: 537807d2b90015784eba4547d80fefcf9b443503
   branch: master
@@ -380,10 +390,6 @@ GEM
     hydra-pcdm (0.10.0)
       active-fedora (>= 10, < 12)
       mime-types (>= 1)
-    hydra-role-management (1.0.0)
-      blacklight
-      bootstrap_form
-      cancancan
     hydra-works (0.16.0)
       hydra-derivatives (~> 3.0)
       hydra-file_characterization (~> 0.3, >= 0.3.3)
@@ -905,7 +911,7 @@ DEPENDENCIES
   fcrepo_wrapper
   guard-rspec
   guard-rubocop
-  hydra-role-management
+  hydra-role-management!
   hyrax (~> 1.0.5)
   hyrax-ingest!
   hyrax-preservation!
