@@ -4,9 +4,9 @@ require 'rails_helper'
 
 describe 'FileSet details view' do
   context 'when the FileSet has associated Hyrax::Preservation Events' do
-    let(:user) { FactoryGirl.create(:user) }
-    let(:file_set) { FactoryGirl.create(:file_set, user: user) }
-    let(:event) { FactoryGirl.create(:preservation_event, premis_event_related_object: file_set) }
+    let(:user) { create(:user) }
+    let(:file_set) { create(:file_set, user: user) }
+    let(:event) { create(:preservation_event, premis_event_related_object: file_set) }
     # TODO: This URL comes from routes defined within the `preservation` gem.
     # The proper way to get these is to use the URL helpers from the
     # preservation gem.

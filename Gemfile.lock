@@ -24,10 +24,10 @@ GIT
 
 GIT
   remote: git://github.com/projectblacklight/blacklight_range_limit.git
-  revision: 79691e5494de13c7b05eb949f9d7e5b6dd953140
+  revision: 333631ccb73c81164b58116f63e53c8ed57134e2
   branch: master
   specs:
-    blacklight_range_limit (6.2.1)
+    blacklight_range_limit (6.3.2)
       blacklight (>= 6.0.2)
       jquery-rails
       rails (>= 3.0)
@@ -121,12 +121,12 @@ GEM
       rails (>= 4.2, < 6)
     archive-tar-minitar (0.5.2)
     arel (8.0.0)
-    ast (2.3.0)
+    ast (2.4.0)
     autoprefixer-rails (7.2.5)
       execjs
-    awesome_nested_set (3.1.3)
-      activerecord (>= 4.0.0, < 5.2)
-    aws-partitions (1.57.0)
+    awesome_nested_set (3.1.4)
+      activerecord (>= 4.0.0, < 5.3)
+    aws-partitions (1.58.0)
     aws-sdk-core (3.14.0)
       aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.0)
@@ -146,7 +146,7 @@ GEM
     bcp47 (0.3.3)
       i18n
     bcrypt (3.1.11)
-    binding_of_caller (0.7.3)
+    binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
     blacklight (6.14.1)
       bootstrap-sass (~> 3.2)
@@ -188,7 +188,7 @@ GEM
       sass-rails
       signet
     builder (3.2.3)
-    byebug (9.1.0)
+    byebug (10.0.0)
     cancancan (1.17.0)
     capybara (2.17.0)
       addressable
@@ -228,7 +228,7 @@ GEM
     declarative-option (0.1.0)
     deprecation (1.0.0)
       activesupport
-    devise (4.3.0)
+    devise (4.4.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0, < 5.2)
@@ -246,7 +246,7 @@ GEM
     dry-container (0.6.0)
       concurrent-ruby (~> 1.0)
       dry-configurable (~> 0.1, >= 0.1.3)
-    dry-core (0.4.2)
+    dry-core (0.4.3)
       concurrent-ruby (~> 1.0)
     dry-equalizer (0.2.0)
     dry-logic (0.4.2)
@@ -280,10 +280,10 @@ GEM
       nokogiri (>= 1.4.3)
     erubi (1.7.0)
     execjs (2.7.0)
-    factory_girl (4.9.0)
+    factory_bot (4.8.2)
       activesupport (>= 3.0.0)
-    factory_girl_rails (4.9.0)
-      factory_girl (~> 4.9.0)
+    factory_bot_rails (4.8.2)
+      factory_bot (~> 4.8.2)
       railties (>= 3.0.0)
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
@@ -321,10 +321,10 @@ GEM
       multi_json (~> 1.11)
       os (~> 0.9)
       signet (~> 0.7)
-    guard (2.14.1)
+    guard (2.14.2)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
-      lumberjack (~> 1.0)
+      lumberjack (>= 1.0.12, < 2.0)
       nenv (~> 0.1)
       notiffany (~> 0.0)
       pry (>= 0.9.12)
@@ -344,7 +344,7 @@ GEM
     hamster (3.0.0)
       concurrent-ruby (~> 1.0)
     hashdiff (0.3.7)
-    hashie (3.5.6)
+    hashie (3.5.7)
     hiredis (0.6.1)
     htmlentities (4.3.4)
     http_logger (0.5.1)
@@ -580,7 +580,7 @@ GEM
       activesupport
       nokogiri (>= 1.4.2)
       solrizer (~> 3.3)
-    omniauth (1.7.1)
+    omniauth (1.8.1)
       hashie (>= 3.4.6, < 3.6.0)
       rack (>= 1.6.2, < 3)
     omniauth-cas (1.1.1)
@@ -594,7 +594,7 @@ GEM
     parallel (1.12.1)
     parser (2.4.0.2)
       ast (~> 2.3)
-    parslet (1.8.0)
+    parslet (1.8.1)
     posix-spawn (0.3.13)
     power_converter (0.1.2)
     powerpack (0.1.1)
@@ -607,7 +607,7 @@ GEM
     pry-rails (0.3.6)
       pry (>= 0.10.4)
     public_suffix (3.0.1)
-    puma (3.10.0)
+    puma (3.11.2)
     qa (1.2.0)
       activerecord-import
       deprecation
@@ -733,7 +733,7 @@ GEM
       rspec-core (~> 3.7.0)
       rspec-expectations (~> 3.7.0)
       rspec-mocks (~> 3.7.0)
-    rspec-core (3.7.0)
+    rspec-core (3.7.1)
       rspec-support (~> 3.7.0)
     rspec-expectations (3.7.0)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -741,7 +741,7 @@ GEM
     rspec-mocks (3.7.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.7.0)
-    rspec-rails (3.7.1)
+    rspec-rails (3.7.2)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
@@ -749,8 +749,8 @@ GEM
       rspec-expectations (~> 3.7.0)
       rspec-mocks (~> 3.7.0)
       rspec-support (~> 3.7.0)
-    rspec-support (3.7.0)
-    rubocop (0.52.0)
+    rspec-support (3.7.1)
+    rubocop (0.52.1)
       parallel (~> 1.10)
       parser (>= 2.4.0.2, < 3.0)
       powerpack (~> 0.1)
@@ -855,23 +855,23 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.8)
-    tins (1.15.1)
+    tins (1.16.3)
     tinymce-rails (4.7.6)
       railties (>= 3.1.1)
     tinymce-rails-imageupload (4.0.17.beta.3)
       railties (>= 3.2, < 6)
       tinymce-rails (~> 4.0)
-    turbolinks (5.0.1)
-      turbolinks-source (~> 5)
-    turbolinks-source (5.0.3)
+    turbolinks (5.1.0)
+      turbolinks-source (~> 5.1)
+    turbolinks-source (5.1.0)
     twitter-typeahead-rails (0.11.1.pre.corejavascript)
       actionpack (>= 3.1)
       jquery-rails
       railties (>= 3.1)
-    tzinfo (1.2.4)
+    tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uber (0.1.0)
-    uglifier (3.2.0)
+    uglifier (4.1.5)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.3.0)
     warden (1.2.7)
@@ -881,7 +881,7 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
-    webmock (3.1.0)
+    webmock (3.3.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
@@ -907,7 +907,7 @@ DEPENDENCIES
   devise
   devise-guests (~> 0.5)
   external_storage!
-  factory_girl_rails (~> 4.0)
+  factory_bot_rails (~> 4.0)
   fcrepo_wrapper
   guard-rspec
   guard-rubocop
@@ -942,4 +942,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.16.0
+   1.14.6
