@@ -1,7 +1,14 @@
 class Ability
   include Hydra::Ability
   include Hyrax::Ability
-  self.ability_logic += [:everyone_can_create_curation_concerns]
+  self.ability_logic += [:everyone_can_create_curation_concerns,
+                         :disable_content_blocks]
+
+  # Do not show ContentBlock editors to anyone.
+  # ContentBlocks will not be shown unless they already contain a value.
+  def disable_content_blocks
+    cannot :manage, ContentBlock
+  end
 
   # Define any customized permissions here.
   def custom_permissions
