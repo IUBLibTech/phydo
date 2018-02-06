@@ -7,11 +7,14 @@ class Ability
   def custom_permissions
     can [:file_status, :stage, :unstage], FileSet
 
-    if current_user.admin?
+    if current_user.ingest_from_external_sources?
+    end
+
+    if current_user.manage_users?
       can [:show, :add_user, :remove_user, :index], Role
     end
 
-    if current_user.collection_manager?
+    if current_user.run_fixity_checks?
       can [:fixity], FileSet
     end
     # Limits deleting objects to a the admin user
