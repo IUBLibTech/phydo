@@ -1,7 +1,7 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :file_set, class: FileSet do
     transient do
-      user { FactoryGirl.create(:user) }
+      user { create(:user) }
       content nil
     end
 

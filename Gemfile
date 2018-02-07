@@ -58,7 +58,7 @@ group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
   gem 'pry-nav'
-  gem "factory_girl_rails", "~> 4.0", require: false
+  gem "factory_bot_rails", "~> 4.0", require: false
   gem 'launchy'
   gem 'database_cleaner'
 end

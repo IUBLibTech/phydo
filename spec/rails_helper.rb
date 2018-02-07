@@ -12,7 +12,7 @@ require 'active_fedora/cleaner'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
-require 'factory_girl'
+require 'factory_bot'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -54,8 +54,8 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::TestHelpers, type: :view
 
-  # Use FactoryGirl shortcut methods, like `create` instead of `FactoryGirl.create`
-  config.include FactoryGirl::Syntax::Methods
+  # Use FactoryBot shortcut methods, like `create` instead of `FactoryBot.create`
+  config.include FactoryBot::Syntax::Methods
 
 
   config.before(:suite) do
@@ -64,7 +64,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean_with :truncation
 
     # Find factory definitions.
-    FactoryGirl.find_definitions
+    FactoryBot.find_definitions
   end
 
   config.before(:each) do |example|

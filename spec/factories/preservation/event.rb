@@ -1,6 +1,6 @@
 require 'hyrax/preservation'
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :preservation_event, class: Hyrax::Preservation::Event do
 
     transient do

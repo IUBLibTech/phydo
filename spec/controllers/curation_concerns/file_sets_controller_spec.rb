@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Hyrax::FileSetsController do
-  let(:file_set) { FactoryGirl.build(:file_set, user: user) }
-  let(:user) { FactoryGirl.create(:user) }
+  let(:file_set) { build(:file_set, user: user) }
+  let(:user) { create(:user) }
   render_views
 
   describe "#show" do
