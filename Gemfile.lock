@@ -58,6 +58,13 @@ GIT
     storage_proxy_api (0.1.0)
       faraday
 
+GIT
+  remote: https://github.com/IUBLibTech/ldap_groups_lookup
+  revision: df92d1b5b36152bdf64520e309b8dcf6598b38a6
+  specs:
+    ldap_groups_lookup (0.4.3)
+      net-ldap
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -572,6 +579,7 @@ GEM
       redic
     net-http-persistent (3.0.0)
       connection_pool (~> 2.2)
+    net-ldap (0.16.1)
     nio4r (2.2.0)
     noid (0.9.0)
     nokogiri (1.8.2)
@@ -929,6 +937,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   launchy
+  ldap_groups_lookup (~> 0.4.0)!
   omniauth-cas
   pry-nav
   pry-rails
@@ -954,4 +963,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.14.6
+   1.16.1
