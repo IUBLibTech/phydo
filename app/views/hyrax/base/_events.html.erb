@@ -1,5 +1,5 @@
 <h2>Preservation Events by Type</h2>
-<% if presenter.recent_event_presenters.present? %>
+<% if presenter.try(:recent_event_presenters) %>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -13,7 +13,11 @@
       <%= render partial: 'event', collection: presenter.recent_event_presenters %>
     </tbody>
   </table>
-  <div>
-    <%= link_to 'See all events for this object', Hyrax::Preservation::Engine.routes.url_helpers.events_path(related_object: presenter.id) %>
-  </div>
+  <% if presenter.try(:recent_event_presenters)&.present? %>
+    <div>
+      <%= link_to 'See all events for this object', Hyrax::Preservation::Engine.routes.url_helpers.events_path(related_object: presenter.id), class: 'btn btn-default' %>
+      <%= link_to('Request fixity check for this object', "#{presenter.id}/fixity", method: :post, class: 'btn btn-warning') if can?(:fixity, FileSet) %>
+    </div>
+  <% end %>
 <% end %>
+

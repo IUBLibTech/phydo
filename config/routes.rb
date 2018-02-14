@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   mount Qa::Engine => '/authorities'
   mount Hyrax::Engine, at: '/'
+  mount Hydra::RoleManagement::Engine => '/'
 
   resources :welcome, only: 'index'
   root 'hyrax/homepage#index'
@@ -31,6 +32,8 @@ Rails.application.routes.draw do
       delete 'clear'
     end
   end
+
+  post 'concern/file_sets/:id/fixity', to: 'hyrax/file_sets#fixity', as: 'file_set_fixity'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
