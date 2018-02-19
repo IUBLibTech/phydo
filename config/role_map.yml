@@ -1,6 +1,11 @@
 development:
   archivist:
     - archivist1@example.com
+  example_mdpi_role:
+    - BL-LDLP-MDPI-MANAGERS-ALL-UNITS
+    - BL-LDLP-MDPI-QC
+  example_qc_role:
+    - BL-LDLP-MDPI-QC
 
 test:
   archivist:
