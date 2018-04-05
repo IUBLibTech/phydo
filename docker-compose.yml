@@ -1,0 +1,22 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - ./home/app/hyrax
+      - ./hyrax_data:/home/app/hyrax/data
+    restart: always
+    dns:
+      - 129.79.1.1
+      - 134.68.1.9
+    ports:
+      - "3000:3000"
+    env_file: ./docker.env
+    environment:
+      - REDIS_HOST=localhost
+      - REDIS_PORT=6379
+    depends_on:
+      - redis
+  redis:
+    image: redis:latest
