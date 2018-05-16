@@ -9,7 +9,7 @@ test:
   host: http://localhost:8080/
   service: archive
 production:
-  external_uri_host: http://purl.dlib.indiana.edu/preserve/archive
-  enabled: false
-  host: http://localhost:8080/
-  service: archive
+  external_uri_host: <%= ENV['EXT_STORAGE_URI_HOST'] %>
+  enabled: <%= ENV['EXT_STORAGE_ENABLED'] || false %>
+  host: <%= ENV['EXT_STORAGE_HOST'] %>
+  service: <%= ENV['EXT_STORAGE_SERVICE'] %>

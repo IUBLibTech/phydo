@@ -79,4 +79,7 @@ Rails.application.configure do
 
   # for Active Job Inline
   config.active_job.queue_adapter = :inline
+
+  # Docker logger
+  config.logger = Logger.new(STDOUT)
 end

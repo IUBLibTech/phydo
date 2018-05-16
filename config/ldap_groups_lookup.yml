@@ -1,0 +1,9 @@
+:enabled: true
+:host: <%= ENV["PHYDO_LDAP_HOST"] %>
+:auth:
+  :method: :simple
+  :username: cn=<%= ENV["PHYDO_LDAP_USER"] || 'guest,ou=Accounts,dc=ads,dc=example,dc=net' %>
+  :password: <%= ENV["PHYDO_LDAP_PASS"] || 'changeme' %>
+:tree: <%= ENV["PHYDO_LDAP_TREE"] || 'dc=ads,dc=example,dc=net' %>
+:account_ou: <%= ENV["PHYDO_LDAP_ACCOUNT_OU"] || 'ou=Accounts' %>
+:group_ou: <%= ENV["PHYDO_LDAP_GROUP_OU"] || 'ou=Groups' %>

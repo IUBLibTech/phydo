@@ -7,9 +7,6 @@
 # Ignore bundler config.
 /.bundle
 
-# Ignore ldap config
-/config/ldap_groups_lookup.yml
-
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
@@ -23,3 +20,4 @@
 .coveralls.yml
 
 /.idea
+docker.secrets

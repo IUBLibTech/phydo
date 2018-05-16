@@ -25,4 +25,4 @@ test:
     - leland_himself@example.com
 
 production:
-  # Add roles for users here.
+  <%= ENV["PHYDO_LDAP_GROUP_ROLES"] %>
