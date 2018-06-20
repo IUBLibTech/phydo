@@ -25,4 +25,4 @@ test:
     - leland_himself@example.com
 
 production:
-  <%= ENV["PHYDO_LDAP_GROUP_ROLES"] %>
+  <%= Phydo.config[:ldap][:group_roles].to_yaml %>

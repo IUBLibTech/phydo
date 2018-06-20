@@ -6,5 +6,5 @@ test: &test
   url: http://localhost:<%= ENV['SOLR_TEST_PORT'] || 8985 %>/solr/phydo-test
 production:
   adapter: solr
-  url: <%= ENV['SOLR_URL'] || "http://127.0.0.1:8983/solr/phydo-production" %>
+  url: <%= Phydo.config[:solr][:path] %>
 

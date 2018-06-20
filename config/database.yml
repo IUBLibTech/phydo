@@ -22,9 +22,9 @@ test:
 
 production:
   <<: *default
-  adapter: mysql2
+  adapter: <%= Phydo.config[:db][:adapter] %>
   encoding: utf8
-  host: <%= ENV['MYSQL_HOST'] %>
-  database: <%= ENV['MYSQL_DB'] %>
-  username: <%= ENV['MYSQL_USER'] %>
-  password: <%= ENV['MYSQL_PASSWORD'] %>
+  host: <%= Phydo.config[:db][:host] %>
+  database: <%= Phydo.config[:db][:db] %>
+  username: <%= Phydo.config[:db][:user] %>
+  password: <%= Phydo.config[:db][:password] %>

@@ -76,7 +76,7 @@ gem 'hyrax-ingest', github: 'IUBLibTech/hyrax-ingest', branch: 'master'
 gem 'hyrax-preservation', github: 'IUBLibTech/hyrax-preservation', branch: 'master'
 gem 'external_storage', github: 'samvera-labs/samvera-external_storage'
 gem 'storage_proxy_api', github: 'samvera-labs/storage_proxy_api'
-gem 'ldap_groups_lookup', '~> 0.4.0', git: 'https://github.com/IUBLibTech/ldap_groups_lookup'
+gem 'ldap_groups_lookup', '~> 0.4.0'
 
 # Pin rdf-vocab to 2.2.8 since 2.2.9 introduced breaking changes
 gem 'rdf-vocab', '2.2.8'

@@ -6,6 +6,8 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+require File.expand_path('../../config/initializers/10_phydo_config', __FILE__)
+
 module Phydo
   class Application < Rails::Application
     

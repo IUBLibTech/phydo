@@ -9,7 +9,7 @@ test:
   url: http://127.0.0.1:<%= ENV['FCREPO_TEST_PORT'] || 8986 %>/rest
   base_path: /test
 production:
-  user: <%= ENV['FCREPO_USER'] || "fedoraAdmin" %>
-  password: <%= ENV['FCREPO_PASSWORD'] || "fedoraAdmin" %>
-  url: <%= ENV['FCREPO_URL'] || "http://127.0.0.1:8984" %>
-  base_path: <%= ENV['FCREPO_BASE'] || "/prod" %>
+  user: <%= Phydo.config[:fedora][:user] %>
+  password: <%= Phydo.config[:fedora][:password] %>
+  url: <%= Phydo.config[:fedora][:url] %>
+  base_path: <%= Phydo.config[:fedora][:path] %>

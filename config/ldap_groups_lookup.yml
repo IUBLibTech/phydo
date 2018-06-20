@@ -1,9 +1,9 @@
-:enabled: true
-:host: <%= ENV["PHYDO_LDAP_HOST"] %>
+:enabled: <%= Phydo.config[:ldap][:enabled] %>
+:host: <%= Phydo.config[:ldap][:host] %>
 :auth:
-  :method: :simple
-  :username: cn=<%= ENV["PHYDO_LDAP_USER"] || 'guest,ou=Accounts,dc=ads,dc=example,dc=net' %>
-  :password: <%= ENV["PHYDO_LDAP_PASS"] || 'changeme' %>
-:tree: <%= ENV["PHYDO_LDAP_TREE"] || 'dc=ads,dc=example,dc=net' %>
-:account_ou: <%= ENV["PHYDO_LDAP_ACCOUNT_OU"] || 'ou=Accounts' %>
-:group_ou: <%= ENV["PHYDO_LDAP_GROUP_OU"] || 'ou=Groups' %>
+  :method: <%= Phydo.config[:ldap][:method] %>
+  :username: cn=<%= Phydo.config[:ldap][:user] %>
+  :password: <%= Phydo.config[:ldap][:pass] %>
+:tree: <%= Phydo.config[:ldap][:tree] %>
+:account_ou: <%= Phydo.config[:ldap][:account_ou] %>
+:group_ou: <%= Phydo.config[:ldap][:group_ou] %>
