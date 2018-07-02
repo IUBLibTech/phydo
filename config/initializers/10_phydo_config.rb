@@ -6,8 +6,14 @@ module Phydo
 private
 
   def config_yaml
-    YAML.safe_load(ERB.new(File.read('/run/secrets/phydo_config')).result, [Symbol], [], true)[Rails.env]
+    load_yaml File.read('/run/secrets/phydo_config')
+  rescue Errno::ENOENT
+    load_yaml File.read(File.join(Rails.root, 'docker.secrets.sample'))
   end
 
-  module_function :config, :config_yaml
+  def load_yaml(str)
+    YAML.safe_load(ERB.new(str).result, [Symbol], [], true)[Rails.env]
+  end
+
+  module_function :config, :config_yaml, :load_yaml
 end

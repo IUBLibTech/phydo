@@ -11,9 +11,9 @@ RUN mkdir /app
 WORKDIR /app
 ADD Gemfile /app/Gemfile
 ADD Gemfile.lock /app/Gemfile.lock
-RUN bundle install
+RUN bundle install --without development
 ADD . /app
 RUN bundle exec rake assets:precompile
 EXPOSE 3000
 ENTRYPOINT ["bundle", "exec"]
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD rails server -b 0.0.0.0 -e `cat /run/secrets/rails_env`

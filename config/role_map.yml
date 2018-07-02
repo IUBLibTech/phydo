@@ -24,5 +24,4 @@ test:
     - patron1@example.com
     - leland_himself@example.com
 
-production:
-  <%= Phydo.config[:ldap][:group_roles].to_yaml %>
+production: <%= Phydo.config[:ldap][:group_roles].to_json %>

@@ -1,7 +1,7 @@
 :enabled: <%= Phydo.config[:ldap][:enabled] %>
 :host: <%= Phydo.config[:ldap][:host] %>
 :auth:
-  :method: <%= Phydo.config[:ldap][:method] %>
+  :method: :<%= Phydo.config[:ldap][:method] %>
   :username: cn=<%= Phydo.config[:ldap][:user] %>
   :password: <%= Phydo.config[:ldap][:pass] %>
 :tree: <%= Phydo.config[:ldap][:tree] %>
